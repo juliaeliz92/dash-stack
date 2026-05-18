@@ -120,7 +120,7 @@ const SettingsBar = () => {
                     </div>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-full">
-                    <DropdownMenuLabel><h1 className="font-bold text-black text-lg">Notifications</h1></DropdownMenuLabel>
+                    <DropdownMenuLabel><h1 className="font-bold text-lg">Notifications</h1></DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <DropdownMenuGroup>
                         {notificationsSettings.map((setting, index) => (
@@ -151,7 +151,7 @@ const SettingsBar = () => {
                     </div>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-full">
-                    <DropdownMenuLabel><h1 className="font-bold text-black text-lg">Select Language</h1></DropdownMenuLabel>
+                    <DropdownMenuLabel><h1 className="font-bold text-lg">Select Language</h1></DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <DropdownMenuGroup>
                         {languages.map((language, index) => (
