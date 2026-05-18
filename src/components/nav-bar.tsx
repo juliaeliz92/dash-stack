@@ -21,11 +21,14 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Button } from "@/components/ui/button"
-import { Menu, Bell, Settings, CalendarDays, UserRound, CircleAlert, Check, UserRoundPen, KeyRound, RefreshCcw, LogOut } from 'lucide-react';
+import { Menu, Bell, Settings, CalendarDays, UserRound, CircleAlert, Check, UserRoundPen, KeyRound, RefreshCcw, LogOut, X } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
+import { Label } from "@/components/ui/label"
+import { Switch } from "@/components/ui/switch"
+import { useTheme } from "@/components/theme-provider"
 import { useState } from "react";
+import SearchInput from "./search-input";
 
 const notificationsSettings = [
     {
@@ -93,17 +96,27 @@ const languages = [
 
 
 const SettingsBar = () => {
-
+    const { theme, setTheme } = useTheme()
+    const [themeChecked, setThemeChecked] = useState(false)
     const [selectedLanguage, setSelectedLanguage] = useState(languages[0])
+
+    const handleThemeSwitch = (checked: boolean) => {
+        setThemeChecked(checked)
+        if(checked)
+            setTheme("dark")
+        else
+            setTheme("light")
+    }
+
     return (
-        <div className="p-2 flex w-full items-center justify-between gap-4">
+        <div className="p-2 flex w-full items-center justify-between md:gap-6">
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                    <div className="relative">
+                    <div className="relative mr-4">
                         <Badge className="absolute -top-2 left-4">
                             3
                         </Badge>
-                        <Bell size={30} color="blue" />
+                        <Bell size={25} color="blue" />
                     </div>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-full">
@@ -132,7 +145,10 @@ const SettingsBar = () => {
             </DropdownMenu>
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                    <img src={`${FLAG_API}w80/${selectedLanguage.flag}.png`} alt={selectedLanguage.name} className="rounded-sm w-15 h-auto" />
+                    <div className="flex  items-center gap-2">
+                        <img src={`${FLAG_API}w40/${selectedLanguage.flag}.png`} alt={selectedLanguage.name} className="rounded-sm w-10 h-auto" />
+                        <span className="hidden md:inline">{selectedLanguage.name}</span>
+                    </div>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-full">
                     <DropdownMenuLabel><h1 className="font-bold text-black text-lg">Select Language</h1></DropdownMenuLabel>
@@ -140,7 +156,7 @@ const SettingsBar = () => {
                     <DropdownMenuGroup>
                         {languages.map((language, index) => (
                             <DropdownMenuItem key={index} className="p-2 flex" onSelect={() => setSelectedLanguage(language)}>
-                                <img src={`${FLAG_API}w40/${language.flag}.png`} alt={language.name} className="rounded-sm" />
+                                <img src={`${FLAG_API}w20/${language.flag}.png`} alt={language.name} className="rounded-sm" />
                                 <span className="pl-2">{language.name}</span>
                                 {selectedLanguage.name === language.name && <Check size={30} color="blue" className="ml-0"/>}
                             </DropdownMenuItem>
@@ -150,13 +166,19 @@ const SettingsBar = () => {
             </DropdownMenu>
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                    <Avatar>
-                        <AvatarImage src="https://github.com/shadcn.png" />
-                        <AvatarFallback>CN</AvatarFallback>
-                    </Avatar>
+                    <div className="flex items-center gap-2">
+                        <Avatar>
+                            <AvatarImage src="https://github.com/shadcn.png" />
+                            <AvatarFallback>CN</AvatarFallback>
+                        </Avatar>
+                        <div className="hidden md:flex flex-col">
+                            <span className="font-bold">Jane Doe</span>
+                            <span className="text-sm text-muted-foreground">Admin</span>
+                        </div>
+                    </div>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-full">
-                    <DropdownMenuItem className="flex flex-col items-start p-2">
+                    <DropdownMenuItem className="flex flex-col items-start p-2 md:hidden">
                         <span className="font-bold">Jane Doe</span>
                         <span className="text-sm text-muted-foreground">Admin</span>
                     </DropdownMenuItem>
@@ -169,9 +191,18 @@ const SettingsBar = () => {
                                 </div>
                                 <span className="font-bold">{setting.title}</span>
                             </DropdownMenuItem>
-                            <DropdownMenuSeparator className="last:hidden"/>
+                            <DropdownMenuSeparator/>
                         </>
                     ))}
+                    <DropdownMenuItem>
+                        <div className="flex flex-col items-center space-x-2 gap-2">
+                            <span>Change the theme mode</span>
+                            <div className="flex gap-2">
+                                <Switch id="theme-mode" checked={themeChecked} onCheckedChange={(prev) => handleThemeSwitch(prev)}/>
+                                <Label htmlFor="theme-mode">{theme.charAt(0).toUpperCase() + theme.slice(1)} Mode</Label>
+                            </div>
+                        </div>
+                    </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>
         </div>
@@ -190,29 +221,42 @@ export function NavBar() {
                 </NavigationMenuLink>
             </NavigationMenuItem>
         </NavigationMenuList>
+        <div className="md:hidden">
         <NavigationMenuList>
-            <div className="md:hidden">
-                <Drawer
-                    direction="right"
-                >
-                    <DrawerTrigger asChild>
-                        <NavigationMenuItem>
-                            <Menu size={30} />
-                        </NavigationMenuItem>
-                    </DrawerTrigger>
-                    <DrawerContent>
-                        <DrawerHeader>
-                            <SettingsBar />
-                        </DrawerHeader>
-                        <DrawerFooter>
-                            <DrawerClose>
-                                <Button variant="outline">Cancel</Button>
-                            </DrawerClose>
-                        </DrawerFooter>
-                    </DrawerContent>
-                </Drawer>
-            </div>
+            <Drawer
+                direction="right"
+            >
+                <DrawerTrigger asChild>
+                    <NavigationMenuItem>
+                        <Menu size={30} />
+                    </NavigationMenuItem>
+                </DrawerTrigger>
+                <DrawerContent>
+                    <DrawerHeader>
+                        <SettingsBar />
+                    </DrawerHeader>
+                    <DrawerFooter>
+                            <div className="flex gap-2">
+                                <DrawerClose>
+                                    <X size={30} />
+                                </DrawerClose>
+                                <SearchInput />
+                        </div>
+                    </DrawerFooter>
+                </DrawerContent>
+            </Drawer>
         </NavigationMenuList>
+          </div>
+        <div className="hidden md:flex md:items-center">
+            <NavigationMenuList>
+                <SearchInput />
+            </NavigationMenuList>
+        </div>
+        <div className="hidden md:flex md:items-center">
+            <NavigationMenuList>
+                <SettingsBar />
+            </NavigationMenuList>
+        </div>
    </NavigationMenu>
   )
 }
