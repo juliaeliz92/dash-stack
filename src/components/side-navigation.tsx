@@ -51,8 +51,8 @@ const navigation = [
 ]
 
 export function SideNavigation() {
-    return (<Sidebar>
-        <SidebarContent>
+    return (<Sidebar className="overflow-auto">
+        <SidebarContent className="bg-white dark:bg-gray-900">
             <SidebarHeader>
                 <div className="hidden md:block md:mt-4">
                     <Title />
@@ -62,7 +62,6 @@ export function SideNavigation() {
                     <SearchInput />
                 </div>
             </SidebarHeader>
-            <Separator className="mt-2"/>
             {navigation.map((nav, index) => (
                 <>
                     <SidebarGroup key={index} {...nav.group.header && { header: nav.group.header }}>
