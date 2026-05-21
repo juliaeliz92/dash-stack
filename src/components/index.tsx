@@ -4,8 +4,7 @@ import NavbarMenu from "./navbar-menu";
 import SearchInput from "./search-input";
 import { ThemeProvider } from "./theme-provider";
 import Title from "./title";
-import Paper from "./paper";
-
+import SalesLineChart from "./sales-line-chart";
 export {
     NavBar,
     SideNavigation,
@@ -13,5 +12,5 @@ export {
     SearchInput,
     ThemeProvider,
     Title,
-    Paper
+    SalesLineChart,
 }

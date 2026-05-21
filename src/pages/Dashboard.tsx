@@ -1,5 +1,6 @@
 import { Users, Box, ChartLine, History, TrendingUp, TrendingDown } from 'lucide-react';
-import {Paper} from '@/components';
+import { SalesLineChart } from "@/components"
+import { Card, CardContent } from '@/components/ui/card';
 
 const insightData = [
   { title: "Total Users", value: "1,345", changePercent: "5.2%", increase: true, time: "last month", icon: <Users className="text-purple-500" />, background: "bg-purple-100" },
@@ -10,12 +11,12 @@ const insightData = [
 
 function Dashboard() {
   return (
-    <section className="space-x-6">
+    <section className="flex flex-col gap-8">
       <h1 className="text-2xl font-bold">Dashboard</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mt-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
         {insightData.map((insight, index) => (
-          <Paper key={index} className="p-4">
-            <div className="flex md:flex-col items-center space-x-4 gap-2">
+          <Card key={index} className="p-4">
+            <CardContent className="flex md:flex-col items-center space-x-4 gap-2">
               <div className="flex items-center gap-4">
                 <div className="w-[100px] md:w-full">
                   <p className="text-sm font-medium text-gray-500 mb-2">{insight.title}</p>
@@ -29,10 +30,11 @@ function Dashboard() {
                 {insight.increase ? <TrendingUp className="inline-block w-4 h-4" /> : <TrendingDown className="inline-block w-4 h-4" />}{" "}
                 {insight.changePercent} from {insight.time}
               </p>
-            </div>
-          </Paper>
+            </CardContent>
+          </Card>
         ))}
       </div>
+      <SalesLineChart />
     </section>
   )
 }
