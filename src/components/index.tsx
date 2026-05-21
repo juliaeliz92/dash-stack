@@ -5,6 +5,7 @@ import SearchInput from "./search-input";
 import { ThemeProvider } from "./theme-provider";
 import Title from "./title";
 import SalesLineChart from "./sales-line-chart";
+import DealsTable from "./deals-table";
 export {
     NavBar,
     SideNavigation,
@@ -13,4 +14,5 @@ export {
     ThemeProvider,
     Title,
     SalesLineChart,
+    DealsTable
 }
