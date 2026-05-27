@@ -1,3 +1,4 @@
+import { Link, useLocation } from "react-router"
 import {
     Sidebar,
     SidebarContent,
@@ -17,12 +18,30 @@ const navigation = [
     {
         group: {
             items: [
-                "Dashboard",
-                "Products",
-                "Favorites",
-                "Inbox",
-                "Order Lists",
-                "Product Stocks"
+                {
+                    name: "Dashboard",
+                    link: "/"
+                },
+                {
+                    name: "Products",
+                    link: "/products"
+                },
+                {
+                    name: "Favorites",
+                    link: "/favorites"
+                },
+                {
+                    name: "Inbox",
+                    link: "/inbox"
+                },
+                {
+                    name: "Order Lists",
+                    link: "/order-lists"
+                },
+                {
+                    name: "Product Stocks",
+                    link: "/product-stocks"
+                }
             ]
         }
     }, 
@@ -30,27 +49,56 @@ const navigation = [
         group: {
             header: "Pages",
             items: [
-                "Pricing",
-                "Calender",
-                "To-Do",
-                "Contact",
-                "Invoice",
-                "Team",
-                "Table"
+                {
+                    name: "Pricing",
+                    link: "/pricing"
+                },
+                {
+                    name: "Calender",
+                    link: "/calender"
+                },
+                {
+                    name: "To-Do",
+                    link: "/to-do"
+                },
+                {
+                    name: "Contact",
+                    link: "/contact"
+                },
+                {
+                    name: "Invoice",
+                    link: "/invoice"
+                },
+                {
+                    name: "Team",
+                    link: "/team"
+                },
+                {
+                    name: "Table",
+                    link: "/table"
+                }
             ]
         }
     },
     {
         group: {
             items: [
-                "Settings",
-                "Logout"
+                {
+                    name: "Settings",
+                    link: "/settings"
+                },
+                {
+                    name: "Logout",
+                    link: "/logout"
+                }
             ]
         }
     }
 ]
 
 export function SideNavigation() {
+
+    const location = useLocation();
     return (<Sidebar className="overflow-auto">
         <SidebarContent className="bg-white dark:bg-gray-900">
             <SidebarHeader>
@@ -69,7 +117,9 @@ export function SideNavigation() {
                         <SidebarGroupContent>
                             <SidebarMenu>
                                 {nav.group.items.map((item, index) => (
-                                    <SidebarMenuItem key={index} className="pl-16 py-4 hover:bg-primary hover:text-white rounded-sm">{item}</SidebarMenuItem>
+                                    <SidebarMenuItem key={index} className={`pl-16 py-4 hover:bg-primary hover:text-white rounded-sm ${location.pathname === item.link ? "bg-primary text-white" : ""}`}>
+                                        <Link to={item.link}>{item.name}</Link>
+                                    </SidebarMenuItem>
                                 ))}
                             </SidebarMenu>
                         </SidebarGroupContent>

@@ -4,7 +4,7 @@ import {
   SidebarProvider,
 } from "@/components/ui/sidebar"
 import { NavBar, SideNavigation } from "@/components"
-import { Dashboard } from "@/pages";
+import { Dashboard, Products } from "@/pages";
 
 export function App() {
   return (
@@ -17,6 +17,7 @@ export function App() {
         <main className="py-8 px-6 h-full bg-gray-100 overflow-auto">
           <Routes>
             <Route path="/" element={<Dashboard />} />
+            <Route path="/products" element={<Products />} />
           </Routes>
         </main>
       </SidebarInset>

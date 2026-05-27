@@ -278,16 +278,15 @@ const chartConfig = {
 function SalesLineChart() {
     const [selectedMonth, setSelectedMonth] = React.useState(months[new Date().getMonth()])
     const [selectedData, setSelectedData] = React.useState(data.find(d => d.month === selectedMonth)?.sales || [])
-    React.useEffect(() => {
-        console.log(selectedData)
-    }, [selectedData])
+
     const handleMonthSelect = (month: string) => {
         setSelectedMonth(month)
         setSelectedData(data.find(d => d.month === month)?.sales || [])
     }
 
     return (
-        <Card>
+        <div className="flex items-center justify-center">
+        <Card className="w-[55vw]">
             <CardHeader className="flex items-center justify-between">
                 <CardTitle>Sales Details</CardTitle>
                 <DropdownMenu>
@@ -349,6 +348,7 @@ function SalesLineChart() {
                 </ChartContainer>
             </CardContent>
         </Card>
+        </div>
     );
 }
 
