@@ -6,6 +6,7 @@ import { ThemeProvider } from "./theme-provider";
 import Title from "./title";
 import SalesLineChart from "./sales-line-chart";
 import DealsTable from "./deals-table";
+import ProductDealsCarousel from "./product-deals-carousel";
 export {
     NavBar,
     SideNavigation,
@@ -14,5 +15,6 @@ export {
     ThemeProvider,
     Title,
     SalesLineChart,
-    DealsTable
+    DealsTable,
+    ProductDealsCarousel,
 }
