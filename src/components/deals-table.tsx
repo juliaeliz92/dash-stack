@@ -1,13 +1,12 @@
 import {
     Table,
     TableBody,
-    TableCaption,
     TableCell,
     TableHead,
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent, CardTitle } from "@/components/ui/card"
 
 const data = [
     { productName: "Laptop Dell", imageURL: "https://picsum.photos/id/0/200/300", location: "New York", dateTime: "2024-06-01 10:00", piece: 10, amount: "$1000", status: "Delivered" },
@@ -18,9 +17,9 @@ const data = [
 function DealsTable() {
     return (
         <Card>
-            <CardContent>
-                <Table>
-                    <TableCaption>Deals Details</TableCaption>
+            <CardContent className="overflow-x-auto">
+                <CardTitle className="mb-4">Recent Deals</CardTitle>
+                <Table className="w-[50vw]">
                     <TableHeader>
                         <TableRow>
                             <TableHead>Product Name</TableHead>

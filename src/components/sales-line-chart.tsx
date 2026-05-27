@@ -286,7 +286,7 @@ function SalesLineChart() {
 
     return (
         <div className="flex items-center justify-center">
-        <Card className="w-[55vw]">
+        <Card className="w-full">
             <CardHeader className="flex items-center justify-between">
                 <CardTitle>Sales Details</CardTitle>
                 <DropdownMenu>

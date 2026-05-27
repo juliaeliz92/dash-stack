@@ -34,8 +34,10 @@ function Dashboard() {
           </Card>
         ))}
       </div>
-      <SalesLineChart />
-      <DealsTable />
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+        <SalesLineChart />
+        <DealsTable />
+      </div>
     </section>
   )
 }
