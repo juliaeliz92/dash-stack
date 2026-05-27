@@ -9,7 +9,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import {Button} from "@/components/ui/button"
 
 const productDeals = [
-    { background: "bg-blue-400", body: <div>
+    { background: "bg-blue-400", body: <div className="flex flex-col items-start gap-2">
         <p>September 12-22</p>
         <h1 className="text-2xl font-extrabold">Enjoy free home delivery in this summer</h1>
         <p>Designer Dresses - Pick from trendy Designer Dress.</p>

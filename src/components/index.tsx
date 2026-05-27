@@ -7,6 +7,8 @@ import Title from "./title";
 import SalesLineChart from "./sales-line-chart";
 import DealsTable from "./deals-table";
 import ProductDealsCarousel from "./product-deals-carousel";
+import ProductCarousel from "./product-carousel";
+import ProductCarouselGrid from "./product-carousel-grid";
 export {
     NavBar,
     SideNavigation,
@@ -17,4 +19,6 @@ export {
     SalesLineChart,
     DealsTable,
     ProductDealsCarousel,
+    ProductCarousel,
+    ProductCarouselGrid,
 }
