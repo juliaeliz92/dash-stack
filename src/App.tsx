@@ -4,7 +4,7 @@ import {
   SidebarProvider,
 } from "@/components/ui/sidebar"
 import { NavBar, SideNavigation } from "@/components"
-import { Dashboard, Products } from "@/pages";
+import { Dashboard, Products, Favorites } from "@/pages";
 
 export function App() {
   return (
@@ -18,6 +18,7 @@ export function App() {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/favorites" element={<Favorites />} />
           </Routes>
         </main>
       </SidebarInset>
