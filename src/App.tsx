@@ -4,7 +4,7 @@ import {
   SidebarProvider,
 } from "@/components/ui/sidebar"
 import { NavBar, SideNavigation } from "@/components"
-import { Dashboard, Products, Favorites } from "@/pages";
+import { navigation } from "@/constants.tsx";
 
 export function App() {
   return (
@@ -16,9 +16,9 @@ export function App() {
         </header>
         <main className="py-8 px-6 h-full bg-gray-100 overflow-auto">
           <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/favorites" element={<Favorites />} />
+            {navigation.map((nav) => nav.group.items.map((item) => (
+              <Route key={item.link} path={item.link} element={item.page} />)
+            ))}
           </Routes>
         </main>
       </SidebarInset>
