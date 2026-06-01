@@ -1,9 +1,11 @@
+import { ProductCarouselGrid } from "@/components"
+
 function Favorites() {
   return (
-    <div>
-      <h1>Favorites</h1>
-      <p>This is the Favorites page.</p>
-    </div>
+    <section className="flex flex-col gap-8">
+      <h1 className="text-2xl font-bold">Favorites</h1>
+      <ProductCarouselGrid isFavorites />
+    </section>
   );
 }
 

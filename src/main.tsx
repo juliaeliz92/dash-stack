@@ -5,13 +5,16 @@ import { BrowserRouter } from "react-router"
 import "./index.css"
 import App from "./App.tsx"
 import { ThemeProvider } from "@/components/theme-provider.tsx"
+import { FavoriteProvider } from "@/favorite-context.tsx"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ThemeProvider >
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <FavoriteProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </FavoriteProvider>
     </ThemeProvider>
   </StrictMode>
 )

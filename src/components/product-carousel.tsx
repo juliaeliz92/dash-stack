@@ -1,9 +1,13 @@
+import { useContext } from "react"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { Button } from "@/components/ui/button"
 import { Heart, Star } from "lucide-react"
+import { FavoriteContext } from "@/favorite-context"
 
-function ProductCarousel({images, title, price, cur, rating, reviews}: {images: string[], title: string, price: number, cur: string, rating: number, reviews: number}) {
+function ProductCarousel({id, images, title, price, cur, rating, reviews}: {id: number, images: string[], title: string, price: number, cur: string, rating: number, reviews: number}) {
+    const { favorites, updateFavorites } = useContext(FavoriteContext);
+
     return (
         <Card className="w-full pt-0">
             <CardContent className="p-0">
@@ -40,8 +44,14 @@ function ProductCarousel({images, title, price, cur, rating, reviews}: {images: 
                     <Button className="mt-2 bg-gray-200 hover:bg-gray-300 text-black font-bold">Edit Product</Button>
                 </div>
                 <div className="flex items-start h-full">
-                    <Button variant="ghost" className="w-10 h-10 bg-gray-200 hover:bg-gray-300 rounded-full" >
-                        <Heart size={20} />
+                    <Button variant="ghost" className="w-10 h-10 bg-gray-200 hover:bg-gray-300 rounded-full cursor-pointer" onClick={() => {
+                        if (favorites.includes(id)) {
+                            updateFavorites(favorites.filter(fav => fav !== id));
+                        } else {
+                            updateFavorites([...favorites, id]);
+                        }
+                    }}>
+                        <Heart size={20} color={favorites.includes(id) ? "red" : "black"} style={{ fill: favorites.includes(id) ? "red" : "none" }} />
                     </Button>
                 </div>
             </CardFooter>
