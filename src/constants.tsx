@@ -296,4 +296,23 @@ const inboxMenu = [
     }
 ]
 
-export { navigation, products, inboxMenu }
+const inboxDefaultLabels = [
+    {
+        name: "primary",
+        color: "bg-green-500"
+    },
+    {
+        name: "social",
+        color: "bg-blue-500"
+    },
+    {
+        name: "work",
+        color: "bg-orange-500"
+    },
+    {
+        name: "friends",
+        color: "bg-purple-500"
+    }
+]
+
+export { navigation, products, inboxMenu, inboxDefaultLabels }

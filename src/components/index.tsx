@@ -11,6 +11,8 @@ import ProductCarousel from "./product-carousel";
 import ProductCarouselGrid from "./product-carousel-grid";
 import InboxSidebar from "./inbox-sidebar";
 import InboxSidebarDrawer from "./inbox-sidebar-drawer";
+import InboxSidebarMenu from "./inbox-sidebar-menu";
+import InboxSidebarLabels from "./inbox-sidebar-labels";
 export {
     NavBar,
     SideNavigation,
@@ -24,5 +26,7 @@ export {
     ProductCarousel,
     ProductCarouselGrid,
     InboxSidebar,
-    InboxSidebarDrawer
+    InboxSidebarDrawer,
+    InboxSidebarMenu,
+    InboxSidebarLabels
 }
