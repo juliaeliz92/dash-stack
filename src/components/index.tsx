@@ -9,6 +9,8 @@ import DealsTable from "./deals-table";
 import ProductDealsCarousel from "./product-deals-carousel";
 import ProductCarousel from "./product-carousel";
 import ProductCarouselGrid from "./product-carousel-grid";
+import InboxSidebar from "./inbox-sidebar";
+import InboxSidebarDrawer from "./inbox-sidebar-drawer";
 export {
     NavBar,
     SideNavigation,
@@ -21,4 +23,6 @@ export {
     ProductDealsCarousel,
     ProductCarousel,
     ProductCarouselGrid,
+    InboxSidebar,
+    InboxSidebarDrawer
 }

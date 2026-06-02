@@ -1,4 +1,5 @@
-import { Dashboard, Products, Favorites } from "@/pages";
+import { Dashboard, Products, Favorites, Inbox } from "@/pages";
+import { Mail, Star, Send, Pencil, TriangleAlert, MessageCircleCheck, Trash2 } from "lucide-react";
 
 const navigation = [
     {
@@ -22,7 +23,7 @@ const navigation = [
                 {
                     name: "Inbox",
                     link: "/inbox",
-                    page: null
+                    page: <Inbox />
                 },
                 {
                     name: "Order Lists",
@@ -243,4 +244,56 @@ const products = [
     },
 ]
 
-export { navigation, products }
+const inboxMenu = [
+    {
+        name: "Inbox",
+        link: "/inbox",
+        icon: <Mail className="w-5 h-5" />,
+        page: null,
+        count: 1232
+    },
+    {
+        name: "Starred",
+        link: "/starred",
+        icon: <Star className="w-5 h-5" />,
+        page: null,
+        count: 45
+    },
+    {
+        name: "Sent",
+        link: "/sent",
+        icon: <Send className="w-5 h-5" />,
+        page: null,
+        count: 67
+    },
+    {
+        name: "Drafts",
+        link: "/drafts",
+        icon: <Pencil className="w-5 h-5" />,
+        page: null,
+        count: 12
+    },
+    {
+        name: "Spam",
+        link: "/spam",
+        icon: <TriangleAlert className="w-5 h-5" />,
+        page: null,
+        count: 34
+    },
+    {
+        name: "Important",
+        link: "/important",
+        icon: <MessageCircleCheck className="w-5 h-5" />,
+        page: null,
+        count: 56
+    },
+    {
+        name: "Trash",
+        link: "/trash",
+        icon: <Trash2 className="w-5 h-5" />,
+        page: null,
+        count: 8
+    }
+]
+
+export { navigation, products, inboxMenu }

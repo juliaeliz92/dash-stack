@@ -30,13 +30,13 @@ export function SideNavigation() {
                 </div>
             </SidebarHeader>
             {navigation.map((nav, index) => (
-                <>
-                    <SidebarGroup key={index} {...nav.group.header && { header: nav.group.header }}>
+                <div key={index}>
+                    <SidebarGroup {...nav.group.header && { header: nav.group.header }}>
                         {nav.group.header && <SidebarGroupLabel>{nav.group.header}</SidebarGroupLabel>}
                         <SidebarGroupContent>
                             <SidebarMenu>
-                                {nav.group.items.map((item, index) => (
-                                    <SidebarMenuItem key={index} className={`pl-16 py-4 hover:bg-primary hover:text-white rounded-sm ${location.pathname === item.link ? "bg-primary text-white" : ""}`}>
+                                {nav.group.items.map((item, index1) => (
+                                    <SidebarMenuItem key={index1} className={`pl-16 py-4 hover:bg-primary hover:text-white rounded-sm ${location.pathname === item.link ? "bg-primary text-white" : ""}`}>
                                         <Link to={item.link}>{item.name}</Link>
                                     </SidebarMenuItem>
                                 ))}
@@ -44,7 +44,7 @@ export function SideNavigation() {
                         </SidebarGroupContent>
                     </SidebarGroup>
                     <Separator/>
-                </>
+                </div>
             ))}
         </SidebarContent>
     </Sidebar>)
