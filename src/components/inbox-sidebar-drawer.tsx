@@ -14,14 +14,14 @@ import { InboxSidebar } from "@/components"
 
 function InboxSidebarDrawer() {
     return (
-        <div className="flex items-center gap-4 md:hidden">
-            <Drawer direction="left" >
+        <div className="flex items-center gap-4 lg:hidden">
+            <Drawer direction="left">
                 <DrawerTrigger asChild>
                     <Button variant="outline" className="hover:bg-grey-100">
                         <Menu className="w-6 h-6" />
                     </Button>
                 </DrawerTrigger>
-                <DrawerContent className="p-4">
+                <DrawerContent className="p-4 h-full overscroll-auto">
                     <DrawerHeader>
                         <DrawerTitle className="sr-only">Inbox Sidebar</DrawerTitle>
                         <DrawerDescription className="sr-only">

@@ -1,18 +1,27 @@
+import { Checkbox } from "@/components/ui/checkbox"
+import {
+    Field,
+    FieldContent,
+    FieldGroup,
+    FieldLabel,
+} from "@/components/ui/field"
 import { inboxDefaultLabels } from "@/constants";
 
 function InboxSidebarLabels() {
     return (<div className="flex flex-col gap-4">
         <h2 className="text-lg font-bold">Labels</h2>
-        <ul className="flex flex-col items-start gap-2 max-w-full">
+        <FieldGroup className="p-4">
             {inboxDefaultLabels.map((label) => (
-                <li key={label.name} className="px-4 py-4 rounded-md hover:bg-blue-100 hover:text-blue-700 w-full">
-                    <div className="flex justify-between gap-2">
-                        <div className={`w-3 h-3 rounded-full ${label.color}`}></div>
-                        <span>{label.name}</span>
-                    </div>
-                </li>
+                <Field key={label.name} orientation="horizontal">
+                    <Checkbox id={`${label.name}-label`} className={`border-2 ${label.borderColor} ${label.checkedBackgroundColor} ${label.checkedBorderColor}`} />
+                    <FieldContent>
+                        <FieldLabel htmlFor={`${label.name}-label`} className="capitalize ">
+                            {label.name}
+                        </FieldLabel>
+                    </FieldContent>
+                </Field>
             ))}
-        </ul>
+        </FieldGroup>
     </div>)
 }
 

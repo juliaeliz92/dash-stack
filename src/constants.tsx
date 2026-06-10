@@ -299,19 +299,27 @@ const inboxMenu = [
 const inboxDefaultLabels = [
     {
         name: "primary",
-        color: "bg-green-500"
+        borderColor: "border-green-600",
+        checkedBackgroundColor: "data-[state=checked]:bg-green-600",
+        checkedBorderColor: "data-[state=checked]:border-green-600"
     },
     {
         name: "social",
-        color: "bg-blue-500"
+        borderColor: "border-blue-600",
+        checkedBackgroundColor: "data-[state=checked]:bg-blue-600",
+        checkedBorderColor: "data-[state=checked]:border-blue-600"
     },
     {
         name: "work",
-        color: "bg-orange-500"
+        borderColor: "border-orange-600",
+        checkedBackgroundColor: "data-[state=checked]:bg-orange-600",
+        checkedBorderColor: "data-[state=checked]:border-orange-600"
     },
     {
         name: "friends",
-        color: "bg-purple-500"
+        borderColor: "border-purple-600",
+        checkedBackgroundColor: "data-[state=checked]:bg-purple-600",
+        checkedBorderColor: "data-[state=checked]:border-purple-600"
     }
 ]
 

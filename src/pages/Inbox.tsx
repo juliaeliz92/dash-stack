@@ -1,4 +1,5 @@
-import { InboxSidebarDrawer } from "../components";
+import { Card } from "@/components/ui/card";
+import { InboxSidebarDrawer, InboxSidebar } from "../components";
 
 function Inbox() {
   return (
@@ -7,6 +8,9 @@ function Inbox() {
         <InboxSidebarDrawer />
         <h1 className="text-2xl font-bold">Inbox</h1>
       </div>
+      <Card className="px-4 hidden lg:flex">
+        <InboxSidebar />
+      </Card>
     </section>
     )
 }
