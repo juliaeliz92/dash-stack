@@ -13,6 +13,7 @@ import InboxSidebar from "./inbox-sidebar";
 import InboxSidebarDrawer from "./inbox-sidebar-drawer";
 import InboxSidebarMenu from "./inbox-sidebar-menu";
 import InboxSidebarLabels from "./inbox-sidebar-labels";
+import CreateNewLabelDialog from "./create-new-label-dialog";
 export {
     NavBar,
     SideNavigation,
@@ -28,5 +29,6 @@ export {
     InboxSidebar,
     InboxSidebarDrawer,
     InboxSidebarMenu,
-    InboxSidebarLabels
+    InboxSidebarLabels,
+    CreateNewLabelDialog
 }

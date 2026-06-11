@@ -296,6 +296,13 @@ const inboxMenu = [
     }
 ]
 
+type labelColor = {
+    value: string;
+    borderColor: string;
+    checkedBackgroundColor: string;
+    checkedBorderColor: string;
+}
+
 const inboxDefaultLabels = [
     {
         name: "primary",
@@ -323,4 +330,5 @@ const inboxDefaultLabels = [
     }
 ]
 
-export { navigation, products, inboxMenu, inboxDefaultLabels }
+export { navigation, products, inboxMenu, inboxDefaultLabels };
+export type { labelColor };
