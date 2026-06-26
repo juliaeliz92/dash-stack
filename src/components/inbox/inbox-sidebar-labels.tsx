@@ -7,7 +7,7 @@ import {
     FieldLabel,
 } from "@/components/ui/field"
 import { inboxDefaultLabels, type labelColor } from "@/constants";
-import { CreateNewLabelDialog } from "@/components";
+import { CreateNewLabelDialog } from "@/components/inbox";
 
 function InboxSidebarLabels() {
 

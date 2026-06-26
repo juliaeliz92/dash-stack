@@ -14,7 +14,7 @@ export function App() {
         <header>
           <NavBar />
         </header>
-        <main className="py-8 px-6 h-full bg-gray-100 overflow-auto">
+        <main className="py-8 px-6 h-full bg-gray-100 dark:bg-gray-900 overflow-auto">
           <Routes>
             {navigation.map((nav) => nav.group.items.map((item) => (
               <Route key={item.link} path={item.link} element={item.page} />)

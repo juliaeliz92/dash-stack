@@ -1,4 +1,4 @@
-import { InboxSidebarMenu, InboxSidebarLabels, ComposeEmailDialog } from "@/components";
+import { InboxSidebarMenu, InboxSidebarLabels, ComposeEmailDialog } from "@/components/inbox";
 
 function InboxSidebar() {
     return (

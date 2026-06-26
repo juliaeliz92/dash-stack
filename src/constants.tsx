@@ -296,13 +296,6 @@ const inboxMenu = [
     }
 ]
 
-type labelColor = {
-    value: string;
-    borderColor: string;
-    checkedBackgroundColor: string;
-    checkedBorderColor: string;
-}
-
 const inboxDefaultLabels = [
     {
         name: "primary",
@@ -330,7 +323,7 @@ const inboxDefaultLabels = [
     }
 ]
 
-const inboxlist = [
+const inboxList = [
     {
         senderName: "Mia Chen",
         senderAddress: "mia.chen@example.com",
@@ -603,5 +596,4 @@ const inboxlist = [
     }
 ]
 
-export { navigation, products, inboxMenu, inboxDefaultLabels, inboxlist };
-export type { labelColor };
+export { navigation, products, inboxMenu, inboxDefaultLabels, inboxList };

@@ -10,7 +10,7 @@ import {
     DrawerFooter,
     DrawerTrigger,
 } from "@/components/ui/drawer"
-import { InboxSidebar } from "@/components"
+import { InboxSidebar } from "@/components/inbox"
 
 function InboxSidebarDrawer() {
     return (

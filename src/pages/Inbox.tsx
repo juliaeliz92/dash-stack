@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { InboxSidebarDrawer, InboxSidebar } from "../components";
+import { InboxSidebarDrawer, InboxSidebar } from "@/components/inbox";
 
 function Inbox() {
   return (
