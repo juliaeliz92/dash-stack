@@ -1,5 +1,5 @@
 import { Users, Box, ChartLine, History, TrendingUp, TrendingDown } from 'lucide-react';
-import { SalesLineChart, DealsTable } from "@/components"
+import { SalesLineChart, DealsTable } from "@/components/dashboard"
 import { Card, CardContent } from '@/components/ui/card';
 
 const insightData = [
