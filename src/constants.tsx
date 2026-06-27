@@ -1,5 +1,13 @@
 import { Dashboard, Products, Favorites, Inbox } from "@/pages";
 import { Mail, Star, Send, Pencil, TriangleAlert, MessageCircleCheck, Trash2 } from "lucide-react";
+import type { SalesInsight } from "@/types";
+
+const insightData: SalesInsight[] = [
+    { title: "Total Users", value: "1,345", changePercent: "5.2%", increase: true, time: "last month", icon: "users" },
+    { title: "Total Orders", value: "12,234", changePercent: "3.8%", increase: false, time: "last week", icon: "orders" },
+    { title: "Total Sales", value: "$56,789", changePercent: "7.1%", increase: false, time: "last month", icon: "sales" },
+    { title: "Total Pending", value: "567", changePercent: "4.5%", increase: true, time: "yesterday", icon: "pending" },
+]
 
 const navigation = [
     {
@@ -596,4 +604,4 @@ const inboxList = [
     }
 ]
 
-export { navigation, products, inboxMenu, inboxDefaultLabels, inboxList };
+export { navigation, products, inboxMenu, inboxDefaultLabels, inboxList, insightData };
