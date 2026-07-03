@@ -41,9 +41,29 @@ interface SalesInsightIcon {
     background: string;
 }
 
-export type { labelColor, inboxListItem, SalesInsight, SalesInsightIcon };
+const Months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+]
 
-export { SaleInsightKey }
+interface SalesChartDataProps {
+    month: typeof Months[number],
+    sales: { value: number, percentage: number}[]
+}
+
+export type { labelColor, inboxListItem, SalesInsight, SalesInsightIcon, SalesChartDataProps };
+
+export { SaleInsightKey, Months }
 
 
 
