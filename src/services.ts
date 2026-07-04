@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { salesInsightsApi, saleChartDataApi } from "@/apis";
+import { salesInsightsApi, saleChartDataApi, productDealsApi } from "@/apis";
 
 const useSalesInsights = () => {
     const { data, isLoading, error } = useQuery({
@@ -23,4 +23,15 @@ const useSalesChartData = () => {
     return { data, isLoading, error };
 }
 
-export { useSalesInsights, useSalesChartData };
+const useProductDeals = () => {
+    const { data, isLoading, error } = useQuery({
+        queryKey: ['productDeals'],
+        queryFn: async () => {
+            return productDealsApi();
+        }
+    });
+
+    return { data, isLoading, error };
+}
+
+export { useSalesInsights, useSalesChartData, useProductDeals };

@@ -61,9 +61,25 @@ interface SalesChartDataProps {
     sales: { value: number, percentage: number}[]
 }
 
-export type { labelColor, inboxListItem, SalesInsight, SalesInsightIcon, SalesChartDataProps };
+const productDealStates = [
+    "Delivered",
+    "Pending",
+    "Rejected"
+]
 
-export { SaleInsightKey, Months }
+interface ProductDealProps {
+    productName: string;
+    imageURL: string;
+    location: string;
+    dateTime: string;
+    piece: number;
+    amount: string;
+    status: typeof productDealStates[number];
+}
+
+export type { labelColor, inboxListItem, SalesInsight, SalesInsightIcon, SalesChartDataProps, ProductDealProps };
+
+export { SaleInsightKey, Months, productDealStates };
 
 
 

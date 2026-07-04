@@ -871,4 +871,10 @@ const inboxList = [
     }
 ]
 
-export { navigation, products, inboxMenu, inboxDefaultLabels, inboxList, insightData, salesChartData };
+const dealsData = [
+    { productName: "Laptop Dell", imageURL: "https://picsum.photos/id/0/200/300", location: "New York", dateTime: "2024-06-01 10:00", piece: 10, amount: "$1000", status: "Delivered" },
+    { productName: "White Stilettos", imageURL: "https://picsum.photos/id/21/200/300", location: "Los Angeles", dateTime: "2024-06-02 14:30", piece: 5, amount: "$500", status: "Pending" },
+    { productName: "Xbox Controller", imageURL: "https://picsum.photos/id/96/200/300", location: "Chicago", dateTime: "2024-06-03 09:15", piece: 20, amount: "$2000", status: "Rejected" },
+]
+
+export { navigation, products, inboxMenu, inboxDefaultLabels, inboxList, insightData, salesChartData, dealsData };

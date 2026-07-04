@@ -7,14 +7,11 @@ import {
     TableRow,
 } from "@/components/ui/table"
 import { Card, CardContent, CardTitle } from "@/components/ui/card"
-
-const data = [
-    { productName: "Laptop Dell", imageURL: "https://picsum.photos/id/0/200/300", location: "New York", dateTime: "2024-06-01 10:00", piece: 10, amount: "$1000", status: "Delivered" },
-    { productName: "White Stilettos", imageURL: "https://picsum.photos/id/21/200/300", location: "Los Angeles", dateTime: "2024-06-02 14:30", piece: 5, amount: "$500", status: "Pending" },
-    { productName: "Xbox Controller", imageURL: "https://picsum.photos/id/96/200/300", location: "Chicago", dateTime: "2024-06-03 09:15", piece: 20, amount: "$2000", status: "Rejected" },
-]
+import { useProductDeals } from "@/services";
 
 function DealsTable() {
+    const { data } = useProductDeals();
+
     return (
         <Card>
             <CardContent className="overflow-x-auto">
@@ -31,7 +28,7 @@ function DealsTable() {
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {data.map((deal, index) => (
+                        {data?.map((deal, index) => (
                             <TableRow key={index}>
                                 <TableCell>
                                     <div className="flex items-center gap-2">
