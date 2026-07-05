@@ -1,4 +1,4 @@
-import { ProductDealsCarousel, ProductCarouselGrid } from "../components";
+import { ProductDealsCarousel, ProductCarouselGrid } from "..";
 
 function Products() {
     return (

@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { salesInsightsApi, saleChartDataApi, productDealsApi } from "@/apis";
+import { salesInsightsApi, saleChartDataApi, productDealsApi, offerCarouselDataApi } from "@/apis";
 
 const useSalesInsights = () => {
     const { data, isLoading, error } = useQuery({
@@ -34,4 +34,14 @@ const useProductDeals = () => {
     return { data, isLoading, error };
 }
 
-export { useSalesInsights, useSalesChartData, useProductDeals };
+const useOfferCarouselData = () => {
+    const { data, isLoading, error } = useQuery({
+        queryKey: ['offerCarouselData'],
+        queryFn: async () => {
+            return offerCarouselDataApi();
+        }
+    });
+    return { data, isLoading, error };
+}
+
+export { useSalesInsights, useSalesChartData, useProductDeals, useOfferCarouselData };

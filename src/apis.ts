@@ -1,5 +1,5 @@
-import { dealsData, insightData, salesChartData } from "@/constants";
-import type { SalesInsight, SalesChartDataProps, ProductDealProps } from "@/types";
+import { dealsData, insightData, offerCarouselData, salesChartData } from "@/constants";
+import type { SalesInsight, SalesChartDataProps, ProductDealProps, OfferCarouselData } from "@/types";
 
 const salesInsightsApi = ():Promise<SalesInsight[]> => {
     return new Promise((resolve) => {
@@ -25,4 +25,12 @@ const productDealsApi = (): Promise<ProductDealProps[]> => {
     });
 }
 
-export { salesInsightsApi, saleChartDataApi, productDealsApi };
+const offerCarouselDataApi = (): Promise<OfferCarouselData[]> => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(offerCarouselData);
+        }, 1000);
+    });
+}
+
+export { salesInsightsApi, saleChartDataApi, productDealsApi, offerCarouselDataApi };

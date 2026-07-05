@@ -77,7 +77,16 @@ interface ProductDealProps {
     status: typeof productDealStates[number];
 }
 
-export type { labelColor, inboxListItem, SalesInsight, SalesInsightIcon, SalesChartDataProps, ProductDealProps };
+type OfferCarouselData = {
+    dateRange: string;
+    title: string;
+    caption: string;
+    buttonText: string;
+    backgroundColor: string;
+    buttonColor: string;
+}
+
+export type { labelColor, inboxListItem, SalesInsight, SalesInsightIcon, SalesChartDataProps, ProductDealProps, OfferCarouselData };
 
 export { SaleInsightKey, Months, productDealStates };
 

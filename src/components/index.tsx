@@ -4,9 +4,9 @@ import NavbarMenu from "./navbar-menu";
 import SearchInput from "./search-input";
 import { ThemeProvider } from "./theme-provider";
 import Title from "./title";
-import ProductDealsCarousel from "./product-deals-carousel";
-import ProductCarousel from "./product-carousel";
-import ProductCarouselGrid from "./product-carousel-grid";
+import ProductDealsCarousel from "./products/product-offers-carousel";
+import ProductCarousel from "./products/product-carousel";
+import ProductCarouselGrid from "./products/product-carousel-grid";
 
 export {
     NavBar,

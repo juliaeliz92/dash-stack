@@ -1,5 +1,5 @@
 import Dashboard from "./Dashboard";
-import Products from "./Products";
+import Products from "../components/products/Products";
 import Favorites from "./Favorites";
 import Inbox from "./Inbox";
 

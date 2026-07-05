@@ -1,6 +1,6 @@
 import { Dashboard, Products, Favorites, Inbox } from "@/pages";
 import { Mail, Star, Send, Pencil, TriangleAlert, MessageCircleCheck, Trash2 } from "lucide-react";
-import type { SalesInsight, SalesChartDataProps } from "@/types";
+import type { SalesInsight, SalesChartDataProps, ProductDealProps, OfferCarouselData } from "@/types";
 
 const insightData: SalesInsight[] = [
     { title: "Total Users", value: "1,345", changePercent: "5.2%", increase: true, time: "last month", icon: "users" },
@@ -871,10 +871,16 @@ const inboxList = [
     }
 ]
 
-const dealsData = [
+const dealsData: ProductDealProps[] = [
     { productName: "Laptop Dell", imageURL: "https://picsum.photos/id/0/200/300", location: "New York", dateTime: "2024-06-01 10:00", piece: 10, amount: "$1000", status: "Delivered" },
     { productName: "White Stilettos", imageURL: "https://picsum.photos/id/21/200/300", location: "Los Angeles", dateTime: "2024-06-02 14:30", piece: 5, amount: "$500", status: "Pending" },
     { productName: "Xbox Controller", imageURL: "https://picsum.photos/id/96/200/300", location: "Chicago", dateTime: "2024-06-03 09:15", piece: 20, amount: "$2000", status: "Rejected" },
 ]
 
-export { navigation, products, inboxMenu, inboxDefaultLabels, inboxList, insightData, salesChartData, dealsData };
+const offerCarouselData: OfferCarouselData[] = [
+    { dateRange: "September 12-22", title: "Enjoy free home delivery in this summer", caption: "Designer Dresses - Pick from trendy Designer Dress.", buttonText: "Get Started", backgroundColor: "bg-blue-400", buttonColor: "bg-orange-500 hover:bg-orange-600" },
+    { dateRange: "October 1-15", title: "Special discounts on selected items", caption: "Up to 30% off on a wide range of products.", buttonText:"Shop Now", backgroundColor: "bg-green-500", buttonColor: "bg-orange-500 hover:bg-orange-600" },
+    { dateRange: "November 10-25", title: "Holiday sale is here!", caption: "Get ready for the most wonderful time of the year with exclusive deals.", buttonText: "Explore Deals", backgroundColor: "bg-pink-400", buttonColor: "bg-yellow-500 hover:bg-yellow-600" }
+]
+
+export { navigation, products, inboxMenu, inboxDefaultLabels, inboxList, insightData, salesChartData, dealsData, offerCarouselData };
