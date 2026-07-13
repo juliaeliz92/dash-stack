@@ -4,6 +4,8 @@ import InboxSidebar from "./inbox-sidebar";
 import InboxSidebarDrawer from "./inbox-sidebar-drawer";
 import InboxSidebarLabels from "./inbox-sidebar-labels";
 import InboxSidebarMenu from "./inbox-sidebar-menu";
+import DataTable from "./inbox-table/data-table";
+import {inboxTableColumns} from "./inbox-table/columns";
 
 export {
     ComposeEmailDialog,
@@ -12,4 +14,6 @@ export {
     InboxSidebarDrawer,
     InboxSidebarLabels,
     InboxSidebarMenu,
+    DataTable,
+    inboxTableColumns,
 };

@@ -1,5 +1,5 @@
-import { dealsData, insightData, offerCarouselData, salesChartData } from "@/constants";
-import type { SalesInsight, SalesChartDataProps, ProductDealProps, OfferCarouselData } from "@/types";
+import { dealsData, insightData, offerCarouselData, salesChartData, products, inboxList } from "@/constants";
+import type { SalesInsight, SalesChartDataProps, ProductDealProps, OfferCarouselData, ProductProps, InboxTableColumn } from "@/types";
 
 const salesInsightsApi = ():Promise<SalesInsight[]> => {
     return new Promise((resolve) => {
@@ -33,4 +33,21 @@ const offerCarouselDataApi = (): Promise<OfferCarouselData[]> => {
     });
 }
 
-export { salesInsightsApi, saleChartDataApi, productDealsApi, offerCarouselDataApi };
+const productApi = (): Promise<ProductProps[]> => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(products);
+        }, 1000);
+    });
+}
+
+const inboxListApi = (): Promise<InboxTableColumn[]> => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(inboxList);
+        }, 1000);
+    });
+}
+
+
+export { salesInsightsApi, saleChartDataApi, productDealsApi, offerCarouselDataApi, productApi, inboxListApi };

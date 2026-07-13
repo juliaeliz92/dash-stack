@@ -1,6 +1,6 @@
 import { Dashboard, Products, Favorites, Inbox } from "@/pages";
 import { Mail, Star, Send, Pencil, TriangleAlert, MessageCircleCheck, Trash2 } from "lucide-react";
-import type { SalesInsight, SalesChartDataProps, ProductDealProps, OfferCarouselData } from "@/types";
+import type { SalesInsight, SalesChartDataProps, ProductDealProps, OfferCarouselData, ProductProps, InboxTableColumn } from "@/types";
 
 const insightData: SalesInsight[] = [
     { title: "Total Users", value: "1,345", changePercent: "5.2%", increase: true, time: "last month", icon: "users" },
@@ -373,7 +373,7 @@ const navigation = [
     }
 ]
 
-const products = [
+const products: ProductProps[] = [
     {
         id: 1,
         images: [
@@ -598,7 +598,7 @@ const inboxDefaultLabels = [
     }
 ]
 
-const inboxList = [
+const inboxList: InboxTableColumn[] = [
     {
         senderName: "Mia Chen",
         senderAddress: "mia.chen@example.com",

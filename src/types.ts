@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import type { ColumnDef } from "@tanstack/react-table"
 
 type labelColor = {
     value: string;
@@ -86,9 +87,36 @@ type OfferCarouselData = {
     buttonColor: string;
 }
 
-export type { labelColor, inboxListItem, SalesInsight, SalesInsightIcon, SalesChartDataProps, ProductDealProps, OfferCarouselData };
+type ProductProps = {
+    id: number;
+    images: string[];
+    title: string;
+    price: number;
+    cur: string;
+    rating: number;
+    reviews: number;
+}
 
-export { SaleInsightKey, Months, productDealStates };
+interface InboxTableColumn {
+    senderName: string;
+    senderAddress: string;
+    emailSubject: string;
+    lastModifiedDate: string;
+    conversation: {
+        name: string;
+        content: string;
+        timestamp: string;
+    }[];
+}
+
+interface DataTableProps<TData, TValue> {
+    columns: ColumnDef<TData, TValue>[]
+    data: TData[]
+}
+
+export type { labelColor, inboxListItem, SalesInsight, SalesInsightIcon, SalesChartDataProps, ProductDealProps, OfferCarouselData, ProductProps, InboxTableColumn, DataTableProps };
+
+export { SaleInsightKey, Months, productDealStates,  };
 
 
 

@@ -1,20 +1,29 @@
 import { useContext } from "react"
 import { ProductCarousel } from "@/components"
-import { products } from "@/constants.tsx"
 import { FavoriteContext } from "@/favorite-context"
+import { useProductApi } from "@/services";
 
 function ProductCarouselGrid({isFavorites}: {isFavorites?: boolean}) {
 
     const { favorites } = useContext(FavoriteContext);
-    let productsToShow = products;
+    const { data: productsData, isLoading, error } = useProductApi();
+    let productsToShow = productsData;
+
+    if (isLoading) {
+        return <p>Loading...</p>;
+    }
+
+    if (error) {
+        return <p>Error loading products.</p>;
+    }
 
     if (isFavorites) {
-        productsToShow = products.filter(product => favorites.includes(product.id));
+        productsToShow = productsData?.filter(product => favorites.includes(product.id));
     }
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {productsToShow.map((product, index) => (
+            {productsToShow?.map((product, index) => (
                 <ProductCarousel
                     id={product.id}
                     key={index}
