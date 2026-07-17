@@ -2,7 +2,7 @@ import { InboxSidebarMenu, InboxSidebarLabels, ComposeEmailDialog } from "@/comp
 
 function InboxSidebar() {
     return (
-        <aside className="p-4 flex flex-col gap-8 overflow-y-auto h-full">
+        <aside className="p-4 flex flex-col gap-6 overflow-y-auto h-full">
             <ComposeEmailDialog />
             <InboxSidebarMenu />
             <InboxSidebarLabels />

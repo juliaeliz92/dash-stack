@@ -8,11 +8,19 @@ type labelColor = {
     checkedBorderColor: string;
 }
 
+const labels = {
+    primary: "Primary",
+    social: "Social",
+    work: "Work",
+    friends: "Friends"
+}
+
 type inboxListItem = {
     senderName: string;
     senderAddress: string;
     emailSubject: string;
     lastModifiedDate: string;
+    label?: typeof labels[keyof typeof labels];
     conversation: {
         name: string;
         content: string;
@@ -102,6 +110,8 @@ interface InboxTableColumn {
     senderAddress: string;
     emailSubject: string;
     lastModifiedDate: string;
+    isStarred: boolean;
+    label?: string;
     conversation: {
         name: string;
         content: string;
@@ -116,7 +126,7 @@ interface DataTableProps<TData, TValue> {
 
 export type { labelColor, inboxListItem, SalesInsight, SalesInsightIcon, SalesChartDataProps, ProductDealProps, OfferCarouselData, ProductProps, InboxTableColumn, DataTableProps };
 
-export { SaleInsightKey, Months, productDealStates,  };
+export { SaleInsightKey, Months, productDealStates, labels };
 
 
 

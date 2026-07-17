@@ -6,13 +6,13 @@ import {
 import { Search } from 'lucide-react';
 
 
-export function SearchInput() {
+export function SearchInput({placeholder}: {placeholder?: string}) {
     return (
-        <InputGroup>
+        <InputGroup className="bg-gray-100 max-w-[200px]">
             <InputGroupAddon>
-                <Search size={16} />
+                <Search />
             </InputGroupAddon>
-            <InputGroupInput placeholder="Search"/>
+            <InputGroupInput placeholder={placeholder || "Search"} />
         </InputGroup>
     )
 }   

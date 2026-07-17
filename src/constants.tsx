@@ -1,6 +1,7 @@
 import { Dashboard, Products, Favorites, Inbox } from "@/pages";
 import { Mail, Star, Send, Pencil, TriangleAlert, MessageCircleCheck, Trash2 } from "lucide-react";
-import type { SalesInsight, SalesChartDataProps, ProductDealProps, OfferCarouselData, ProductProps, InboxTableColumn } from "@/types";
+import type { SalesInsight, SalesChartDataProps, ProductDealProps, OfferCarouselData, ProductProps, InboxTableColumn } from "@/types"
+import { labels } from "@/types";
 
 const insightData: SalesInsight[] = [
     { title: "Total Users", value: "1,345", changePercent: "5.2%", increase: true, time: "last month", icon: "users" },
@@ -599,11 +600,13 @@ const inboxDefaultLabels = [
 ]
 
 const inboxList: InboxTableColumn[] = [
-    {
+    {   
         senderName: "Mia Chen",
         senderAddress: "mia.chen@example.com",
         emailSubject: "Meeting notes and next steps",
         lastModifiedDate: "2026-06-25",
+        isStarred: true,
+        label: labels.primary,
         conversation: [
             {
                 name: "Mia Chen",
@@ -622,6 +625,8 @@ const inboxList: InboxTableColumn[] = [
         senderAddress: "noah.patel@company.com",
         emailSubject: "Product roadmap update",
         lastModifiedDate: "2026-06-24",
+        isStarred: false,
+        label: labels.work,
         conversation: [
             {
                 name: "Noah Patel",
@@ -640,6 +645,8 @@ const inboxList: InboxTableColumn[] = [
         senderAddress: "sofia.alvarez@partner.io",
         emailSubject: "Quick feedback on the proposal",
         lastModifiedDate: "2026-06-23",
+        isStarred: true,
+        label: labels.primary,
         conversation: [
             {
                 name: "Sofia Alvarez",
@@ -658,6 +665,8 @@ const inboxList: InboxTableColumn[] = [
         senderAddress: "jordan.lee@service.net",
         emailSubject: "Invoice overdue reminder",
         lastModifiedDate: "2026-06-22",
+        isStarred: false,
+        label: labels.work,
         conversation: [
             {
                 name: "Jordan Lee",
@@ -676,6 +685,7 @@ const inboxList: InboxTableColumn[] = [
         senderAddress: "avery.brooks@designhub.io",
         emailSubject: "Brand refresh moodboard",
         lastModifiedDate: "2026-06-21",
+        isStarred: false,
         conversation: [
             {
                 name: "Avery Brooks",
@@ -694,6 +704,7 @@ const inboxList: InboxTableColumn[] = [
         senderAddress: "harper.kim@marketpulse.com",
         emailSubject: "Campaign performance review",
         lastModifiedDate: "2026-06-20",
+        isStarred: false,
         conversation: [
             {
                 name: "Harper Kim",
@@ -712,6 +723,8 @@ const inboxList: InboxTableColumn[] = [
         senderAddress: "ethan.murphy@cloudsafe.com",
         emailSubject: "Security patch rollout",
         lastModifiedDate: "2026-06-19",
+        isStarred: true,
+        label: labels.friends,
         conversation: [
             {
                 name: "Ethan Murphy",
@@ -730,6 +743,7 @@ const inboxList: InboxTableColumn[] = [
         senderAddress: "isabella.grant@events.io",
         emailSubject: "Conference sponsorship options",
         lastModifiedDate: "2026-06-18",
+        isStarred: false,
         conversation: [
             {
                 name: "Isabella Grant",
@@ -748,6 +762,7 @@ const inboxList: InboxTableColumn[] = [
         senderAddress: "owen.turner@fintrack.com",
         emailSubject: "Quarterly budget review",
         lastModifiedDate: "2026-06-17",
+        isStarred: true,
         conversation: [
             {
                 name: "Owen Turner",
@@ -766,6 +781,7 @@ const inboxList: InboxTableColumn[] = [
         senderAddress: "camila.ortiz@hrconnect.org",
         emailSubject: "New hire onboarding checklist",
         lastModifiedDate: "2026-06-16",
+        isStarred: false,
         conversation: [
             {
                 name: "Camila Ortiz",
@@ -784,6 +800,7 @@ const inboxList: InboxTableColumn[] = [
         senderAddress: "ryan.sanders@partnerlab.com",
         emailSubject: "Feature request for analytics dashboard",
         lastModifiedDate: "2026-06-15",
+        isStarred: true,
         conversation: [
             {
                 name: "Ryan Sanders",
@@ -802,6 +819,8 @@ const inboxList: InboxTableColumn[] = [
         senderAddress: "zoe.patel@community.org",
         emailSubject: "Volunteer coordination update",
         lastModifiedDate: "2026-06-14",
+        isStarred: false,
+        label: labels.social,
         conversation: [
             {
                 name: "Zoe Patel",
@@ -820,6 +839,7 @@ const inboxList: InboxTableColumn[] = [
         senderAddress: "chloe.nguyen@techworks.com",
         emailSubject: "Client demo preparation",
         lastModifiedDate: "2026-06-13",
+        isStarred: true,
         conversation: [
             {
                 name: "Chloe Nguyen",
@@ -838,6 +858,7 @@ const inboxList: InboxTableColumn[] = [
         senderAddress: "liam.jackson@logistics.co",
         emailSubject: "Shipment tracking issue",
         lastModifiedDate: "2026-06-12",
+        isStarred: false,
         conversation: [
             {
                 name: "Liam Jackson",
@@ -856,6 +877,7 @@ const inboxList: InboxTableColumn[] = [
         senderAddress: "grace.park@advisory.com",
         emailSubject: "Legal review request",
         lastModifiedDate: "2026-06-11",
+        isStarred: true,
         conversation: [
             {
                 name: "Grace Park",

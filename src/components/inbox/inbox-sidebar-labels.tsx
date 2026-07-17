@@ -6,8 +6,9 @@ import {
     FieldGroup,
     FieldLabel,
 } from "@/components/ui/field"
-import { inboxDefaultLabels, type labelColor } from "@/constants";
+import { inboxDefaultLabels } from "@/constants";
 import { CreateNewLabelDialog } from "@/components/inbox";
+import type { labelColor } from "@/types";
 
 function InboxSidebarLabels() {
 

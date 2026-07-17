@@ -3,7 +3,6 @@ import {
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table"
-
 import {
   Table,
   TableBody,
@@ -20,7 +19,7 @@ function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValu
   });
 
   return (
-    <div className="overflow-hidden rounded-md border">
+
       <Table>
         <TableBody>
           {table.getRowModel().rows?.length ? (
@@ -42,7 +41,6 @@ function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValu
           )}
         </TableBody>
       </Table>
-    </div>
   );
 }
 

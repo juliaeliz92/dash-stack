@@ -14,7 +14,7 @@ import Title from "./title";
 
 export function NavBar() {
   return (
-   <NavigationMenu className="min-w-full p-2 flex items-center justify-between">
+   <NavigationMenu className="min-w-full p-2 flex items-center justify-around">
         <div className="md:hidden">
             <NavigationMenuList>
                 <NavigationMenuItem>
@@ -31,7 +31,7 @@ export function NavBar() {
                 </NavigationMenuLink>
             </NavigationMenuItem>
         </NavigationMenuList>
-        <div className="hidden md:flex md:items-center">
+        <div className="hidden md:flex">
             <NavigationMenuList>
                 <SearchInput />
             </NavigationMenuList>
