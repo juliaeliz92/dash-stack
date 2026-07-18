@@ -14,12 +14,13 @@ function InboxSidebarLabels() {
 
     const [labels, setLabels] = React.useState(inboxDefaultLabels);
 
-    const addLabel = (name: string, color: labelColor) => {
+    const addLabel = (value: string, color: labelColor) => {
         const newLabel = {
-            name,
+            value,
             borderColor: color.borderColor,
             checkedBackgroundColor: color.checkedBackgroundColor,
-            checkedBorderColor: color.checkedBorderColor
+            checkedBorderColor: color.checkedBorderColor,
+            backgroundColor: color.backgroundColor
         }
         setLabels([...labels, newLabel]);
     }
@@ -28,11 +29,11 @@ function InboxSidebarLabels() {
         <h2 className="text-lg font-bold">Labels</h2>
         <FieldGroup className="p-4">
             {labels.map((label) => (
-                <Field key={label.name} orientation="horizontal">
-                    <Checkbox id={`${label.name}-label`} className={`border-2 ${label.borderColor} ${label.checkedBackgroundColor} ${label.checkedBorderColor}`} />
+                <Field key={label.value} orientation="horizontal">
+                    <Checkbox id={`${label.value}-label`} className={`border-2 ${label.borderColor} ${label.checkedBackgroundColor} ${label.checkedBorderColor}`} />
                     <FieldContent>
-                        <FieldLabel htmlFor={`${label.name}-label`} className="capitalize ">
-                            {label.name}
+                        <FieldLabel htmlFor={`${label.value}-label`} className="capitalize ">
+                            {label.value}
                         </FieldLabel>
                     </FieldContent>
                 </Field>

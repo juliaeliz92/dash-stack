@@ -6,6 +6,8 @@ type labelColor = {
     borderColor: string;
     checkedBackgroundColor: string;
     checkedBorderColor: string;
+    backgroundColor?: string;
+    textColor?: string;
 }
 
 const labels = {

@@ -1,6 +1,6 @@
 import { Dashboard, Products, Favorites, Inbox } from "@/pages";
 import { Mail, Star, Send, Pencil, TriangleAlert, MessageCircleCheck, Trash2 } from "lucide-react";
-import type { SalesInsight, SalesChartDataProps, ProductDealProps, OfferCarouselData, ProductProps, InboxTableColumn } from "@/types"
+import type { SalesInsight, SalesChartDataProps, ProductDealProps, OfferCarouselData, ProductProps, InboxTableColumn, labelColor } from "@/types"
 import { labels } from "@/types";
 
 const insightData: SalesInsight[] = [
@@ -572,30 +572,38 @@ const inboxMenu = [
     }
 ]
 
-const inboxDefaultLabels = [
+const inboxDefaultLabels: labelColor[] = [
     {
-        name: "primary",
+        value: "primary",
         borderColor: "border-green-600",
         checkedBackgroundColor: "data-[state=checked]:bg-green-600",
-        checkedBorderColor: "data-[state=checked]:border-green-600"
+        checkedBorderColor: "data-[state=checked]:border-green-600",
+        backgroundColor: "bg-green-200",
+        textColor: "text-green-600"
     },
     {
-        name: "social",
+        value: "social",
         borderColor: "border-blue-600",
         checkedBackgroundColor: "data-[state=checked]:bg-blue-600",
-        checkedBorderColor: "data-[state=checked]:border-blue-600"
+        checkedBorderColor: "data-[state=checked]:border-blue-600",
+        backgroundColor: "bg-blue-200",
+        textColor: "text-blue-600"
     },
     {
-        name: "work",
+        value: "work",
         borderColor: "border-orange-600",
         checkedBackgroundColor: "data-[state=checked]:bg-orange-600",
-        checkedBorderColor: "data-[state=checked]:border-orange-600"
+        checkedBorderColor: "data-[state=checked]:border-orange-600",
+        backgroundColor: "bg-orange-200",
+        textColor: "text-orange-600"
     },
     {
-        name: "friends",
+        value: "friends",
         borderColor: "border-purple-600",
         checkedBackgroundColor: "data-[state=checked]:bg-purple-600",
-        checkedBorderColor: "data-[state=checked]:border-purple-600"
+        checkedBorderColor: "data-[state=checked]:border-purple-600",
+        backgroundColor: "bg-purple-200",
+        textColor: "text-purple-600"
     }
 ]
 
@@ -905,4 +913,13 @@ const offerCarouselData: OfferCarouselData[] = [
     { dateRange: "November 10-25", title: "Holiday sale is here!", caption: "Get ready for the most wonderful time of the year with exclusive deals.", buttonText: "Explore Deals", backgroundColor: "bg-pink-400", buttonColor: "bg-yellow-500 hover:bg-yellow-600" }
 ]
 
-export { navigation, products, inboxMenu, inboxDefaultLabels, inboxList, insightData, salesChartData, dealsData, offerCarouselData };
+const inboxTableColumnId = {
+    senderName: "senderName",
+    senderAddress: "senderAddress",
+    emailSubject: "emailSubject",
+    lastModifiedDate: "lastModifiedDate",
+    isStarred: "isStarred",
+    label: "label",
+}
+
+export { navigation, products, inboxMenu, inboxDefaultLabels, inboxList, insightData, salesChartData, dealsData, offerCarouselData, inboxTableColumnId };
