@@ -1,13 +1,19 @@
+import * as React from "react";
 import { Card } from "@/components/ui/card";
 import { InboxSidebarDrawer, InboxSidebar, inboxTableColumns, DataTable } from "@/components/inbox";
 import { useInboxListApi } from "@/services";
 import SearchInput from "@/components/search-input";
 import { Button } from "@/components/ui/button"
 import { ButtonGroup } from "@/components/ui/button-group"
-import { Download, Info, Trash } from "lucide-react";
+import { Download, Info, Trash, ChevronLeft, ChevronRight } from "lucide-react";
 
 function Inbox() {
-  const { data: inboxListData, isLoading: isInboxListLoading, error: inboxListError } = useInboxListApi();
+  const [page, setPage] = React.useState(0);
+  const [firstIndex, setFirstIndex] = React.useState(0);
+  const [lastIndex, setLastIndex] = React.useState(9); // Assuming a default page size of 10
+
+  const { data: inboxListData, isLoading: isInboxListLoading, error: inboxListError } = useInboxListApi(firstIndex, lastIndex);
+
 
   if (isInboxListLoading) {
     return (
@@ -51,7 +57,40 @@ function Inbox() {
                 </Button>
               </ButtonGroup>
             </div>
-            <DataTable columns={inboxTableColumns} data={inboxListData || []} />
+            <DataTable columns={inboxTableColumns} data={inboxListData?.inboxList || []} />
+            <div className="flex items-center justify-between p-4 gap-4">
+              <p className="text-gray-500">Showing {firstIndex + 1} to {Math.min(lastIndex + 1, inboxListData?.totalCount || 0)} of {inboxListData?.totalCount || 0} entries</p>
+              <div>
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    setPage((prevPage) => {
+                      const newPage = prevPage - 1;
+                      setFirstIndex(newPage * 10);
+                      setLastIndex(newPage * 10 + 9);
+                      return newPage;
+                    });
+                  }}
+                  disabled={page === 0}
+                >
+                  <ChevronLeft size={16} />
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    setPage((prevPage) => {
+                      const newPage = prevPage + 1;
+                      setFirstIndex(newPage * 10);
+                      setLastIndex(newPage * 10 + 9);
+                      return newPage;
+                    });
+                  }}
+                  disabled={inboxListData && inboxListData.totalCount - (page * 10) < 10}
+                >
+                  <ChevronRight size={16} />
+                </Button>
+              </div>
+            </div>
           </div>
         </Card>
       </div>

@@ -518,6 +518,656 @@ const products: ProductProps[] = [
         rating: 4.1,
         reviews: 33,
     },
+    {
+        id: 12,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 12",
+        price: 17.5,
+        cur: "$",
+        rating: 4.4,
+        reviews: 140,
+    },
+    {
+        id: 13,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 13",
+        price: 20.0,
+        cur: "$",
+        rating: 4.7,
+        reviews: 150,
+    },
+    {
+        id: 14,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 14",
+        price: 22.5,
+        cur: "$",
+        rating: 3.0,
+        reviews: 160,
+    },
+    {
+        id: 15,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 15",
+        price: 25.0,
+        cur: "$",
+        rating: 3.3,
+        reviews: 170,
+    },
+    {
+        id: 16,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 16",
+        price: 27.5,
+        cur: "$",
+        rating: 3.6,
+        reviews: 180,
+    },
+    {
+        id: 17,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 17",
+        price: 30.0,
+        cur: "$",
+        rating: 3.9,
+        reviews: 190,
+    },
+    {
+        id: 18,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 18",
+        price: 32.5,
+        cur: "$",
+        rating: 4.2,
+        reviews: 200,
+    },
+    {
+        id: 19,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 19",
+        price: 35.0,
+        cur: "$",
+        rating: 4.5,
+        reviews: 210,
+    },
+    {
+        id: 20,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 20",
+        price: 37.5,
+        cur: "$",
+        rating: 4.8,
+        reviews: 220,
+    },
+    {
+        id: 21,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 21",
+        price: 40.0,
+        cur: "$",
+        rating: 3.1,
+        reviews: 230,
+    },
+    {
+        id: 22,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 22",
+        price: 42.5,
+        cur: "$",
+        rating: 3.4,
+        reviews: 240,
+    },
+    {
+        id: 23,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 23",
+        price: 45.0,
+        cur: "$",
+        rating: 3.7,
+        reviews: 250,
+    },
+    {
+        id: 24,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 24",
+        price: 47.5,
+        cur: "$",
+        rating: 4.0,
+        reviews: 260,
+    },
+    {
+        id: 25,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 25",
+        price: 50.0,
+        cur: "$",
+        rating: 4.3,
+        reviews: 270,
+    },
+    {
+        id: 26,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 26",
+        price: 52.5,
+        cur: "$",
+        rating: 4.6,
+        reviews: 280,
+    },
+    {
+        id: 27,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 27",
+        price: 55.0,
+        cur: "$",
+        rating: 4.9,
+        reviews: 290,
+    },
+    {
+        id: 28,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 28",
+        price: 57.5,
+        cur: "$",
+        rating: 3.2,
+        reviews: 300,
+    },
+    {
+        id: 29,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 29",
+        price: 60.0,
+        cur: "$",
+        rating: 3.5,
+        reviews: 310,
+    },
+    {
+        id: 30,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 30",
+        price: 62.5,
+        cur: "$",
+        rating: 3.8,
+        reviews: 320,
+    },
+    {
+        id: 31,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 31",
+        price: 65.0,
+        cur: "$",
+        rating: 4.1,
+        reviews: 330,
+    },
+    {
+        id: 32,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 32",
+        price: 67.5,
+        cur: "$",
+        rating: 4.4,
+        reviews: 340,
+    },
+    {
+        id: 33,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 33",
+        price: 70.0,
+        cur: "$",
+        rating: 4.7,
+        reviews: 350,
+    },
+    {
+        id: 34,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 34",
+        price: 72.5,
+        cur: "$",
+        rating: 3.0,
+        reviews: 360,
+    },
+    {
+        id: 35,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 35",
+        price: 75.0,
+        cur: "$",
+        rating: 3.3,
+        reviews: 370,
+    },
+    {
+        id: 36,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 36",
+        price: 77.5,
+        cur: "$",
+        rating: 3.6,
+        reviews: 380,
+    },
+    {
+        id: 37,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 37",
+        price: 80.0,
+        cur: "$",
+        rating: 3.9,
+        reviews: 390,
+    },
+    {
+        id: 38,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 38",
+        price: 82.5,
+        cur: "$",
+        rating: 4.2,
+        reviews: 400,
+    },
+    {
+        id: 39,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 39",
+        price: 85.0,
+        cur: "$",
+        rating: 4.5,
+        reviews: 410,
+    },
+    {
+        id: 40,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 40",
+        price: 87.5,
+        cur: "$",
+        rating: 4.8,
+        reviews: 420,
+    },
+    {
+        id: 41,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 41",
+        price: 90.0,
+        cur: "$",
+        rating: 3.1,
+        reviews: 430,
+    },
+    {
+        id: 42,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 42",
+        price: 92.5,
+        cur: "$",
+        rating: 3.4,
+        reviews: 440,
+    },
+    {
+        id: 43,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 43",
+        price: 95.0,
+        cur: "$",
+        rating: 3.7,
+        reviews: 450,
+    },
+    {
+        id: 44,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 44",
+        price: 97.5,
+        cur: "$",
+        rating: 4.0,
+        reviews: 460,
+    },
+    {
+        id: 45,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 45",
+        price: 100.0,
+        cur: "$",
+        rating: 4.3,
+        reviews: 470,
+    },
+    {
+        id: 46,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 46",
+        price: 102.5,
+        cur: "$",
+        rating: 4.6,
+        reviews: 480,
+    },
+    {
+        id: 47,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 47",
+        price: 105.0,
+        cur: "$",
+        rating: 4.9,
+        reviews: 490,
+    },
+    {
+        id: 48,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 48",
+        price: 107.5,
+        cur: "$",
+        rating: 3.2,
+        reviews: 500,
+    },
+    {
+        id: 49,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 49",
+        price: 110.0,
+        cur: "$",
+        rating: 3.5,
+        reviews: 510,
+    },
+    {
+        id: 50,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 50",
+        price: 112.5,
+        cur: "$",
+        rating: 3.8,
+        reviews: 520,
+    },
+    {
+        id: 51,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 51",
+        price: 115.0,
+        cur: "$",
+        rating: 4.1,
+        reviews: 530,
+    },
+    {
+        id: 52,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 52",
+        price: 117.5,
+        cur: "$",
+        rating: 4.4,
+        reviews: 540,
+    },
+    {
+        id: 53,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 53",
+        price: 120.0,
+        cur: "$",
+        rating: 4.7,
+        reviews: 550,
+    },
+    {
+        id: 54,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 54",
+        price: 122.5,
+        cur: "$",
+        rating: 3.0,
+        reviews: 560,
+    },
+    {
+        id: 55,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 55",
+        price: 125.0,
+        cur: "$",
+        rating: 3.3,
+        reviews: 570,
+    },
+    {
+        id: 56,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 56",
+        price: 127.5,
+        cur: "$",
+        rating: 3.6,
+        reviews: 580,
+    },
+    {
+        id: 57,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 57",
+        price: 130.0,
+        cur: "$",
+        rating: 3.9,
+        reviews: 590,
+    },
+    {
+        id: 58,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 58",
+        price: 132.5,
+        cur: "$",
+        rating: 4.2,
+        reviews: 600,
+    },
+    {
+        id: 59,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 59",
+        price: 135.0,
+        cur: "$",
+        rating: 4.5,
+        reviews: 610,
+    },
+    {
+        id: 60,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 60",
+        price: 137.5,
+        cur: "$",
+        rating: 4.8,
+        reviews: 620,
+    },
+    {
+        id: 61,
+        images: [
+            "https://picsum.photos/id/0/",
+            "https://picsum.photos/id/1/",
+            "https://picsum.photos/id/2/",
+        ],
+        title: "Product 61",
+        price: 140.0,
+        cur: "$",
+        rating: 3.1,
+        reviews: 630,
+    },
 ]
 
 const inboxMenu = [
@@ -608,6 +1258,7 @@ const inboxDefaultLabels: labelColor[] = [
 ]
 
 const inboxList: InboxTableColumn[] = [
+
     {   
         senderName: "Mia Chen",
         senderAddress: "mia.chen@example.com",
@@ -896,6 +1547,443 @@ const inboxList: InboxTableColumn[] = [
                 name: "You",
                 content: "I’m sending the draft now; please let me know if any revisions are needed.",
                 timestamp: "10:18 AM"
+            }
+        ]
+    },
+    {
+        senderName: "Nina Flores",
+        senderAddress: "nina.flores@studio.co",
+        emailSubject: "Design system updates",
+        lastModifiedDate: "2026-06-10",
+        isStarred: false,
+        label: labels.work,
+        conversation: [
+            {
+                name: "Nina Flores",
+                content: "I pushed the latest design system updates and shared the preview link.",
+                timestamp: "01:10 PM"
+            },
+            {
+                name: "You",
+                content: "Thanks, I’ll review the tokens and component spacing changes today.",
+                timestamp: "01:26 PM"
+            }
+        ]
+    },
+    {
+        senderName: "Marcus Bell",
+        senderAddress: "marcus.bell@northwind.com",
+        emailSubject: "Supplier delivery confirmation",
+        lastModifiedDate: "2026-06-09",
+        isStarred: true,
+        label: labels.primary,
+        conversation: [
+            {
+                name: "Marcus Bell",
+                content: "The supplier confirmed the shipment will arrive before noon tomorrow.",
+                timestamp: "09:48 AM"
+            },
+            {
+                name: "You",
+                content: "Perfect, I’ll update the receiving schedule and notify the team.",
+                timestamp: "09:57 AM"
+            }
+        ]
+    },
+    {
+        senderName: "Priya Shah",
+        senderAddress: "priya.shah@launchpad.io",
+        emailSubject: "Launch checklist for Friday",
+        lastModifiedDate: "2026-06-08",
+        isStarred: false,
+        label: labels.social,
+        conversation: [
+            {
+                name: "Priya Shah",
+                content: "Can you confirm the final launch checklist before the Friday rehearsal?",
+                timestamp: "04:05 PM"
+            },
+            {
+                name: "You",
+                content: "Yes, I’ll send the finalized checklist in a few minutes.",
+                timestamp: "04:16 PM"
+            }
+        ]
+    },
+    {
+        senderName: "Daniel Kim",
+        senderAddress: "daniel.kim@atlas.dev",
+        emailSubject: "Weekly engineering sync",
+        lastModifiedDate: "2026-06-07",
+        isStarred: true,
+        label: labels.friends,
+        conversation: [
+            {
+                name: "Daniel Kim",
+                content: "The weekly engineering sync is set for tomorrow morning at 10 AM.",
+                timestamp: "06:20 PM"
+            },
+            {
+                name: "You",
+                content: "Great, I’ll add the agenda items and share the invite shortly.",
+                timestamp: "06:31 PM"
+            }
+        ]
+    },
+    {
+        senderName: "Ella Thompson",
+        senderAddress: "ella.thompson@brightlabs.com",
+        emailSubject: "Customer interview notes",
+        lastModifiedDate: "2026-06-06",
+        isStarred: false,
+        label: labels.primary,
+        conversation: [
+            {
+                name: "Ella Thompson",
+                content: "I attached the customer interview notes from yesterday’s sessions.",
+                timestamp: "11:40 AM"
+            },
+            {
+                name: "You",
+                content: "Thanks, I’ll synthesize the feedback and share the summary this afternoon.",
+                timestamp: "11:52 AM"
+            }
+        ]
+    },
+    {
+        senderName: "Samuel Ortiz",
+        senderAddress: "samuel.ortiz@northstar.io",
+        emailSubject: "Board meeting agenda",
+        lastModifiedDate: "2026-06-05",
+        isStarred: true,
+        label: labels.work,
+        conversation: [
+            {
+                name: "Samuel Ortiz",
+                content: "Please review the draft agenda for the board meeting next week.",
+                timestamp: "08:05 AM"
+            },
+            {
+                name: "You",
+                content: "I’ll review it and send comments before the end of the day.",
+                timestamp: "08:19 AM"
+            }
+        ]
+    },
+    {
+        senderName: "Maya Singh",
+        senderAddress: "maya.singh@greenline.org",
+        emailSubject: "Community outreach plan",
+        lastModifiedDate: "2026-06-04",
+        isStarred: false,
+        label: labels.social,
+        conversation: [
+            {
+                name: "Maya Singh",
+                content: "Here is the updated community outreach plan for the month.",
+                timestamp: "03:12 PM"
+            },
+            {
+                name: "You",
+                content: "Looks good, I’ll share it with the regional team tomorrow.",
+                timestamp: "03:24 PM"
+            }
+        ]
+    },
+    {
+        senderName: "Jasper Cole",
+        senderAddress: "jasper.cole@pixelcraft.dev",
+        emailSubject: "Prototype feedback request",
+        lastModifiedDate: "2026-06-03",
+        isStarred: true,
+        label: labels.friends,
+        conversation: [
+            {
+                name: "Jasper Cole",
+                content: "Could you take a look at the latest prototype and share any feedback?",
+                timestamp: "01:00 PM"
+            },
+            {
+                name: "You",
+                content: "Absolutely, I’ll send my notes after I review the interactions.",
+                timestamp: "01:15 PM"
+            }
+        ]
+    },
+    {
+        senderName: "Lila Brooks",
+        senderAddress: "lila.brooks@sunrise.net",
+        emailSubject: "Travel reimbursement form",
+        lastModifiedDate: "2026-06-02",
+        isStarred: false,
+        conversation: [
+            {
+                name: "Lila Brooks",
+                content: "I attached the travel reimbursement form for your review.",
+                timestamp: "09:30 AM"
+            },
+            {
+                name: "You",
+                content: "Thanks, I’ll complete it and send it to finance today.",
+                timestamp: "09:42 AM"
+            }
+        ]
+    },
+    {
+        senderName: "Henry Adams",
+        senderAddress: "henry.adams@warehouseplus.com",
+        emailSubject: "Inventory variance report",
+        lastModifiedDate: "2026-06-01",
+        isStarred: true,
+        label: labels.work,
+        conversation: [
+            {
+                name: "Henry Adams",
+                content: "The inventory variance report shows a few discrepancies to investigate.",
+                timestamp: "05:55 PM"
+            },
+            {
+                name: "You",
+                content: "I’ll review the numbers and follow up with the warehouse team.",
+                timestamp: "06:07 PM"
+            }
+        ]
+    },
+    {
+        senderName: "Sophia Reed",
+        senderAddress: "sophia.reed@meridian.app",
+        emailSubject: "Quarterly goals update",
+        lastModifiedDate: "2026-05-31",
+        isStarred: false,
+        label: labels.primary,
+        conversation: [
+            {
+                name: "Sophia Reed",
+                content: "I attached the quarterly goals update for the team review.",
+                timestamp: "10:18 AM"
+            },
+            {
+                name: "You",
+                content: "Perfect, I’ll review the targets and share feedback by noon.",
+                timestamp: "10:29 AM"
+            }
+        ]
+    },
+    {
+        senderName: "Oliver James",
+        senderAddress: "oliver.james@tideworks.com",
+        emailSubject: "Vendor onboarding packet",
+        lastModifiedDate: "2026-05-30",
+        isStarred: true,
+        label: labels.social,
+        conversation: [
+            {
+                name: "Oliver James",
+                content: "The vendor onboarding packet is ready for your review.",
+                timestamp: "02:40 PM"
+            },
+            {
+                name: "You",
+                content: "Great, I’ll review the compliance items and send approval.",
+                timestamp: "02:53 PM"
+            }
+        ]
+    },
+    {
+        senderName: "Amara Lewis",
+        senderAddress: "amara.lewis@lumen.ai",
+        emailSubject: "AI model evaluation results",
+        lastModifiedDate: "2026-05-29",
+        isStarred: false,
+        conversation: [
+            {
+                name: "Amara Lewis",
+                content: "The latest AI model evaluation results are ready for review.",
+                timestamp: "04:22 PM"
+            },
+            {
+                name: "You",
+                content: "Thanks, I’ll compare them with the previous benchmark this evening.",
+                timestamp: "04:34 PM"
+            }
+        ]
+    },
+    {
+        senderName: "Theo Martinez",
+        senderAddress: "theo.martinez@clearsense.com",
+        emailSubject: "Customer retention strategy",
+        lastModifiedDate: "2026-05-28",
+        isStarred: true,
+        label: labels.work,
+        conversation: [
+            {
+                name: "Theo Martinez",
+                content: "I drafted a new customer retention strategy for the next quarter.",
+                timestamp: "07:08 AM"
+            },
+            {
+                name: "You",
+                content: "Excellent, I’ll review the recommendations and provide feedback tomorrow.",
+                timestamp: "07:19 AM"
+            }
+        ]
+    },
+    {
+        senderName: "Isla Bennett",
+        senderAddress: "isla.bennett@harbor.io",
+        emailSubject: "Event sponsorship follow-up",
+        lastModifiedDate: "2026-05-27",
+        isStarred: false,
+        label: labels.primary,
+        conversation: [
+            {
+                name: "Isla Bennett",
+                content: "Can you follow up with the event sponsors before the end of the week?",
+                timestamp: "12:15 PM"
+            },
+            {
+                name: "You",
+                content: "Absolutely, I’ll send the follow-up notes this afternoon.",
+                timestamp: "12:27 PM"
+            }
+        ]
+    },
+    {
+        senderName: "Caleb Foster",
+        senderAddress: "caleb.foster@evergreen.co",
+        emailSubject: "Sustainability report draft",
+        lastModifiedDate: "2026-05-26",
+        isStarred: true,
+        label: labels.friends,
+        conversation: [
+            {
+                name: "Caleb Foster",
+                content: "I shared the sustainability report draft for your review.",
+                timestamp: "06:42 PM"
+            },
+            {
+                name: "You",
+                content: "Thanks, I’ll review the metrics and send comments tonight.",
+                timestamp: "06:55 PM"
+            }
+        ]
+    },
+    {
+        senderName: "Ruby Nguyen",
+        senderAddress: "ruby.nguyen@bluepeak.com",
+        emailSubject: "Partnership proposal outline",
+        lastModifiedDate: "2026-05-25",
+        isStarred: false,
+        label: labels.social,
+        conversation: [
+            {
+                name: "Ruby Nguyen",
+                content: "I drafted an outline for the partnership proposal and shared it here.",
+                timestamp: "03:06 PM"
+            },
+            {
+                name: "You",
+                content: "Perfect, I’ll review it and suggest a few edits tomorrow.",
+                timestamp: "03:18 PM"
+            }
+        ]
+    },
+    {
+        senderName: "Elias Parker",
+        senderAddress: "elias.parker@mountainlabs.io",
+        emailSubject: "Infrastructure upgrade plan",
+        lastModifiedDate: "2026-05-24",
+        isStarred: true,
+        label: labels.work,
+        conversation: [
+            {
+                name: "Elias Parker",
+                content: "The infrastructure upgrade plan is ready for stakeholder review.",
+                timestamp: "08:40 AM"
+            },
+            {
+                name: "You",
+                content: "Great, I’ll circulate it to the relevant teams after lunch.",
+                timestamp: "08:51 AM"
+            }
+        ]
+    },
+    {
+        senderName: "Tessa Ward",
+        senderAddress: "tessa.ward@echohealth.org",
+        emailSubject: "Patient feedback summary",
+        lastModifiedDate: "2026-05-23",
+        isStarred: false,
+        conversation: [
+            {
+                name: "Tessa Ward",
+                content: "I attached the patient feedback summary from this week’s surveys.",
+                timestamp: "10:05 AM"
+            },
+            {
+                name: "You",
+                content: "Thanks, I’ll review the trends and share a short report later.",
+                timestamp: "10:16 AM"
+            }
+        ]
+    },
+    {
+        senderName: "Jonah Brooks",
+        senderAddress: "jonah.brooks@signalpay.com",
+        emailSubject: "Payment processing alert",
+        lastModifiedDate: "2026-05-22",
+        isStarred: true,
+        label: labels.primary,
+        conversation: [
+            {
+                name: "Jonah Brooks",
+                content: "We saw an unusual spike in payment processing activity this morning.",
+                timestamp: "05:14 PM"
+            },
+            {
+                name: "You",
+                content: "I’m investigating and will update the incident channel shortly.",
+                timestamp: "05:27 PM"
+            }
+        ]
+    },
+    {
+        senderName: "Zara Collins",
+        senderAddress: "zara.collins@daybreak.ai",
+        emailSubject: "Research findings summary",
+        lastModifiedDate: "2026-05-21",
+        isStarred: false,
+        label: labels.work,
+        conversation: [
+            {
+                name: "Zara Collins",
+                content: "I summarized the latest research findings for the product team.",
+                timestamp: "01:28 PM"
+            },
+            {
+                name: "You",
+                content: "Excellent, I’ll review the insights and integrate them into the roadmap.",
+                timestamp: "01:39 PM"
+            }
+        ]
+    },
+    {
+        senderName: "Noah Brooks",
+        senderAddress: "noah.brooks@brightpath.dev",
+        emailSubject: "Release readiness checklist",
+        lastModifiedDate: "2026-05-20",
+        isStarred: true,
+        label: labels.friends,
+        conversation: [
+            {
+                name: "Noah Brooks",
+                content: "The release readiness checklist is ready for sign-off.",
+                timestamp: "04:48 PM"
+            },
+            {
+                name: "You",
+                content: "Perfect, I’ll confirm the pending items before the release window.",
+                timestamp: "04:59 PM"
             }
         ]
     }

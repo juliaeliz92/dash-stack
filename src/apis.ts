@@ -41,10 +41,10 @@ const productApi = (): Promise<ProductProps[]> => {
     });
 }
 
-const inboxListApi = (): Promise<InboxTableColumn[]> => {
+const inboxListApi = (firstIndex: number, lastIndex: number): Promise<{ inboxList: InboxTableColumn[], totalCount: number }> => {
     return new Promise((resolve) => {
         setTimeout(() => {
-            resolve(inboxList);
+            resolve({ inboxList: inboxList.slice(firstIndex, lastIndex + 1), totalCount: inboxList.length });
         }, 1000);
     });
 }

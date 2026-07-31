@@ -13,17 +13,17 @@ import type { DataTableProps } from "@/types";
 import { Checkbox } from "@/components/ui/checkbox";
 import { inboxTableColumnId } from "@/constants";
 import { Star } from "lucide-react";
-import {InboxLabel} from "@/components/inbox";
+import { InboxLabel } from "@/components/inbox";
 
 function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValue>) {
   const table = useReactTable({
     columns,
     data,
     getCoreRowModel: getCoreRowModel(),
+    manualPagination: true,
   });
 
   return (
-
       <Table>
         <TableBody>
           {table.getRowModel().rows?.length ? (
