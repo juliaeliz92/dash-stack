@@ -23,6 +23,11 @@ function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValu
     manualPagination: true,
   });
 
+  const handleSelectRow = (row: string, checked: boolean | string) => {
+    // Implement your row selection logic here
+    console.log(`Row with ID ${row} selected: ${checked}`);
+  }
+
   return (
       <Table>
         <TableBody>
@@ -30,7 +35,7 @@ function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValu
             table.getRowModel().rows.map((row) => (
               <TableRow key={row.id}>
                 <TableCell className="font-medium">
-                  <Checkbox />
+                  <Checkbox onCheckedChange={(checked) => handleSelectRow(row.id, checked)} />
                 </TableCell>
                 {row.getVisibleCells().map((cell) => {
                   if (cell.column.id === inboxTableColumnId.isStarred) {
@@ -46,6 +51,8 @@ function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValu
                       </TableCell>
                     )
                   } else if (cell.column.id === inboxTableColumnId.label) {
+                    if (cell.getValue() === null || cell.getValue() === undefined) 
+                      return null
                     return (
                       <TableCell key={cell.id}>
                         <InboxLabel label={cell.getValue() as string} />

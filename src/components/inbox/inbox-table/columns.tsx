@@ -11,10 +11,6 @@ export const inboxTableColumns: ColumnDef<InboxTableColumn>[] = [
     header: "From"
   },
   {
-    accessorKey: "label",
-    header: "Label"
-  },
-  {
     accessorKey: "emailSubject",
     header: "Subject"
   },
