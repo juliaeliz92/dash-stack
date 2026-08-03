@@ -1263,7 +1263,7 @@ const inboxList: InboxTableColumn[] = [
         senderName: "Mia Chen",
         senderAddress: "mia.chen@example.com",
         emailSubject: "Meeting notes and next steps",
-        lastModifiedDate: "2026-06-25",
+        lastModifiedDate: "2026-08-03 09:12 AM",
         isStarred: true,
         label: labels.primary,
         conversation: [
@@ -1283,7 +1283,7 @@ const inboxList: InboxTableColumn[] = [
         senderName: "Noah Patel",
         senderAddress: "noah.patel@company.com",
         emailSubject: "Product roadmap update",
-        lastModifiedDate: "2026-06-24",
+        lastModifiedDate: "2026-08-03 11:30 AM",
         isStarred: false,
         label: labels.work,
         conversation: [
@@ -1303,7 +1303,7 @@ const inboxList: InboxTableColumn[] = [
         senderName: "Sofia Alvarez",
         senderAddress: "sofia.alvarez@partner.io",
         emailSubject: "Quick feedback on the proposal",
-        lastModifiedDate: "2026-06-23",
+        lastModifiedDate: "2026-08-03 01:15 PM",
         isStarred: true,
         label: labels.primary,
         conversation: [
@@ -1323,7 +1323,7 @@ const inboxList: InboxTableColumn[] = [
         senderName: "Jordan Lee",
         senderAddress: "jordan.lee@service.net",
         emailSubject: "Invoice overdue reminder",
-        lastModifiedDate: "2026-06-22",
+        lastModifiedDate: "2026-08-03 03:40 PM",
         isStarred: false,
         label: labels.work,
         conversation: [
@@ -1343,7 +1343,7 @@ const inboxList: InboxTableColumn[] = [
         senderName: "Avery Brooks",
         senderAddress: "avery.brooks@designhub.io",
         emailSubject: "Brand refresh moodboard",
-        lastModifiedDate: "2026-06-21",
+        lastModifiedDate: "2026-08-03 05:05 PM",
         isStarred: false,
         conversation: [
             {

@@ -108,6 +108,7 @@ type ProductProps = {
 }
 
 interface InboxTableColumn {
+    
     senderName: string;
     senderAddress: string;
     emailSubject: string;
