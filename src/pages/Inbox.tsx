@@ -4,7 +4,12 @@ import { InboxSidebarDrawer, InboxSidebar, inboxTableColumns, DataTable } from "
 import { useInboxListApi } from "@/services";
 import SearchInput from "@/components/search-input";
 import { Button } from "@/components/ui/button"
-import { ButtonGroup } from "@/components/ui/button-group"
+import { ButtonGroup, ButtonGroupSeparator, ButtonGroupText } from "@/components/ui/button-group"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 import { Download, Info, Trash, ChevronLeft, ChevronRight } from "lucide-react";
 
 function Inbox() {
@@ -33,7 +38,7 @@ function Inbox() {
           <InboxSidebar />
         </Card>
         {isInboxListLoading && (
-          <div className="flex items-center justify-center h-96">
+          <div className="flex items-center justify-center h-96 w-full">
             <p>Loading emails...</p>
           </div>
         )}
@@ -48,18 +53,42 @@ function Inbox() {
               <div className="overflow-hidden rounded-md border">
                 <div className="flex items-center justify-between p-4 gap-4">
                   <SearchInput placeholder="Search mail"/>
-                <ButtonGroup>
-                  <Button variant="outline" size="icon">
-                    <Download size={16} />
-                  </Button>
-                  <Button variant="outline" size="icon">
-                    <Info size={16} />
-                  </Button>
-                  <Button variant="outline" size="icon">
-                    <Trash size={16} />
-                  </Button>
-                </ButtonGroup>
-              </div>
+                  <ButtonGroup>
+                    
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Button variant="outline" size="icon">
+                          <Download size={16} />
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Download</p>
+                      </TooltipContent>
+                    </Tooltip>
+                    <ButtonGroupSeparator />
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Button variant="outline" size="icon">
+                          <Info size={16} />
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Info</p>
+                      </TooltipContent>
+                    </Tooltip>
+                    <ButtonGroupSeparator />
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Button variant="outline" size="icon">
+                          <Trash size={16} />
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>Delete</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </ButtonGroup>
+                </div>
               <DataTable columns={inboxTableColumns} data={inboxListData?.inboxList || []} />
             </div>
           </Card>

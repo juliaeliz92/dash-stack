@@ -73,8 +73,9 @@ function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValu
                         {dateValue.toLocaleDateString([], {dateStyle: 'medium'})}
                       </TableCell>
                     )
+                  } else if(cell.column.id === inboxTableColumnId.label) {
+                    return null
                   }
-
                   return (
                     <TableCell key={cell.id}>
                       {flexRender(cell.column.columnDef.cell, cell.getContext())}
