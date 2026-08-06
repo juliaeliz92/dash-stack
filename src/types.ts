@@ -18,6 +18,7 @@ const labels = {
 }
 
 type inboxListItem = {
+    id: number;
     senderName: string;
     senderAddress: string;
     emailSubject: string;
@@ -108,7 +109,7 @@ type ProductProps = {
 }
 
 interface InboxTableColumn {
-    
+    id: number;
     senderName: string;
     senderAddress: string;
     emailSubject: string;
@@ -127,7 +128,33 @@ interface DataTableProps<TData, TValue> {
     data: TData[]
 }
 
-export type { labelColor, inboxListItem, SalesInsight, SalesInsightIcon, SalesChartDataProps, ProductDealProps, OfferCarouselData, ProductProps, InboxTableColumn, DataTableProps };
+interface NavItem {
+    name: string;
+    link: string;
+    page: ReactNode;
+    children?: NavItem[];
+}
+
+interface NavigationRoutes {
+    group: {
+        header?: string;
+        items: NavItem[];
+    }
+}
+
+export type {
+    labelColor,
+    inboxListItem,
+    SalesInsight,
+    SalesInsightIcon,
+    SalesChartDataProps,
+    ProductDealProps,
+    OfferCarouselData,
+    ProductProps,
+    InboxTableColumn,
+    DataTableProps,
+    NavigationRoutes
+};
 
 export { SaleInsightKey, Months, productDealStates, labels };
 

@@ -1,6 +1,24 @@
 import { Dashboard, Products, Favorites, Inbox } from "@/pages";
-import { Mail, Star, Send, Pencil, TriangleAlert, MessageCircleCheck, Trash2 } from "lucide-react";
-import type { SalesInsight, SalesChartDataProps, ProductDealProps, OfferCarouselData, ProductProps, InboxTableColumn, labelColor } from "@/types"
+import { Conversation } from "./components/inbox/subpages";
+import {
+    Mail,
+    Star,
+    Send,
+    Pencil,
+    TriangleAlert,
+    MessageCircleCheck,
+    Trash2
+} from "lucide-react";
+import type {
+    SalesInsight,
+    SalesChartDataProps,
+    ProductDealProps,
+    OfferCarouselData,
+    ProductProps,
+    InboxTableColumn,
+    labelColor,
+    NavigationRoutes
+} from "@/types"
 import { labels } from "@/types";
 
 const insightData: SalesInsight[] = [
@@ -277,7 +295,7 @@ const salesChartData: SalesChartDataProps[] = [
     },
 ]
 
-const navigation = [
+const navigation: NavigationRoutes[] = [
     {
         group: {
             items: [
@@ -299,7 +317,12 @@ const navigation = [
                 {
                     name: "Inbox",
                     link: "/inbox",
-                    page: <Inbox />
+                    page: <Inbox />,
+                    children: [{
+                        name: "conversation",
+                        link: "/inbox/conversation",
+                        page: <Conversation />
+                    }]
                 },
                 {
                     name: "Order Lists",
@@ -1258,8 +1281,8 @@ const inboxDefaultLabels: labelColor[] = [
 ]
 
 const inboxList: InboxTableColumn[] = [
-
     {   
+        id: 1,
         senderName: "Mia Chen",
         senderAddress: "mia.chen@example.com",
         emailSubject: "Meeting notes and next steps",
@@ -1280,6 +1303,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 2,
         senderName: "Noah Patel",
         senderAddress: "noah.patel@company.com",
         emailSubject: "Product roadmap update",
@@ -1300,6 +1324,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 3,
         senderName: "Sofia Alvarez",
         senderAddress: "sofia.alvarez@partner.io",
         emailSubject: "Quick feedback on the proposal",
@@ -1320,6 +1345,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 4,
         senderName: "Jordan Lee",
         senderAddress: "jordan.lee@service.net",
         emailSubject: "Invoice overdue reminder",
@@ -1340,6 +1366,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 5,
         senderName: "Avery Brooks",
         senderAddress: "avery.brooks@designhub.io",
         emailSubject: "Brand refresh moodboard",
@@ -1359,6 +1386,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 6,
         senderName: "Harper Kim",
         senderAddress: "harper.kim@marketpulse.com",
         emailSubject: "Campaign performance review",
@@ -1378,6 +1406,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 7,
         senderName: "Ethan Murphy",
         senderAddress: "ethan.murphy@cloudsafe.com",
         emailSubject: "Security patch rollout",
@@ -1398,6 +1427,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 8,
         senderName: "Isabella Grant",
         senderAddress: "isabella.grant@events.io",
         emailSubject: "Conference sponsorship options",
@@ -1417,6 +1447,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 9,
         senderName: "Owen Turner",
         senderAddress: "owen.turner@fintrack.com",
         emailSubject: "Quarterly budget review",
@@ -1436,6 +1467,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 10,
         senderName: "Camila Ortiz",
         senderAddress: "camila.ortiz@hrconnect.org",
         emailSubject: "New hire onboarding checklist",
@@ -1455,6 +1487,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 11,
         senderName: "Ryan Sanders",
         senderAddress: "ryan.sanders@partnerlab.com",
         emailSubject: "Feature request for analytics dashboard",
@@ -1474,6 +1507,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 12,
         senderName: "Zoe Patel",
         senderAddress: "zoe.patel@community.org",
         emailSubject: "Volunteer coordination update",
@@ -1494,6 +1528,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 13,
         senderName: "Chloe Nguyen",
         senderAddress: "chloe.nguyen@techworks.com",
         emailSubject: "Client demo preparation",
@@ -1513,6 +1548,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 14,
         senderName: "Liam Jackson",
         senderAddress: "liam.jackson@logistics.co",
         emailSubject: "Shipment tracking issue",
@@ -1532,6 +1568,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 15,
         senderName: "Grace Park",
         senderAddress: "grace.park@advisory.com",
         emailSubject: "Legal review request",
@@ -1551,6 +1588,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 16,
         senderName: "Nina Flores",
         senderAddress: "nina.flores@studio.co",
         emailSubject: "Design system updates",
@@ -1571,6 +1609,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 17,
         senderName: "Marcus Bell",
         senderAddress: "marcus.bell@northwind.com",
         emailSubject: "Supplier delivery confirmation",
@@ -1591,6 +1630,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 18,
         senderName: "Priya Shah",
         senderAddress: "priya.shah@launchpad.io",
         emailSubject: "Launch checklist for Friday",
@@ -1611,6 +1651,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 19,
         senderName: "Daniel Kim",
         senderAddress: "daniel.kim@atlas.dev",
         emailSubject: "Weekly engineering sync",
@@ -1631,6 +1672,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 20,
         senderName: "Ella Thompson",
         senderAddress: "ella.thompson@brightlabs.com",
         emailSubject: "Customer interview notes",
@@ -1651,6 +1693,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 21,
         senderName: "Samuel Ortiz",
         senderAddress: "samuel.ortiz@northstar.io",
         emailSubject: "Board meeting agenda",
@@ -1671,6 +1714,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 22,
         senderName: "Maya Singh",
         senderAddress: "maya.singh@greenline.org",
         emailSubject: "Community outreach plan",
@@ -1691,6 +1735,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 23,
         senderName: "Jasper Cole",
         senderAddress: "jasper.cole@pixelcraft.dev",
         emailSubject: "Prototype feedback request",
@@ -1711,6 +1756,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 24,
         senderName: "Lila Brooks",
         senderAddress: "lila.brooks@sunrise.net",
         emailSubject: "Travel reimbursement form",
@@ -1730,6 +1776,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 25,
         senderName: "Henry Adams",
         senderAddress: "henry.adams@warehouseplus.com",
         emailSubject: "Inventory variance report",
@@ -1750,6 +1797,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 26,
         senderName: "Sophia Reed",
         senderAddress: "sophia.reed@meridian.app",
         emailSubject: "Quarterly goals update",
@@ -1770,6 +1818,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 27,
         senderName: "Oliver James",
         senderAddress: "oliver.james@tideworks.com",
         emailSubject: "Vendor onboarding packet",
@@ -1790,6 +1839,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 28,
         senderName: "Amara Lewis",
         senderAddress: "amara.lewis@lumen.ai",
         emailSubject: "AI model evaluation results",
@@ -1809,6 +1859,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 29,
         senderName: "Theo Martinez",
         senderAddress: "theo.martinez@clearsense.com",
         emailSubject: "Customer retention strategy",
@@ -1829,6 +1880,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 30,
         senderName: "Isla Bennett",
         senderAddress: "isla.bennett@harbor.io",
         emailSubject: "Event sponsorship follow-up",
@@ -1849,6 +1901,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 31,
         senderName: "Caleb Foster",
         senderAddress: "caleb.foster@evergreen.co",
         emailSubject: "Sustainability report draft",
@@ -1869,6 +1922,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 32,
         senderName: "Ruby Nguyen",
         senderAddress: "ruby.nguyen@bluepeak.com",
         emailSubject: "Partnership proposal outline",
@@ -1889,6 +1943,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 33,
         senderName: "Elias Parker",
         senderAddress: "elias.parker@mountainlabs.io",
         emailSubject: "Infrastructure upgrade plan",
@@ -1909,6 +1964,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 34,
         senderName: "Tessa Ward",
         senderAddress: "tessa.ward@echohealth.org",
         emailSubject: "Patient feedback summary",
@@ -1928,6 +1984,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 35,
         senderName: "Jonah Brooks",
         senderAddress: "jonah.brooks@signalpay.com",
         emailSubject: "Payment processing alert",
@@ -1948,6 +2005,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 36,
         senderName: "Zara Collins",
         senderAddress: "zara.collins@daybreak.ai",
         emailSubject: "Research findings summary",
@@ -1968,6 +2026,7 @@ const inboxList: InboxTableColumn[] = [
         ]
     },
     {
+        id: 37,
         senderName: "Noah Brooks",
         senderAddress: "noah.brooks@brightpath.dev",
         emailSubject: "Release readiness checklist",
@@ -2002,6 +2061,7 @@ const offerCarouselData: OfferCarouselData[] = [
 ]
 
 const inboxTableColumnId = {
+    id: "id",
     senderName: "senderName",
     senderAddress: "senderAddress",
     emailSubject: "emailSubject",

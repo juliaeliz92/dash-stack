@@ -22,9 +22,21 @@ export function App() {
             </header>
             <main className="py-8 px-6 h-full bg-gray-100 dark:bg-gray-900 overflow-auto">
               <Routes>
-                {navigation.map((nav) => nav.group.items.map((item) => (
-                  <Route key={item.link} path={item.link} element={item.page} />)
-                ))}
+                {navigation.map((nav) => nav.group.items.map((item) => {
+                  const childRoutes: React.ReactNode[] = [];
+                  if(item.children) {
+                    item.children.map((child) => {
+                      childRoutes.push(
+                        <Route key={child.link} path={child.link} element={child.page} />
+                      )
+                    })
+                  }
+                  return (
+                    <Route key={item.link} path={item.link} element={item.page}>
+                      {childRoutes}
+                    </Route>
+                  )
+                }))}
               </Routes>
             </main>
           </SidebarInset>

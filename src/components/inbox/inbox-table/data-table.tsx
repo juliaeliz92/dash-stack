@@ -73,7 +73,7 @@ function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValu
                         {dateValue.toLocaleDateString([], {dateStyle: 'medium'})}
                       </TableCell>
                     )
-                  } else if(cell.column.id === inboxTableColumnId.label) {
+                  } else if(cell.column.id === inboxTableColumnId.label || cell.column.id === inboxTableColumnId.id) {
                     return null
                   }
                   return (

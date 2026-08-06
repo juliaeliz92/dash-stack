@@ -26,6 +26,10 @@ export const inboxTableColumns: ColumnDef<InboxTableColumn>[] = [
     enableHiding: false,
   },
   {
+    accessorKey: "id",
+    header: "ID"
+  },
+  {
     accessorKey: "isStarred",
     header: "Starred"
   },
