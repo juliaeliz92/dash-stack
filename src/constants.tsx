@@ -1,5 +1,5 @@
 import { Dashboard, Products, Favorites, Inbox } from "@/pages";
-import { Conversation } from "./components/inbox/subpages";
+import { Conversation, InboxContainer } from "./components/inbox/subpages";
 import {
     Mail,
     Star,
@@ -318,11 +318,18 @@ const navigation: NavigationRoutes[] = [
                     name: "Inbox",
                     link: "/inbox",
                     page: <Inbox />,
-                    children: [{
-                        name: "conversation",
-                        link: "/inbox/conversation",
-                        page: <Conversation />
-                    }]
+                    children: [
+                        {
+                            name: "Inbox",
+                            link: "/inbox",
+                            page: <InboxContainer />
+                        },
+                        {
+                            name: "conversation",
+                            link: "/inbox/conversation",
+                            page: <Conversation />
+                        }
+                ]
                 },
                 {
                     name: "Order Lists",
