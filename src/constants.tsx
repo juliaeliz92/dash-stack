@@ -326,7 +326,7 @@ const navigation: NavigationRoutes[] = [
                         },
                         {
                             name: "conversation",
-                            link: "/inbox/conversation",
+                            link: "/inbox/conversation/:id",
                             page: <Conversation />
                         }
                 ]

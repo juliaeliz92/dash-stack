@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useNavigate } from "react-router"
 import {
   flexRender,
   getCoreRowModel,
@@ -17,6 +18,7 @@ import { InboxLabel } from "@/components/inbox";
 
 function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValue>) {
   const [rowSelection, setRowSelection] = React.useState({})
+  const navigate = useNavigate();
   const table = useReactTable({
     columns,
     data,
@@ -37,7 +39,8 @@ function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValu
               return (
               <TableRow
                 key={row.id}
-                className={row.getIsSelected() ? "bg-blue-50" : undefined}
+                className={`hover:cursor-pointer ${row.getIsSelected() ? "bg-blue-50" : undefined}`}
+                onClick={() => navigate(`/inbox/conversation/${row.getValue<string>("id")}`)}
               >
                 {row.getVisibleCells().map((cell) => {
                   if (cell.column.id === inboxTableColumnId.isStarred) {

@@ -1,5 +1,19 @@
-import { dealsData, insightData, offerCarouselData, salesChartData, products, inboxList } from "@/constants";
-import type { SalesInsight, SalesChartDataProps, ProductDealProps, OfferCarouselData, ProductProps, InboxTableColumn } from "@/types";
+import {
+    dealsData,
+    insightData,
+    offerCarouselData,
+    salesChartData,
+    products,
+    inboxList
+} from "@/constants";
+import type {
+    SalesInsight,
+    SalesChartDataProps,
+    ProductDealProps,
+    OfferCarouselData,
+    ProductProps,
+    InboxTableColumn
+} from "@/types";
 
 const salesInsightsApi = ():Promise<SalesInsight[]> => {
     return new Promise((resolve) => {
@@ -49,5 +63,20 @@ const inboxListApi = (firstIndex: number, lastIndex: number): Promise<{ inboxLis
     });
 }
 
+const getConversationById = (id: number): Promise<InboxTableColumn | undefined> => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(inboxList.find((item) => item.id === id));
+        }, 1000);
+    });
+}
 
-export { salesInsightsApi, saleChartDataApi, productDealsApi, offerCarouselDataApi, productApi, inboxListApi };
+export {
+    salesInsightsApi,
+    saleChartDataApi,
+    productDealsApi,
+    offerCarouselDataApi,
+    productApi,
+    inboxListApi,
+    getConversationById
+};

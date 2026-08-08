@@ -25,9 +25,9 @@ function InboxSidebarLabels() {
         setLabels([...labels, newLabel]);
     }
 
-    return (<div className="flex flex-col gap-4">
+    return (<div className="flex flex-col">
         <h2 className="text-lg font-bold">Labels</h2>
-        <FieldGroup className="p-4">
+        <FieldGroup className="p-4 gap-4">
             {labels.map((label) => (
                 <Field key={label.value} orientation="horizontal">
                     <Checkbox id={`${label.value}-label`} className={`border-2 ${label.borderColor} ${label.checkedBackgroundColor} ${label.checkedBorderColor}`} />

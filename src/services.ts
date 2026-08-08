@@ -1,5 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
-import { salesInsightsApi, saleChartDataApi, productDealsApi, offerCarouselDataApi, productApi, inboxListApi } from "@/apis";
+import {
+    salesInsightsApi,
+    saleChartDataApi,
+    productDealsApi,
+    offerCarouselDataApi,
+    productApi,
+    inboxListApi,
+    getConversationById
+} from "@/apis";
 
 const useSalesInsights = () => {
     const { data, isLoading, error } = useQuery({
@@ -64,4 +72,22 @@ const useInboxListApi = (firstIndex: number, lastIndex: number) => {
     return { data, isLoading, error };
 }
 
-export { useSalesInsights, useSalesChartData, useProductDeals, useOfferCarouselData, useProductApi, useInboxListApi };
+const useConversationById = (id: number) => {
+    const { data, isLoading, error } = useQuery({
+        queryKey: ['conversationById', id],
+        queryFn: async () => {
+            return getConversationById(id);
+        }
+    });
+    return { data, isLoading, error };
+}
+
+export {
+    useSalesInsights,
+    useSalesChartData,
+    useProductDeals,
+    useOfferCarouselData,
+    useProductApi,
+    useInboxListApi,
+    useConversationById
+};
