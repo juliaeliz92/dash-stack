@@ -7,7 +7,11 @@ import {
     Pencil,
     TriangleAlert,
     MessageCircleCheck,
-    Trash2
+    Trash,
+    Trash2,
+    Download,
+    Info,
+    Printer
 } from "lucide-react";
 import type {
     SalesInsight,
@@ -17,7 +21,8 @@ import type {
     ProductProps,
     InboxTableColumn,
     labelColor,
-    NavigationRoutes
+    NavigationRoutes,
+    ButtonGroupItem,
 } from "@/types"
 import { labels } from "@/types";
 
@@ -1291,7 +1296,7 @@ const inboxList: InboxTableColumn[] = [
     {   
         id: 1,
         senderName: "Mia Chen",
-        senderAddress: "mia.chen@example.com",
+        senderEmail: "mia.chen@example.com",
         emailSubject: "Meeting notes and next steps",
         lastModifiedDate: "2026-08-03 09:12 AM",
         isStarred: true,
@@ -1303,16 +1308,31 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "09:12 AM"
             },
             {
-                name: "Alex Rivera",
+                name: "Jane Doe",
                 content: "Thanks, Mia. I will review these and update the task list by EOD.",
                 timestamp: "09:45 AM"
+            },
+            {
+                name: "Mia Chen",
+                content: "Perfect. I also added the action owners to the notes so we can track accountability across design, engineering, and marketing.",
+                timestamp: "10:03 AM"
+            },
+            {
+                name: "Jane Doe",
+                content: "Great, I’ll share the revised timeline with the group and flag the items that need sign-off before Friday.",
+                timestamp: "10:18 AM"
+            },
+            {
+                name: "Mia Chen",
+                content: "Thanks! Please also let me know if you want me to send a quick recap to stakeholders after the review call.",
+                timestamp: "10:27 AM"
             }
         ]
     },
     {
         id: 2,
         senderName: "Noah Patel",
-        senderAddress: "noah.patel@company.com",
+        senderEmail: "noah.patel@company.com",
         emailSubject: "Product roadmap update",
         lastModifiedDate: "2026-08-03 11:30 AM",
         isStarred: false,
@@ -1324,7 +1344,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "04:30 PM"
             },
             {
-                name: "Lina Baker",
+                name: "Jane Doe",
                 content: "Looks good. Can you clarify the release window for the mobile update?",
                 timestamp: "04:52 PM"
             }
@@ -1333,7 +1353,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 3,
         senderName: "Sofia Alvarez",
-        senderAddress: "sofia.alvarez@partner.io",
+        senderEmail: "sofia.alvarez@partner.io",
         emailSubject: "Quick feedback on the proposal",
         lastModifiedDate: "2026-08-03 01:15 PM",
         isStarred: true,
@@ -1345,7 +1365,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "11:05 AM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "Thanks, Sofia. I will incorporate your feedback and resend shortly.",
                 timestamp: "11:18 AM"
             }
@@ -1354,7 +1374,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 4,
         senderName: "Jordan Lee",
-        senderAddress: "jordan.lee@service.net",
+        senderEmail: "jordan.lee@service.net",
         emailSubject: "Invoice overdue reminder",
         lastModifiedDate: "2026-08-03 03:40 PM",
         isStarred: false,
@@ -1366,7 +1386,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "08:22 AM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "We received your reminder and are processing payment today.",
                 timestamp: "08:37 AM"
             }
@@ -1375,7 +1395,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 5,
         senderName: "Avery Brooks",
-        senderAddress: "avery.brooks@designhub.io",
+        senderEmail: "avery.brooks@designhub.io",
         emailSubject: "Brand refresh moodboard",
         lastModifiedDate: "2026-08-03 05:05 PM",
         isStarred: false,
@@ -1386,7 +1406,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "02:14 PM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "The concept looks great. Let’s run this by the creative team tomorrow.",
                 timestamp: "02:29 PM"
             }
@@ -1395,7 +1415,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 6,
         senderName: "Harper Kim",
-        senderAddress: "harper.kim@marketpulse.com",
+        senderEmail: "harper.kim@marketpulse.com",
         emailSubject: "Campaign performance review",
         lastModifiedDate: "2026-06-20",
         isStarred: false,
@@ -1406,7 +1426,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "10:05 AM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "Thanks Harpers, I’ll prepare the follow-up report for Friday.",
                 timestamp: "10:22 AM"
             }
@@ -1415,7 +1435,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 7,
         senderName: "Ethan Murphy",
-        senderAddress: "ethan.murphy@cloudsafe.com",
+        senderEmail: "ethan.murphy@cloudsafe.com",
         emailSubject: "Security patch rollout",
         lastModifiedDate: "2026-06-19",
         isStarred: true,
@@ -1427,7 +1447,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "03:40 PM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "Confirmed. We’ll monitor the system and report any issues immediately.",
                 timestamp: "03:55 PM"
             }
@@ -1436,7 +1456,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 8,
         senderName: "Isabella Grant",
-        senderAddress: "isabella.grant@events.io",
+        senderEmail: "isabella.grant@events.io",
         emailSubject: "Conference sponsorship options",
         lastModifiedDate: "2026-06-18",
         isStarred: false,
@@ -1447,7 +1467,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "09:18 AM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "Please send the pricing details and attendee demographics when ready.",
                 timestamp: "09:30 AM"
             }
@@ -1456,7 +1476,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 9,
         senderName: "Owen Turner",
-        senderAddress: "owen.turner@fintrack.com",
+        senderEmail: "owen.turner@fintrack.com",
         emailSubject: "Quarterly budget review",
         lastModifiedDate: "2026-06-17",
         isStarred: true,
@@ -1467,7 +1487,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "01:45 PM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "Tuesday works. I’ll send a calendar invite with the agenda.",
                 timestamp: "01:52 PM"
             }
@@ -1476,7 +1496,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 10,
         senderName: "Camila Ortiz",
-        senderAddress: "camila.ortiz@hrconnect.org",
+        senderEmail: "camila.ortiz@hrconnect.org",
         emailSubject: "New hire onboarding checklist",
         lastModifiedDate: "2026-06-16",
         isStarred: false,
@@ -1487,7 +1507,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "08:50 AM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "Thanks, I’ll review it and confirm the orientation schedule.",
                 timestamp: "09:03 AM"
             }
@@ -1496,7 +1516,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 11,
         senderName: "Ryan Sanders",
-        senderAddress: "ryan.sanders@partnerlab.com",
+        senderEmail: "ryan.sanders@partnerlab.com",
         emailSubject: "Feature request for analytics dashboard",
         lastModifiedDate: "2026-06-15",
         isStarred: true,
@@ -1507,7 +1527,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "05:12 PM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "Yes, I’ll talk to product and get a feasibility estimate this week.",
                 timestamp: "05:27 PM"
             }
@@ -1516,7 +1536,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 12,
         senderName: "Zoe Patel",
-        senderAddress: "zoe.patel@community.org",
+        senderEmail: "zoe.patel@community.org",
         emailSubject: "Volunteer coordination update",
         lastModifiedDate: "2026-06-14",
         isStarred: false,
@@ -1528,7 +1548,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "07:10 AM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "Fantastic news. I’ll share the updated support schedule with the team.",
                 timestamp: "07:24 AM"
             }
@@ -1537,7 +1557,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 13,
         senderName: "Chloe Nguyen",
-        senderAddress: "chloe.nguyen@techworks.com",
+        senderEmail: "chloe.nguyen@techworks.com",
         emailSubject: "Client demo preparation",
         lastModifiedDate: "2026-06-13",
         isStarred: true,
@@ -1548,7 +1568,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "11:55 AM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "We are finalizing the slides and will rehearse tomorrow.",
                 timestamp: "12:07 PM"
             }
@@ -1557,7 +1577,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 14,
         senderName: "Liam Jackson",
-        senderAddress: "liam.jackson@logistics.co",
+        senderEmail: "liam.jackson@logistics.co",
         emailSubject: "Shipment tracking issue",
         lastModifiedDate: "2026-06-12",
         isStarred: false,
@@ -1568,7 +1588,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "03:33 PM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "Please keep me posted and share the new estimated delivery date.",
                 timestamp: "03:47 PM"
             }
@@ -1577,7 +1597,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 15,
         senderName: "Grace Park",
-        senderAddress: "grace.park@advisory.com",
+        senderEmail: "grace.park@advisory.com",
         emailSubject: "Legal review request",
         lastModifiedDate: "2026-06-11",
         isStarred: true,
@@ -1588,7 +1608,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "10:02 AM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "I’m sending the draft now; please let me know if any revisions are needed.",
                 timestamp: "10:18 AM"
             }
@@ -1597,7 +1617,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 16,
         senderName: "Nina Flores",
-        senderAddress: "nina.flores@studio.co",
+        senderEmail: "nina.flores@studio.co",
         emailSubject: "Design system updates",
         lastModifiedDate: "2026-06-10",
         isStarred: false,
@@ -1609,7 +1629,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "01:10 PM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "Thanks, I’ll review the tokens and component spacing changes today.",
                 timestamp: "01:26 PM"
             }
@@ -1618,7 +1638,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 17,
         senderName: "Marcus Bell",
-        senderAddress: "marcus.bell@northwind.com",
+        senderEmail: "marcus.bell@northwind.com",
         emailSubject: "Supplier delivery confirmation",
         lastModifiedDate: "2026-06-09",
         isStarred: true,
@@ -1630,7 +1650,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "09:48 AM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "Perfect, I’ll update the receiving schedule and notify the team.",
                 timestamp: "09:57 AM"
             }
@@ -1639,7 +1659,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 18,
         senderName: "Priya Shah",
-        senderAddress: "priya.shah@launchpad.io",
+        senderEmail: "priya.shah@launchpad.io",
         emailSubject: "Launch checklist for Friday",
         lastModifiedDate: "2026-06-08",
         isStarred: false,
@@ -1651,7 +1671,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "04:05 PM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "Yes, I’ll send the finalized checklist in a few minutes.",
                 timestamp: "04:16 PM"
             }
@@ -1660,7 +1680,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 19,
         senderName: "Daniel Kim",
-        senderAddress: "daniel.kim@atlas.dev",
+        senderEmail: "daniel.kim@atlas.dev",
         emailSubject: "Weekly engineering sync",
         lastModifiedDate: "2026-06-07",
         isStarred: true,
@@ -1672,7 +1692,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "06:20 PM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "Great, I’ll add the agenda items and share the invite shortly.",
                 timestamp: "06:31 PM"
             }
@@ -1681,7 +1701,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 20,
         senderName: "Ella Thompson",
-        senderAddress: "ella.thompson@brightlabs.com",
+        senderEmail: "ella.thompson@brightlabs.com",
         emailSubject: "Customer interview notes",
         lastModifiedDate: "2026-06-06",
         isStarred: false,
@@ -1693,7 +1713,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "11:40 AM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "Thanks, I’ll synthesize the feedback and share the summary this afternoon.",
                 timestamp: "11:52 AM"
             }
@@ -1702,7 +1722,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 21,
         senderName: "Samuel Ortiz",
-        senderAddress: "samuel.ortiz@northstar.io",
+        senderEmail: "samuel.ortiz@northstar.io",
         emailSubject: "Board meeting agenda",
         lastModifiedDate: "2026-06-05",
         isStarred: true,
@@ -1714,7 +1734,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "08:05 AM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "I’ll review it and send comments before the end of the day.",
                 timestamp: "08:19 AM"
             }
@@ -1723,7 +1743,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 22,
         senderName: "Maya Singh",
-        senderAddress: "maya.singh@greenline.org",
+        senderEmail: "maya.singh@greenline.org",
         emailSubject: "Community outreach plan",
         lastModifiedDate: "2026-06-04",
         isStarred: false,
@@ -1735,7 +1755,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "03:12 PM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "Looks good, I’ll share it with the regional team tomorrow.",
                 timestamp: "03:24 PM"
             }
@@ -1744,7 +1764,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 23,
         senderName: "Jasper Cole",
-        senderAddress: "jasper.cole@pixelcraft.dev",
+        senderEmail: "jasper.cole@pixelcraft.dev",
         emailSubject: "Prototype feedback request",
         lastModifiedDate: "2026-06-03",
         isStarred: true,
@@ -1756,7 +1776,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "01:00 PM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "Absolutely, I’ll send my notes after I review the interactions.",
                 timestamp: "01:15 PM"
             }
@@ -1765,7 +1785,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 24,
         senderName: "Lila Brooks",
-        senderAddress: "lila.brooks@sunrise.net",
+        senderEmail: "lila.brooks@sunrise.net",
         emailSubject: "Travel reimbursement form",
         lastModifiedDate: "2026-06-02",
         isStarred: false,
@@ -1776,7 +1796,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "09:30 AM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "Thanks, I’ll complete it and send it to finance today.",
                 timestamp: "09:42 AM"
             }
@@ -1785,7 +1805,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 25,
         senderName: "Henry Adams",
-        senderAddress: "henry.adams@warehouseplus.com",
+        senderEmail: "henry.adams@warehouseplus.com",
         emailSubject: "Inventory variance report",
         lastModifiedDate: "2026-06-01",
         isStarred: true,
@@ -1797,7 +1817,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "05:55 PM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "I’ll review the numbers and follow up with the warehouse team.",
                 timestamp: "06:07 PM"
             }
@@ -1806,7 +1826,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 26,
         senderName: "Sophia Reed",
-        senderAddress: "sophia.reed@meridian.app",
+        senderEmail: "sophia.reed@meridian.app",
         emailSubject: "Quarterly goals update",
         lastModifiedDate: "2026-05-31",
         isStarred: false,
@@ -1818,7 +1838,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "10:18 AM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "Perfect, I’ll review the targets and share feedback by noon.",
                 timestamp: "10:29 AM"
             }
@@ -1827,7 +1847,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 27,
         senderName: "Oliver James",
-        senderAddress: "oliver.james@tideworks.com",
+        senderEmail: "oliver.james@tideworks.com",
         emailSubject: "Vendor onboarding packet",
         lastModifiedDate: "2026-05-30",
         isStarred: true,
@@ -1839,7 +1859,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "02:40 PM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "Great, I’ll review the compliance items and send approval.",
                 timestamp: "02:53 PM"
             }
@@ -1848,7 +1868,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 28,
         senderName: "Amara Lewis",
-        senderAddress: "amara.lewis@lumen.ai",
+        senderEmail: "amara.lewis@lumen.ai",
         emailSubject: "AI model evaluation results",
         lastModifiedDate: "2026-05-29",
         isStarred: false,
@@ -1859,7 +1879,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "04:22 PM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "Thanks, I’ll compare them with the previous benchmark this evening.",
                 timestamp: "04:34 PM"
             }
@@ -1868,7 +1888,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 29,
         senderName: "Theo Martinez",
-        senderAddress: "theo.martinez@clearsense.com",
+        senderEmail: "theo.martinez@clearsense.com",
         emailSubject: "Customer retention strategy",
         lastModifiedDate: "2026-05-28",
         isStarred: true,
@@ -1880,7 +1900,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "07:08 AM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "Excellent, I’ll review the recommendations and provide feedback tomorrow.",
                 timestamp: "07:19 AM"
             }
@@ -1889,7 +1909,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 30,
         senderName: "Isla Bennett",
-        senderAddress: "isla.bennett@harbor.io",
+        senderEmail: "isla.bennett@harbor.io",
         emailSubject: "Event sponsorship follow-up",
         lastModifiedDate: "2026-05-27",
         isStarred: false,
@@ -1901,7 +1921,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "12:15 PM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "Absolutely, I’ll send the follow-up notes this afternoon.",
                 timestamp: "12:27 PM"
             }
@@ -1910,7 +1930,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 31,
         senderName: "Caleb Foster",
-        senderAddress: "caleb.foster@evergreen.co",
+        senderEmail: "caleb.foster@evergreen.co",
         emailSubject: "Sustainability report draft",
         lastModifiedDate: "2026-05-26",
         isStarred: true,
@@ -1922,7 +1942,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "06:42 PM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "Thanks, I’ll review the metrics and send comments tonight.",
                 timestamp: "06:55 PM"
             }
@@ -1931,7 +1951,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 32,
         senderName: "Ruby Nguyen",
-        senderAddress: "ruby.nguyen@bluepeak.com",
+        senderEmail: "ruby.nguyen@bluepeak.com",
         emailSubject: "Partnership proposal outline",
         lastModifiedDate: "2026-05-25",
         isStarred: false,
@@ -1943,7 +1963,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "03:06 PM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "Perfect, I’ll review it and suggest a few edits tomorrow.",
                 timestamp: "03:18 PM"
             }
@@ -1952,7 +1972,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 33,
         senderName: "Elias Parker",
-        senderAddress: "elias.parker@mountainlabs.io",
+        senderEmail: "elias.parker@mountainlabs.io",
         emailSubject: "Infrastructure upgrade plan",
         lastModifiedDate: "2026-05-24",
         isStarred: true,
@@ -1964,7 +1984,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "08:40 AM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "Great, I’ll circulate it to the relevant teams after lunch.",
                 timestamp: "08:51 AM"
             }
@@ -1973,7 +1993,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 34,
         senderName: "Tessa Ward",
-        senderAddress: "tessa.ward@echohealth.org",
+        senderEmail: "tessa.ward@echohealth.org",
         emailSubject: "Patient feedback summary",
         lastModifiedDate: "2026-05-23",
         isStarred: false,
@@ -1984,7 +2004,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "10:05 AM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "Thanks, I’ll review the trends and share a short report later.",
                 timestamp: "10:16 AM"
             }
@@ -1993,7 +2013,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 35,
         senderName: "Jonah Brooks",
-        senderAddress: "jonah.brooks@signalpay.com",
+        senderEmail: "jonah.brooks@signalpay.com",
         emailSubject: "Payment processing alert",
         lastModifiedDate: "2026-05-22",
         isStarred: true,
@@ -2005,7 +2025,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "05:14 PM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "I’m investigating and will update the incident channel shortly.",
                 timestamp: "05:27 PM"
             }
@@ -2014,7 +2034,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 36,
         senderName: "Zara Collins",
-        senderAddress: "zara.collins@daybreak.ai",
+        senderEmail: "zara.collins@daybreak.ai",
         emailSubject: "Research findings summary",
         lastModifiedDate: "2026-05-21",
         isStarred: false,
@@ -2026,7 +2046,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "01:28 PM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "Excellent, I’ll review the insights and integrate them into the roadmap.",
                 timestamp: "01:39 PM"
             }
@@ -2035,7 +2055,7 @@ const inboxList: InboxTableColumn[] = [
     {
         id: 37,
         senderName: "Noah Brooks",
-        senderAddress: "noah.brooks@brightpath.dev",
+        senderEmail: "noah.brooks@brightpath.dev",
         emailSubject: "Release readiness checklist",
         lastModifiedDate: "2026-05-20",
         isStarred: true,
@@ -2047,7 +2067,7 @@ const inboxList: InboxTableColumn[] = [
                 timestamp: "04:48 PM"
             },
             {
-                name: "You",
+                name: "Jane Doe",
                 content: "Perfect, I’ll confirm the pending items before the release window.",
                 timestamp: "04:59 PM"
             }
@@ -2070,11 +2090,72 @@ const offerCarouselData: OfferCarouselData[] = [
 const inboxTableColumnId = {
     id: "id",
     senderName: "senderName",
-    senderAddress: "senderAddress",
+    senderEmail: "senderEmail",
     emailSubject: "emailSubject",
     lastModifiedDate: "lastModifiedDate",
     isStarred: "isStarred",
     label: "label",
 }
 
-export { navigation, products, inboxMenu, inboxDefaultLabels, inboxList, insightData, salesChartData, dealsData, offerCarouselData, inboxTableColumnId };
+const inboxTableButtonGroups: ButtonGroupItem[] =[
+    {
+        name: "Download",
+        icon: <Download size={16} />,
+        onClick: () => {
+            console.log("Download button clicked");
+        }
+    },
+    {
+        name: "Info",
+        icon: <Info size={16} />,
+        onClick: () => {
+            console.log("Info button clicked");
+        }
+    },
+    {
+        name: "Delete",
+        icon: <Trash size={16} />,
+        onClick: () => {
+            console.log("Delete button clicked");
+        }
+    }
+]
+
+const conversationButtonGroup: ButtonGroupItem[] = [
+    {
+        name: "Print",
+        icon: <Printer size={16} />,
+        onClick: () => {
+            console.log("Print button clicked");
+        }
+    },
+    {
+        name: "Favorite",
+        icon: <Star size={16} />,
+        onClick: () => {
+            console.log("Favorite button clicked");
+        }
+    },
+    {
+        name: "Delete",
+        icon: <Trash size={16} />,
+        onClick: () => {
+            console.log("Delete button clicked");
+        }
+    }
+]
+
+export {
+    navigation,
+    products,
+    inboxMenu,
+    inboxDefaultLabels,
+    inboxList,
+    insightData,
+    salesChartData,
+    dealsData,
+    offerCarouselData,
+    inboxTableColumnId,
+    inboxTableButtonGroups,
+    conversationButtonGroup
+};

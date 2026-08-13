@@ -20,7 +20,7 @@ const labels = {
 type inboxListItem = {
     id: number;
     senderName: string;
-    senderAddress: string;
+    senderEmail: string;
     emailSubject: string;
     lastModifiedDate: string;
     label?: typeof labels[keyof typeof labels];
@@ -111,7 +111,7 @@ type ProductProps = {
 interface InboxTableColumn {
     id: number;
     senderName: string;
-    senderAddress: string;
+    senderEmail: string;
     emailSubject: string;
     lastModifiedDate: string;
     isStarred: boolean;
@@ -142,6 +142,12 @@ interface NavigationRoutes {
     }
 }
 
+type ButtonGroupItem = {
+    name: string;
+    icon?: ReactNode;
+    onClick: () => void;
+}
+
 export type {
     labelColor,
     inboxListItem,
@@ -153,7 +159,9 @@ export type {
     ProductProps,
     InboxTableColumn,
     DataTableProps,
-    NavigationRoutes
+    NavigationRoutes,
+    NavItem,
+    ButtonGroupItem
 };
 
 export { SaleInsightKey, Months, productDealStates, labels };

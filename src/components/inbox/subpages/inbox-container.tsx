@@ -1,16 +1,12 @@
 import * as React from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useInboxListApi } from "@/services";
 import { Card } from "@/components/ui/card";
 import SearchInput from "@/components/search-input";
-import { ButtonGroup, ButtonGroupSeparator } from "@/components/ui/button-group"
 import { inboxTableColumns, DataTable } from "@/components/inbox";
 import { Button } from "@/components/ui/button"
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipTrigger,
-} from "@/components/ui/tooltip"
-import { Download, Info, Trash, ChevronLeft, ChevronRight } from "lucide-react";
+import ButtonContainer from "@/components/button-group-container";
+import { inboxTableButtonGroups } from "@/constants";
 
 function InboxContainer() {
 
@@ -47,40 +43,7 @@ function InboxContainer() {
                         <div className="overflow-hidden rounded-md border">
                             <div className="flex items-center justify-between p-4 gap-4">
                                 <SearchInput placeholder="Search mail" />
-                                <ButtonGroup>
-                                    <Tooltip>
-                                        <TooltipTrigger asChild>
-                                            <Button variant="outline" size="icon">
-                                                <Download size={16} />
-                                            </Button>
-                                        </TooltipTrigger>
-                                        <TooltipContent>
-                                            <p>Download</p>
-                                        </TooltipContent>
-                                    </Tooltip>
-                                    <ButtonGroupSeparator />
-                                    <Tooltip>
-                                        <TooltipTrigger asChild>
-                                            <Button variant="outline" size="icon">
-                                                <Info size={16} />
-                                            </Button>
-                                        </TooltipTrigger>
-                                        <TooltipContent>
-                                            <p>Info</p>
-                                        </TooltipContent>
-                                    </Tooltip>
-                                    <ButtonGroupSeparator />
-                                    <Tooltip>
-                                        <TooltipTrigger asChild>
-                                            <Button variant="outline" size="icon">
-                                                <Trash size={16} />
-                                            </Button>
-                                        </TooltipTrigger>
-                                        <TooltipContent>
-                                            <p>Delete</p>
-                                        </TooltipContent>
-                                    </Tooltip>
-                                </ButtonGroup>
+                                <ButtonContainer buttonGroups={inboxTableButtonGroups} />
                             </div>
                             <DataTable columns={inboxTableColumns} data={inboxListData?.inboxList || []} />
                         </div>
