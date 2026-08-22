@@ -16,7 +16,7 @@ function ButtonGroupContainer({ buttonGroups }: { buttonGroups: ButtonGroupItem[
           <Tooltip key={index}>
             <TooltipTrigger asChild>
               {item.icon ? (
-                <Button variant="outline" size="icon" onClick={item.onClick}>
+                <Button variant="outline" size="icon" onClick={item.onClick} {...item.disabled && {disabled: item.disabled}}>
                   {item.icon}
                 </Button>
               ) : (

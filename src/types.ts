@@ -147,7 +147,12 @@ interface NavigationRoutes {
 type ButtonGroupItem = {
     name: string;
     icon?: ReactNode;
+    disabled?:boolean;
     onClick: () => void;
+}
+
+type excelSheetObject = {
+    senderEmail: string
 }
 
 export type {
@@ -163,7 +168,8 @@ export type {
     DataTableProps,
     NavigationRoutes,
     NavItem,
-    ButtonGroupItem
+    ButtonGroupItem,
+    excelSheetObject
 };
 
 export { SaleInsightKey, Months, productDealStates, labels };

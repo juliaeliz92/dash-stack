@@ -44,7 +44,7 @@ function Conversation() {
                             </Bubble>
                         ))}
                     </CardContent>
-                    <CardFooter className="p-4 border-t border-gray-200 gap-2 h-[60px]">
+                    <CardFooter className="p-6 border-t border-gray-200 gap-4 h-[60px]">
                         <Mic size={20} />
                         <Input placeholder="Type a message..." className="flex-1 border-none" />
                         <Paperclip size={20} />

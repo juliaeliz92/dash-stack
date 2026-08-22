@@ -7,8 +7,9 @@ import { inboxTableColumns, DataTable } from "@/components/inbox";
 import { Button } from "@/components/ui/button"
 import ButtonContainer from "@/components/button-group-container";
 import { useQueryClient } from "@tanstack/react-query";
-import type { ButtonGroupItem, InboxTableColumn } from "@/types";
+import type { ButtonGroupItem, InboxTableColumn, excelSheetObject } from "@/types";
 import { toast } from "sonner"
+import { utils, writeFile } from 'xlsx'
 
 function InboxContainer() {
 
@@ -23,8 +24,19 @@ function InboxContainer() {
         {
             name: "Download",
             icon: <Download size={16} />,
+            disabled: Object.keys(rowSelection).length === 0,
             onClick: () => {
-                console.log("Download button clicked");
+                const listOutput: excelSheetObject[] = []
+                Object.keys(rowSelection).map(ind => {
+                    if(inboxListData?.inboxList[Number(ind)]['senderEmail'])
+                        listOutput.push({ senderEmail: inboxListData?.inboxList[Number(ind)]['senderEmail']})
+                })
+                const worksheet = utils.json_to_sheet(listOutput);
+                const workbook = utils.book_new();
+                utils.book_append_sheet(workbook, worksheet, "Emails");
+                writeFile(workbook, "Email_Report.xlsx");
+                toast.success("Email(s) printed")
+                setRowSelection({})
             }
         },
         {
@@ -37,6 +49,7 @@ function InboxContainer() {
         {
             name: "Delete",
             icon: <Trash size={16} />,
+            disabled: Object.keys(rowSelection).length === 0,
             onClick: () => {
                 queryClient.setQueryData(
                     ["inboxListApi", firstIndex, lastIndex],
