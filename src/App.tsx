@@ -7,6 +7,7 @@ import {
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { NavBar, SideNavigation } from "@/components"
 import { navigation } from "@/constants.tsx";
+import { Toaster } from "@/components/ui/sonner"
 
 const queryClient = new QueryClient();
 
@@ -14,6 +15,7 @@ export function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
+        <Toaster />
         <SidebarProvider>
           <SideNavigation />
           <SidebarInset>

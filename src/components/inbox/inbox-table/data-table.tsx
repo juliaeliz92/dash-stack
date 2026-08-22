@@ -1,4 +1,3 @@
-import * as React from "react"
 import { useNavigate } from "react-router"
 import {
   flexRender,
@@ -16,15 +15,20 @@ import { inboxTableColumnId } from "@/constants";
 import { Star } from "lucide-react";
 import { InboxLabel } from "@/components/inbox";
 
-function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValue>) {
-  const [rowSelection, setRowSelection] = React.useState({})
+function DataTable<TData, TValue>({ columns, data, rowSelection, onRowSelectionChange }: DataTableProps<TData, TValue>) {
   const navigate = useNavigate();
+
   const table = useReactTable({
     columns,
     data,
     getCoreRowModel: getCoreRowModel(),
     manualPagination: true,
-    onRowSelectionChange: setRowSelection,
+    onRowSelectionChange: (updater) => {
+      const newSelection = typeof updater === 'function'
+        ? updater(rowSelection)
+        : updater;
+      onRowSelectionChange?.(newSelection);
+    },
     state: {
       rowSelection,
     },

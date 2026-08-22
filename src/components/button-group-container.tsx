@@ -1,3 +1,4 @@
+import React from "react";
 import { Button } from "@/components/ui/button"
 import { ButtonGroup, ButtonGroupSeparator } from "@/components/ui/button-group"
 import {
@@ -11,7 +12,7 @@ function ButtonGroupContainer({ buttonGroups }: { buttonGroups: ButtonGroupItem[
   return (
     <ButtonGroup>
       {buttonGroups.map((item, index) => (
-        <>
+        <React.Fragment key={index}>
           <Tooltip key={index}>
             <TooltipTrigger asChild>
               {item.icon ? (
@@ -29,7 +30,7 @@ function ButtonGroupContainer({ buttonGroups }: { buttonGroups: ButtonGroupItem[
             </TooltipContent>
           </Tooltip>
           {index < buttonGroups.length - 1 && <ButtonGroupSeparator />}
-        </>
+        </React.Fragment>
       ))}
     </ButtonGroup>
   );

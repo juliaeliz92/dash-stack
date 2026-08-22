@@ -18,7 +18,11 @@ export const inboxTableColumns: ColumnDef<InboxTableColumn>[] = [
     cell: ({ row }) => (
       <Checkbox
         checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
+        onCheckedChange={(value) => 
+          row.toggleSelected(!!value) 
+        }
+        onClick={(e) => e.stopPropagation()}
+        className="translate-y-[2px] hover:cursor-pointer hover:opacity-80"
         aria-label="Select row"
       />
     ),

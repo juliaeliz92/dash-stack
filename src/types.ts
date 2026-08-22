@@ -125,7 +125,9 @@ interface InboxTableColumn {
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
-    data: TData[]
+    data: TData[],
+    rowSelection: Record<string, boolean>;
+    onRowSelectionChange?: (rowSelection: Record<string, boolean>) => void;
 }
 
 interface NavItem {

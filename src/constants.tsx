@@ -9,8 +9,6 @@ import {
     MessageCircleCheck,
     Trash,
     Trash2,
-    Download,
-    Info,
     Printer
 } from "lucide-react";
 import type {
@@ -2097,30 +2095,6 @@ const inboxTableColumnId = {
     label: "label",
 }
 
-const inboxTableButtonGroups: ButtonGroupItem[] =[
-    {
-        name: "Download",
-        icon: <Download size={16} />,
-        onClick: () => {
-            console.log("Download button clicked");
-        }
-    },
-    {
-        name: "Info",
-        icon: <Info size={16} />,
-        onClick: () => {
-            console.log("Info button clicked");
-        }
-    },
-    {
-        name: "Delete",
-        icon: <Trash size={16} />,
-        onClick: () => {
-            console.log("Delete button clicked");
-        }
-    }
-]
-
 const conversationButtonGroup: ButtonGroupItem[] = [
     {
         name: "Print",
@@ -2156,6 +2130,5 @@ export {
     dealsData,
     offerCarouselData,
     inboxTableColumnId,
-    inboxTableButtonGroups,
     conversationButtonGroup
 };
