@@ -7,6 +7,7 @@ import InboxSidebarMenu from "./inbox-sidebar-menu";
 import DataTable from "./inbox-table/data-table";
 import {inboxTableColumns} from "./inbox-table/columns";
 import InboxLabel from "./inbox-label";
+import SpeechToText from "./speech-to-text";
 
 export {
     ComposeEmailDialog,
@@ -17,5 +18,6 @@ export {
     InboxSidebarMenu,
     DataTable,
     inboxTableColumns,
-    InboxLabel
+    InboxLabel,
+    SpeechToText
 };

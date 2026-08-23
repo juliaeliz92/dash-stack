@@ -18,6 +18,7 @@ import { navigation } from "@/constants.tsx"
 export function SideNavigation() {
 
     const location = useLocation();
+
     return (<Sidebar className="overflow-auto">
         <SidebarContent className="bg-white dark:bg-gray-900">
             <SidebarHeader>
@@ -35,11 +36,11 @@ export function SideNavigation() {
                         {nav.group.header && <SidebarGroupLabel>{nav.group.header}</SidebarGroupLabel>}
                         <SidebarGroupContent>
                             <SidebarMenu>
-                                {nav.group.items.map((item, index1) => (
-                                    <SidebarMenuItem key={index1} className={`pl-16 py-4 hover:bg-primary hover:text-white rounded-sm ${location.pathname === item.link ? "bg-primary text-white" : ""}`}>
+                                {nav.group.items.map((item, index1) => {
+                                    return(<SidebarMenuItem key={index1} className={`pl-16 py-4 hover:bg-primary hover:text-white rounded-sm ${location.pathname.endsWith(item.link) ? "bg-primary text-white" : ""}`}>
                                         <Link to={item.link}>{item.name}</Link>
                                     </SidebarMenuItem>
-                                ))}
+                                )})}
                             </SidebarMenu>
                         </SidebarGroupContent>
                     </SidebarGroup>

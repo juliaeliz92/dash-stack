@@ -155,6 +155,18 @@ type excelSheetObject = {
     senderEmail: string
 }
 
+interface SpeechRecognitionEvent extends Event {
+    resultIndex: number;
+    results: SpeechRecognitionResultList;
+}
+
+interface CustomSpeechRecognition extends EventTarget {
+    continuous: boolean;
+    onresult: (event: Event) => void;
+    start: () => void;
+    stop: () => void;
+}
+
 export type {
     labelColor,
     inboxListItem,
@@ -169,7 +181,9 @@ export type {
     NavigationRoutes,
     NavItem,
     ButtonGroupItem,
-    excelSheetObject
+    excelSheetObject,
+    SpeechRecognitionEvent,
+    CustomSpeechRecognition
 };
 
 export { SaleInsightKey, Months, productDealStates, labels };
