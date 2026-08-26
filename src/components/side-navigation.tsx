@@ -37,7 +37,11 @@ export function SideNavigation() {
                         <SidebarGroupContent>
                             <SidebarMenu>
                                 {nav.group.items.map((item, index1) => {
-                                    return(<SidebarMenuItem key={index1} className={`pl-16 py-4 hover:bg-primary hover:text-white rounded-sm ${location.pathname.endsWith(item.link) ? "bg-primary text-white" : ""}`}>
+                                    let isActive = location.pathname.endsWith(item.link) ? "bg-primary text-white" : ""
+                                    if(item.children?.length) {
+                                        isActive = item.children.find(child => location.pathname.includes(child.name.toLowerCase()))?.name ? "bg-primary text-white" : ""
+                                    }
+                                    return(<SidebarMenuItem key={index1} className={`pl-16 py-4 hover:bg-primary hover:text-white rounded-sm ${isActive}`}>
                                         <Link to={item.link}>{item.name}</Link>
                                     </SidebarMenuItem>
                                 )})}
