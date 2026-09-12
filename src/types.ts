@@ -118,7 +118,8 @@ interface InboxTableColumn {
     label?: string;
     conversation: {
         name: string;
-        content: string;
+        content: string | File;
+        contentType: "text" | "file"
         timestamp: string;
     }[];
 }

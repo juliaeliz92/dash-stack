@@ -1302,26 +1302,31 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Mia Chen",
+                contentType: "text",
                 content: "Hi team, I attached the meeting notes and outlined the next actions.",
                 timestamp: "09:12 AM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Thanks, Mia. I will review these and update the task list by EOD.",
                 timestamp: "09:45 AM"
             },
             {
                 name: "Mia Chen",
+                contentType: "text",
                 content: "Perfect. I also added the action owners to the notes so we can track accountability across design, engineering, and marketing.",
                 timestamp: "10:03 AM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Great, I’ll share the revised timeline with the group and flag the items that need sign-off before Friday.",
                 timestamp: "10:18 AM"
             },
             {
                 name: "Mia Chen",
+                contentType: "text",
                 content: "Thanks! Please also let me know if you want me to send a quick recap to stakeholders after the review call.",
                 timestamp: "10:27 AM"
             }
@@ -1338,11 +1343,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Noah Patel",
+                contentType: "text",
                 content: "Please find the updated roadmap for Q3 attached.",
                 timestamp: "04:30 PM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Looks good. Can you clarify the release window for the mobile update?",
                 timestamp: "04:52 PM"
             }
@@ -1359,11 +1366,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Sofia Alvarez",
+                contentType: "text",
                 content: "I have one suggestion to improve the proposal before we send it out.",
                 timestamp: "11:05 AM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Thanks, Sofia. I will incorporate your feedback and resend shortly.",
                 timestamp: "11:18 AM"
             }
@@ -1380,11 +1389,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Jordan Lee",
+                contentType: "text",
                 content: "This is a reminder that invoice #789 is overdue. Please confirm payment status.",
                 timestamp: "08:22 AM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "We received your reminder and are processing payment today.",
                 timestamp: "08:37 AM"
             }
@@ -1400,11 +1411,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Avery Brooks",
+                contentType: "text",
                 content: "I shared the new moodboard concept for the brand refresh.",
                 timestamp: "02:14 PM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "The concept looks great. Let’s run this by the creative team tomorrow.",
                 timestamp: "02:29 PM"
             }
@@ -1420,11 +1433,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Harper Kim",
+                contentType: "text",
                 content: "Here is the campaign performance summary for last week.",
                 timestamp: "10:05 AM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Thanks Harpers, I’ll prepare the follow-up report for Friday.",
                 timestamp: "10:22 AM"
             }
@@ -1441,11 +1456,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Ethan Murphy",
+                contentType: "text",
                 content: "The security patch rollout is scheduled for tonight at 11 PM.",
                 timestamp: "03:40 PM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Confirmed. We’ll monitor the system and report any issues immediately.",
                 timestamp: "03:55 PM"
             }
@@ -1461,11 +1478,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Isabella Grant",
+                contentType: "text",
                 content: "I wanted to confirm the sponsorship tiers for the upcoming conference.",
                 timestamp: "09:18 AM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Please send the pricing details and attendee demographics when ready.",
                 timestamp: "09:30 AM"
             }
@@ -1481,11 +1500,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Owen Turner",
+                contentType: "text",
                 content: "Can we schedule a budget review for the finance team next Tuesday?",
                 timestamp: "01:45 PM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Tuesday works. I’ll send a calendar invite with the agenda.",
                 timestamp: "01:52 PM"
             }
@@ -1501,11 +1522,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Camila Ortiz",
+                contentType: "text",
                 content: "I’ve attached the onboarding checklist for the new hires starting next week.",
                 timestamp: "08:50 AM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Thanks, I’ll review it and confirm the orientation schedule.",
                 timestamp: "09:03 AM"
             }
@@ -1521,11 +1544,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Ryan Sanders",
+                contentType: "text",
                 content: "Could we add a custom filter option to the analytics dashboard?",
                 timestamp: "05:12 PM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Yes, I’ll talk to product and get a feasibility estimate this week.",
                 timestamp: "05:27 PM"
             }
@@ -1542,11 +1567,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Zoe Patel",
+                contentType: "text",
                 content: "Volunteer sign-ups have exceeded expectations for this weekend.",
                 timestamp: "07:10 AM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Fantastic news. I’ll share the updated support schedule with the team.",
                 timestamp: "07:24 AM"
             }
@@ -1562,11 +1589,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Chloe Nguyen",
+                contentType: "text",
                 content: "Are we ready for the client demo on Friday afternoon?",
                 timestamp: "11:55 AM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "We are finalizing the slides and will rehearse tomorrow.",
                 timestamp: "12:07 PM"
             }
@@ -1582,11 +1611,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Liam Jackson",
+                contentType: "text",
                 content: "There’s a delay in the shipment due to customs processing.",
                 timestamp: "03:33 PM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Please keep me posted and share the new estimated delivery date.",
                 timestamp: "03:47 PM"
             }
@@ -1602,11 +1633,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Grace Park",
+                contentType: "text",
                 content: "Can you send the contract draft for legal review by EOD?",
                 timestamp: "10:02 AM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "I’m sending the draft now; please let me know if any revisions are needed.",
                 timestamp: "10:18 AM"
             }
@@ -1623,11 +1656,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Nina Flores",
+                contentType: "text",
                 content: "I pushed the latest design system updates and shared the preview link.",
                 timestamp: "01:10 PM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Thanks, I’ll review the tokens and component spacing changes today.",
                 timestamp: "01:26 PM"
             }
@@ -1644,11 +1679,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Marcus Bell",
+                contentType: "text",
                 content: "The supplier confirmed the shipment will arrive before noon tomorrow.",
                 timestamp: "09:48 AM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Perfect, I’ll update the receiving schedule and notify the team.",
                 timestamp: "09:57 AM"
             }
@@ -1665,11 +1702,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Priya Shah",
+                contentType: "text",
                 content: "Can you confirm the final launch checklist before the Friday rehearsal?",
                 timestamp: "04:05 PM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Yes, I’ll send the finalized checklist in a few minutes.",
                 timestamp: "04:16 PM"
             }
@@ -1686,11 +1725,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Daniel Kim",
+                contentType: "text",
                 content: "The weekly engineering sync is set for tomorrow morning at 10 AM.",
                 timestamp: "06:20 PM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Great, I’ll add the agenda items and share the invite shortly.",
                 timestamp: "06:31 PM"
             }
@@ -1707,11 +1748,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Ella Thompson",
+                contentType: "text",
                 content: "I attached the customer interview notes from yesterday’s sessions.",
                 timestamp: "11:40 AM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Thanks, I’ll synthesize the feedback and share the summary this afternoon.",
                 timestamp: "11:52 AM"
             }
@@ -1728,11 +1771,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Samuel Ortiz",
+                contentType: "text",
                 content: "Please review the draft agenda for the board meeting next week.",
                 timestamp: "08:05 AM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "I’ll review it and send comments before the end of the day.",
                 timestamp: "08:19 AM"
             }
@@ -1749,11 +1794,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Maya Singh",
+                contentType: "text",
                 content: "Here is the updated community outreach plan for the month.",
                 timestamp: "03:12 PM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Looks good, I’ll share it with the regional team tomorrow.",
                 timestamp: "03:24 PM"
             }
@@ -1770,11 +1817,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Jasper Cole",
+                contentType: "text",
                 content: "Could you take a look at the latest prototype and share any feedback?",
                 timestamp: "01:00 PM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Absolutely, I’ll send my notes after I review the interactions.",
                 timestamp: "01:15 PM"
             }
@@ -1790,11 +1839,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Lila Brooks",
+                contentType: "text",
                 content: "I attached the travel reimbursement form for your review.",
                 timestamp: "09:30 AM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Thanks, I’ll complete it and send it to finance today.",
                 timestamp: "09:42 AM"
             }
@@ -1811,11 +1862,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Henry Adams",
+                contentType: "text",
                 content: "The inventory variance report shows a few discrepancies to investigate.",
                 timestamp: "05:55 PM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "I’ll review the numbers and follow up with the warehouse team.",
                 timestamp: "06:07 PM"
             }
@@ -1832,11 +1885,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Sophia Reed",
+                contentType: "text",
                 content: "I attached the quarterly goals update for the team review.",
                 timestamp: "10:18 AM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Perfect, I’ll review the targets and share feedback by noon.",
                 timestamp: "10:29 AM"
             }
@@ -1853,11 +1908,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Oliver James",
+                contentType: "text",
                 content: "The vendor onboarding packet is ready for your review.",
                 timestamp: "02:40 PM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Great, I’ll review the compliance items and send approval.",
                 timestamp: "02:53 PM"
             }
@@ -1873,11 +1930,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Amara Lewis",
+                contentType: "text",
                 content: "The latest AI model evaluation results are ready for review.",
                 timestamp: "04:22 PM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Thanks, I’ll compare them with the previous benchmark this evening.",
                 timestamp: "04:34 PM"
             }
@@ -1894,11 +1953,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Theo Martinez",
+                contentType: "text",
                 content: "I drafted a new customer retention strategy for the next quarter.",
                 timestamp: "07:08 AM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Excellent, I’ll review the recommendations and provide feedback tomorrow.",
                 timestamp: "07:19 AM"
             }
@@ -1915,11 +1976,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Isla Bennett",
+                contentType: "text",
                 content: "Can you follow up with the event sponsors before the end of the week?",
                 timestamp: "12:15 PM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Absolutely, I’ll send the follow-up notes this afternoon.",
                 timestamp: "12:27 PM"
             }
@@ -1936,11 +1999,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Caleb Foster",
+                contentType: "text",
                 content: "I shared the sustainability report draft for your review.",
                 timestamp: "06:42 PM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Thanks, I’ll review the metrics and send comments tonight.",
                 timestamp: "06:55 PM"
             }
@@ -1957,11 +2022,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Ruby Nguyen",
+                contentType: "text",
                 content: "I drafted an outline for the partnership proposal and shared it here.",
                 timestamp: "03:06 PM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Perfect, I’ll review it and suggest a few edits tomorrow.",
                 timestamp: "03:18 PM"
             }
@@ -1978,11 +2045,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Elias Parker",
+                contentType: "text",
                 content: "The infrastructure upgrade plan is ready for stakeholder review.",
                 timestamp: "08:40 AM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Great, I’ll circulate it to the relevant teams after lunch.",
                 timestamp: "08:51 AM"
             }
@@ -1998,11 +2067,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Tessa Ward",
+                contentType: "text",
                 content: "I attached the patient feedback summary from this week’s surveys.",
                 timestamp: "10:05 AM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Thanks, I’ll review the trends and share a short report later.",
                 timestamp: "10:16 AM"
             }
@@ -2019,11 +2090,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Jonah Brooks",
+                contentType: "text",
                 content: "We saw an unusual spike in payment processing activity this morning.",
                 timestamp: "05:14 PM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "I’m investigating and will update the incident channel shortly.",
                 timestamp: "05:27 PM"
             }
@@ -2040,11 +2113,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Zara Collins",
+                contentType: "text",
                 content: "I summarized the latest research findings for the product team.",
                 timestamp: "01:28 PM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Excellent, I’ll review the insights and integrate them into the roadmap.",
                 timestamp: "01:39 PM"
             }
@@ -2061,11 +2136,13 @@ const inboxList: InboxTableColumn[] = [
         conversation: [
             {
                 name: "Noah Brooks",
+                contentType: "text",
                 content: "The release readiness checklist is ready for sign-off.",
                 timestamp: "04:48 PM"
             },
             {
                 name: "Jane Doe",
+                contentType: "text",
                 content: "Perfect, I’ll confirm the pending items before the release window.",
                 timestamp: "04:59 PM"
             }
