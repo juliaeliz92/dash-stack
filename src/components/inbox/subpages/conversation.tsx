@@ -53,7 +53,6 @@ function Conversation() {
                     timestamp: new Date().toLocaleTimeString()
                 })
                 oldData.lastModifiedDate = new Date().toLocaleString()
-                console.log(oldData, selectedFile)
                 return oldData
             }
         );
@@ -77,7 +76,7 @@ function Conversation() {
             {isLoading && <div className="p-4">Loading...</div>}
             {error && <p>Error: {error.message}</p>}
             {data && (
-                <div className="flex flex-col h-full min-h-0 justify-between">
+                <div className="flex flex-col h-full min-h-0 justify-between relative">
                     <CardHeader className="flex items-center justify-between py-4 border-b border-gray-200">
                         <div className="flex items-center gap-4">
                             <Button
@@ -93,7 +92,7 @@ function Conversation() {
                         </div>
                         <ButtonGroupContainer buttonGroups={conversationButtonGroup} />
                     </CardHeader>
-                    <CardContent className="p-4 flex flex-col overflow-auto gap-2 content-start h-full relative">
+                    <CardContent className="p-4 flex flex-col overflow-auto gap-2 content-start h-full">
                         {data.conversation.map((message, index) => (
                             <Bubble
                                 key={index}
@@ -114,11 +113,13 @@ function Conversation() {
                                                 <AttachmentTitle>{message.content.name}</AttachmentTitle>
                                                 <AttachmentDescription>{Math.trunc(message.content.size/1000)} kB</AttachmentDescription>
                                             </AttachmentContent>
-=                                    </Attachment>}
+                                    </Attachment>}
                                 </BubbleContent>
                             </Bubble>
                         ))}
-                        {selectedFile && <Attachment className="w-full absolute bottom-0 left-0">
+                        
+                    </CardContent>
+                    {selectedFile && <Attachment className="w-full absolute bottom-0 left-0">
                                 <AttachmentMedia>
                                     <FileCodeIcon />
                                 </AttachmentMedia>
@@ -135,7 +136,6 @@ function Conversation() {
                                     </AttachmentAction>
                                 </AttachmentActions>
                             </Attachment>}
-                    </CardContent>
                     <CardFooter className="p-6 border-t border-gray-200 gap-4 h-[60px]">
                         <SpeechToText getTextFromSpeech={(text: string) => setTextValue(text)}/>
                         <Input

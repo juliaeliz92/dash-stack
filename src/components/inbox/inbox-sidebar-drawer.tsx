@@ -21,7 +21,7 @@ function InboxSidebarDrawer() {
                         <Menu className="w-6 h-6" />
                     </Button>
                 </DrawerTrigger>
-                <DrawerContent className="p-4 h-full overscroll-auto">
+                <DrawerContent className="p-4 overscroll-y-auto">
                     <DrawerHeader>
                         <DrawerTitle className="sr-only">Inbox Sidebar</DrawerTitle>
                         <DrawerDescription className="sr-only">

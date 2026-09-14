@@ -14,7 +14,7 @@ import Title from "./title";
 
 export function NavBar() {
   return (
-   <NavigationMenu className="min-w-full p-2 flex items-center justify-around">
+   <NavigationMenu className="min-w-full p-2 flex items-center justify-around lg:justify-between lg:px-4">
         <div className="md:hidden">
             <NavigationMenuList>
                 <NavigationMenuItem>
@@ -24,13 +24,15 @@ export function NavBar() {
                 </NavigationMenuItem>
             </NavigationMenuList>
         </div>
-        <NavigationMenuList className="md:hidden">
-            <NavigationMenuItem>
-                <NavigationMenuLink asChild href="/">
-                    <Title />
-                </NavigationMenuLink>
-            </NavigationMenuItem>
-        </NavigationMenuList>
+        <div className="md:hidden">
+            <NavigationMenuList>
+                <NavigationMenuItem>
+                    <NavigationMenuLink asChild href="/">
+                        <Title />
+                    </NavigationMenuLink>
+                </NavigationMenuItem>
+            </NavigationMenuList>
+        </div>
         <div className="hidden md:flex">
             <NavigationMenuList>
                 <SearchInput />
