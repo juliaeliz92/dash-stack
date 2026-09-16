@@ -1,6 +1,5 @@
 import * as React from "react";
 import { ChevronLeft, ChevronRight, Download, Info, Trash } from "lucide-react";
-import { useInboxListApi } from "@/services";
 import { Card } from "@/components/ui/card";
 import SearchInput from "@/components/search-input";
 import { inboxTableColumns, DataTable } from "@/components/inbox";
@@ -11,13 +10,12 @@ import type { ButtonGroupItem, InboxTableColumn, excelSheetObject } from "@/type
 import { toast } from "sonner"
 import { utils, writeFile } from 'xlsx'
 
-function InboxContainer() {
+function InboxContainer({ inboxListData, isInboxListLoading, inboxListError }: { inboxListData?: {inboxList: InboxTableColumn[], totalCount: number}, isInboxListLoading?: boolean, inboxListError?: Error | null}) {
 
     const [page, setPage] = React.useState(0);
     const [firstIndex, setFirstIndex] = React.useState(0);
     const [lastIndex, setLastIndex] = React.useState(14); // Assuming a default page size of 12
     const [rowSelection, setRowSelection] = React.useState<Record<string, boolean>>({});
-    const { data: inboxListData, isLoading: isInboxListLoading, error: inboxListError } = useInboxListApi(firstIndex, lastIndex);
     const queryClient = useQueryClient();
 
     const inboxTableButtonGroups: ButtonGroupItem[] = [
@@ -71,6 +69,7 @@ function InboxContainer() {
     const handleRowSelection = (newSelection: Record<string, boolean>) => {
         setRowSelection(newSelection)
     }
+    
     if (inboxListError) {
         return (
             <div className="flex items-center justify-center h-96">

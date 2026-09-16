@@ -1,5 +1,5 @@
 import { Dashboard, Products, Favorites, Inbox } from "@/pages";
-import { Conversation, InboxContainer } from "./components/inbox/subpages";
+import { Conversation, InboxTab, StarredTab } from "./components/inbox/subpages";
 import {
     Mail,
     Star,
@@ -325,14 +325,19 @@ const navigation: NavigationRoutes[] = [
                         {
                             name: "Inbox",
                             link: "/inbox",
-                            page: <InboxContainer />
+                            page: <InboxTab />
                         },
                         {
                             name: "conversation",
                             link: "/inbox/conversation/:id",
                             page: <Conversation />
-                        }
-                ]
+                        },
+                        {
+                            name: "starred",
+                            link: "/inbox/starred",
+                            page: <StarredTab />
+                        },
+                    ]
                 },
                 {
                     name: "Order Lists",
@@ -1213,7 +1218,7 @@ const inboxMenu = [
     },
     {
         name: "Starred",
-        link: "/starred",
+        link: "/inbox/starred",
         icon: <Star className="w-5 h-5" />,
         page: null,
         count: 45
@@ -2195,6 +2200,8 @@ const conversationButtonGroup: ButtonGroupItem[] = [
         }
     }
 ]
+
+
 
 export {
     navigation,

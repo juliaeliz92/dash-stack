@@ -6,7 +6,8 @@ import {
     offerCarouselDataApi,
     productApi,
     inboxListApi,
-    getConversationById
+    getConversationById,
+    inboxListStarredApi
 } from "@/apis";
 
 const useSalesInsights = () => {
@@ -82,6 +83,16 @@ const useConversationById = (id: number) => {
     return { data, isLoading, error };
 }
 
+const useInboxListStarredApi = (firstIndex: number, lastIndex: number) => {
+    const { data, isLoading, error } = useQuery({
+        queryKey: ['inboxListStarredApi', firstIndex, lastIndex],
+        queryFn: async () => {
+            return inboxListStarredApi(firstIndex, lastIndex);
+        }
+    });
+    return { data, isLoading, error };
+}
+
 export {
     useSalesInsights,
     useSalesChartData,
@@ -89,5 +100,6 @@ export {
     useOfferCarouselData,
     useProductApi,
     useInboxListApi,
-    useConversationById
+    useConversationById,
+    useInboxListStarredApi
 };

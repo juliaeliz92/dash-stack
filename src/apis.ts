@@ -71,6 +71,15 @@ const getConversationById = (id: number): Promise<InboxTableColumn | undefined> 
     });
 }
 
+const inboxListStarredApi = (firstIndex: number, lastIndex: number): Promise<{ inboxList: InboxTableColumn[], totalCount: number }> => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            const starredList = inboxList.filter((item) => item.isStarred);
+            resolve({ inboxList: starredList.slice(firstIndex, lastIndex + 1), totalCount: starredList.length });
+        }, 1000);
+    });
+}
+
 export {
     salesInsightsApi,
     saleChartDataApi,
@@ -78,5 +87,6 @@ export {
     offerCarouselDataApi,
     productApi,
     inboxListApi,
-    getConversationById
+    getConversationById,
+    inboxListStarredApi
 };
