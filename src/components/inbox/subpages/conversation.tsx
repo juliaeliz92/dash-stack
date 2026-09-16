@@ -25,12 +25,14 @@ import { useConversationById } from "@/services"
 import { InboxLabel, SpeechToText } from "@/components/inbox"
 import { ButtonGroupContainer } from "@/components"
 import { conversationButtonGroup } from "@/constants"
-import type { InboxTableColumn } from "@/types";
+import type { InboxTableColumn, InboxConversation } from "@/types";
 
 function Conversation() {
     const [textValue, setTextValue] = useState<string>('')
     const fileInputRef = useRef<HTMLInputElement>(null)
+    const imageInputRef = useRef<HTMLInputElement>(null)
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
+    const [selectedImage, setSelectedImage] = useState<File | null>(null);
     const { id } = useParams<{ id: string }>();
     const { data, isLoading, error } = useConversationById(Number(id));
     const queryClient = useQueryClient();
@@ -40,23 +42,34 @@ function Conversation() {
         queryClient.setQueryData(
             ["conversationById", Number(id)],
             (oldData: InboxTableColumn) => {
-                if(type === "text" && !textValue.length)
+
+                if(!textValue && !selectedFile && !selectedImage)
                     return oldData
 
-                if(selectedFile === null)
-                    return oldData
+                const modifiedData: Partial<InboxConversation> = {};
+                if(type === "text" && textValue.length) {
+                    modifiedData.content = textValue.trim();
+                }   
 
-                oldData.conversation.push({
-                    name: "Jane Doe",
-                    content: type === "text" ? textValue.trim() : selectedFile,
-                    contentType:  type === "text" ? "text" : "file",
-                    timestamp: new Date().toLocaleTimeString()
-                })
+                if(selectedFile !== null && type === "file") {
+                    modifiedData.content = selectedFile
+                }
+
+                if(selectedImage !== null && type === "image") {
+                    modifiedData.content = selectedImage
+                    modifiedData.thumbnail = URL.createObjectURL(selectedImage)
+                }
+
+                modifiedData.name = "Jane Doe"
+                modifiedData.contentType = type === "text" ? "text" : type === "file" ? "file" : "image"
+                modifiedData.timestamp = new Date().toLocaleTimeString()
+                oldData.conversation.push(modifiedData as InboxConversation)
                 oldData.lastModifiedDate = new Date().toLocaleString()
                 return oldData
             }
         );
         setSelectedFile(null)
+        setSelectedImage(null)
         setTextValue('')
     }
 
@@ -64,10 +77,21 @@ function Conversation() {
         fileInputRef?.current?.click();
     }
 
+    const handleUploadImage = () => {
+        imageInputRef?.current?.click();
+    }
+
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const files = event?.target?.files;
         if (files?.length) {
             setSelectedFile(files[0]);
+        }
+    }
+
+    const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const files = event?.target?.files;
+        if (files?.length) {
+            setSelectedImage(files[0]);
         }
     }
 
@@ -104,7 +128,7 @@ function Conversation() {
                                         <span className="font-semibold">{message.name}</span>
                                     </div>
                                     {typeof message.content === "string" ?
-                                    <p className="text-sm">{message.content}</p> :
+                                    <p className="text-sm">{message.content}</p> : message.contentType === "file" ?
                                     <Attachment>
                                             <AttachmentMedia>
                                                 <FileCodeIcon />
@@ -113,29 +137,54 @@ function Conversation() {
                                                 <AttachmentTitle>{message.content.name}</AttachmentTitle>
                                                 <AttachmentDescription>{Math.trunc(message.content.size/1000)} kB</AttachmentDescription>
                                             </AttachmentContent>
+                                    </Attachment> :
+                                    <Attachment>
+                                        <AttachmentMedia>
+                                            <img src={message.thumbnail} alt="attached image" className="w-10 h-10" />
+                                        </AttachmentMedia>
+                                        <AttachmentContent>
+                                            <AttachmentTitle>{message.content.name}</AttachmentTitle>
+                                            <AttachmentDescription>{Math.trunc(message.content.size / 1000)} kB</AttachmentDescription>
+                                        </AttachmentContent>
                                     </Attachment>}
                                 </BubbleContent>
                             </Bubble>
                         ))}
-                        
                     </CardContent>
                     {selectedFile && <Attachment className="w-full absolute bottom-0 left-0">
-                                <AttachmentMedia>
-                                    <FileCodeIcon />
-                                </AttachmentMedia>
-                                <AttachmentContent>
-                                    <AttachmentTitle>{selectedFile.name}</AttachmentTitle>
-                                    <AttachmentDescription>{Math.trunc(selectedFile.size/1000)} kB</AttachmentDescription>
-                                </AttachmentContent>
-                                <AttachmentActions>
-                                    <AttachmentAction aria-label="Upload file" onClick={() => sendMessage("file")}>
-                                       <Upload />
-                                    </AttachmentAction>
-                                <AttachmentAction aria-label="Remove file" onClick={() => setSelectedFile(null)}>
-                                        <XIcon />
-                                    </AttachmentAction>
-                                </AttachmentActions>
-                            </Attachment>}
+                        <AttachmentMedia>
+                            <FileCodeIcon />
+                        </AttachmentMedia>
+                        <AttachmentContent>
+                            <AttachmentTitle>{selectedFile.name}</AttachmentTitle>
+                            <AttachmentDescription>{Math.trunc(selectedFile.size/1000)} kB</AttachmentDescription>
+                        </AttachmentContent>
+                        <AttachmentActions>
+                            <AttachmentAction aria-label="Upload file" onClick={() => sendMessage("file")}>
+                                <Upload />
+                            </AttachmentAction>
+                        <AttachmentAction aria-label="Remove file" onClick={() => setSelectedFile(null)}>
+                                <XIcon />
+                            </AttachmentAction>
+                        </AttachmentActions>
+                    </Attachment>}
+                    {selectedImage && <Attachment className="w-full absolute bottom-0 left-0">
+                        <AttachmentMedia variant="image" className="w-10 h-10">
+                            <img src={URL.createObjectURL(selectedImage)} alt="attached image" />
+                        </AttachmentMedia>
+                        <AttachmentContent>
+                            <AttachmentTitle>{selectedImage.name}</AttachmentTitle>
+                            <AttachmentDescription>{Math.trunc(selectedImage.size/1000)} kB</AttachmentDescription>
+                        </AttachmentContent>
+                        <AttachmentActions>
+                            <AttachmentAction aria-label="Upload image" onClick={() => sendMessage("image")}>
+                                <Upload />
+                            </AttachmentAction>
+                            <AttachmentAction aria-label="Remove image" onClick={() => setSelectedImage(null)}>
+                                <XIcon />
+                            </AttachmentAction>
+                        </AttachmentActions>
+                    </Attachment>}  
                     <CardFooter className="p-6 border-t border-gray-200 gap-4 h-[60px]">
                         <SpeechToText getTextFromSpeech={(text: string) => setTextValue(text)}/>
                         <Input
@@ -150,9 +199,16 @@ function Conversation() {
                             onChange={handleFileChange}
                             className="hidden"
                         />
+                        <input
+                            type="file"
+                            ref={imageInputRef}
+                            accept="image/*"
+                            onChange={handleImageChange}
+                            className="hidden"
+                        />
                         <div className="hidden md:flex md:gap-3">
                             <Paperclip size={20} onClick={handleUploadFile} />
-                            <FileImage size={20} />
+                            <FileImage size={20} onClick={handleUploadImage} />
                         </div>
                         <Popover>
                             <PopoverTrigger asChild>

@@ -108,6 +108,14 @@ type ProductProps = {
     reviews: number;
 }
 
+interface InboxConversation {
+    name: string;
+    content: string | File;
+    contentType: "text" | "file" | "image";
+    timestamp: string;
+    thumbnail?: string;
+}
+
 interface InboxTableColumn {
     id: number;
     senderName: string;
@@ -116,14 +124,8 @@ interface InboxTableColumn {
     lastModifiedDate: string;
     isStarred: boolean;
     label?: string;
-    conversation: {
-        name: string;
-        content: string | File;
-        contentType: "text" | "file"
-        timestamp: string;
-    }[];
+    conversation: InboxConversation[];
 }
-
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[],
@@ -184,7 +186,8 @@ export type {
     ButtonGroupItem,
     excelSheetObject,
     SpeechRecognitionEvent,
-    CustomSpeechRecognition
+    CustomSpeechRecognition,
+    InboxConversation
 };
 
 export { SaleInsightKey, Months, productDealStates, labels };
