@@ -1,8 +1,8 @@
-import { useInboxListStarredApi } from "@/services";
+import { useInboxListStarredEmailsApi } from "@/services";
 import InboxContainer from "./inbox-container"
 
 function StarredTab() {
-    const { data, isLoading, error } = useInboxListStarredApi(0, 14);
+    const { data, isLoading, error } = useInboxListStarredEmailsApi(0, 14);
 
     return (
         <InboxContainer inboxListData={data} isInboxListLoading={isLoading} inboxListError={error} />

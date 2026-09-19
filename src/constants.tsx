@@ -1,5 +1,5 @@
 import { Dashboard, Products, Favorites, Inbox } from "@/pages";
-import { Conversation, InboxTab, StarredTab } from "./components/inbox/subpages";
+import { Conversation, InboxTab, StarredTab, SentTab } from "./components/inbox/subpages";
 import {
     Mail,
     Star,
@@ -337,6 +337,11 @@ const navigation: NavigationRoutes[] = [
                             link: "/inbox/starred",
                             page: <StarredTab />
                         },
+                        {
+                            name: "sent",
+                            link: "/inbox/sent",
+                            page: <SentTab />
+                        }
                     ]
                 },
                 {
@@ -1225,7 +1230,7 @@ const inboxMenu = [
     },
     {
         name: "Sent",
-        link: "/sent",
+        link: "/inbox/sent",
         icon: <Send className="w-5 h-5" />,
         page: null,
         count: 67

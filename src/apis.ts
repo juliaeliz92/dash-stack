@@ -71,11 +71,20 @@ const getConversationById = (id: number): Promise<InboxTableColumn | undefined> 
     });
 }
 
-const inboxListStarredApi = (firstIndex: number, lastIndex: number): Promise<{ inboxList: InboxTableColumn[], totalCount: number }> => {
+const inboxListStarredEmailsApi = (firstIndex: number, lastIndex: number): Promise<{ inboxList: InboxTableColumn[], totalCount: number }> => {
     return new Promise((resolve) => {
         setTimeout(() => {
             const starredList = inboxList.filter((item) => item.isStarred);
             resolve({ inboxList: starredList.slice(firstIndex, lastIndex + 1), totalCount: starredList.length });
+        }, 1000);
+    });
+}
+
+const inboxListSentEmailsApi = (firstIndex: number, lastIndex: number): Promise<{ inboxList: InboxTableColumn[], totalCount: number }> => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            const sentList = inboxList.filter((item) => item.conversation.some((conv) => conv.name === "Jane Doe"));
+            resolve({ inboxList: sentList.slice(firstIndex, lastIndex + 1), totalCount: sentList.length });
         }, 1000);
     });
 }
@@ -88,5 +97,6 @@ export {
     productApi,
     inboxListApi,
     getConversationById,
-    inboxListStarredApi
+    inboxListStarredEmailsApi,
+    inboxListSentEmailsApi
 };

@@ -7,7 +7,8 @@ import {
     productApi,
     inboxListApi,
     getConversationById,
-    inboxListStarredApi
+    inboxListStarredEmailsApi,
+    inboxListSentEmailsApi
 } from "@/apis";
 
 const useSalesInsights = () => {
@@ -83,11 +84,21 @@ const useConversationById = (id: number) => {
     return { data, isLoading, error };
 }
 
-const useInboxListStarredApi = (firstIndex: number, lastIndex: number) => {
+const useInboxListStarredEmailsApi = (firstIndex: number, lastIndex: number) => {
     const { data, isLoading, error } = useQuery({
-        queryKey: ['inboxListStarredApi', firstIndex, lastIndex],
+        queryKey: ['inboxListStarredEmailsApi', firstIndex, lastIndex],
         queryFn: async () => {
-            return inboxListStarredApi(firstIndex, lastIndex);
+            return inboxListStarredEmailsApi(firstIndex, lastIndex);
+        }
+    });
+    return { data, isLoading, error };
+}
+
+const useInboxListSentEmailsApi = (firstIndex: number, lastIndex: number) => {
+    const { data, isLoading, error } = useQuery({
+        queryKey: ['inboxListSentEmailsApi', firstIndex, lastIndex],
+        queryFn: async () => {
+            return inboxListSentEmailsApi(firstIndex, lastIndex);
         }
     });
     return { data, isLoading, error };
@@ -101,5 +112,6 @@ export {
     useProductApi,
     useInboxListApi,
     useConversationById,
-    useInboxListStarredApi
+    useInboxListStarredEmailsApi,
+    useInboxListSentEmailsApi
 };
