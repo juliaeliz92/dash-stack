@@ -12,7 +12,7 @@ import type {
     ProductDealProps,
     OfferCarouselData,
     ProductProps,
-    InboxTableColumn
+    InboxTableColumn,
 } from "@/types";
 
 const salesInsightsApi = ():Promise<SalesInsight[]> => {
@@ -63,10 +63,16 @@ const inboxListApi = (firstIndex: number, lastIndex: number): Promise<{ inboxLis
     });
 }
 
-const getConversationById = (id: number): Promise<InboxTableColumn | undefined> => {
-    return new Promise((resolve) => {
+const getConversationById = (id: number): Promise<InboxTableColumn> => {
+    return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve(inboxList.find((item) => item.id === id));
+            const conversationDetails: InboxTableColumn | undefined = inboxList.find((item) => item.id === id);
+            if (!conversationDetails) {
+                reject(new Error(`Conversation with id ${id} not found`));
+                return;
+            }
+
+            resolve({ ...conversationDetails });
         }, 1000);
     });
 }

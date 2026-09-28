@@ -114,6 +114,7 @@ interface InboxConversation {
     contentType: "text" | "file" | "image";
     timestamp: string;
     thumbnail?: string;
+    isDrafted?: boolean;
 }
 
 interface InboxTableColumn {
@@ -125,6 +126,7 @@ interface InboxTableColumn {
     isStarred: boolean;
     label?: string;
     conversation: InboxConversation[];
+    draft?: InboxConversation;
 }
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]

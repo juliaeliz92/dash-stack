@@ -1340,7 +1340,13 @@ const inboxList: InboxTableColumn[] = [
                 content: "Thanks! Please also let me know if you want me to send a quick recap to stakeholders after the review call.",
                 timestamp: "10:27 AM"
             }
-        ]
+        ],
+        draft: {
+            name: "Jane Doe",
+            contentType: "text",
+            content: "I have a few questions about the action items. Can we schedule a quick call to clarify?",
+            timestamp: "10:45 AM"
+        }
     },
     {
         id: 2,
@@ -1496,7 +1502,8 @@ const inboxList: InboxTableColumn[] = [
                 name: "Jane Doe",
                 contentType: "text",
                 content: "Please send the pricing details and attendee demographics when ready.",
-                timestamp: "09:30 AM"
+                timestamp: "09:30 AM",
+                isDrafted: true
             }
         ]
     },

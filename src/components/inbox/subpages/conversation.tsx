@@ -1,7 +1,6 @@
-import { useState, useRef } from "react"
-import { useParams } from "react-router"
+import { useState, useRef, useCallback } from "react"
+import { useParams, useNavigate } from "react-router"
 import { ChevronLeft, Paperclip, FileImage, Send, Plus, FileCodeIcon, XIcon, Upload } from "lucide-react"
-import { useNavigate } from "react-router";
 import { useQueryClient } from "@tanstack/react-query";
 import {
     Popover,
@@ -25,10 +24,10 @@ import { useConversationById } from "@/services"
 import { InboxLabel, SpeechToText } from "@/components/inbox"
 import { ButtonGroupContainer } from "@/components"
 import { conversationButtonGroup } from "@/constants"
-import type { InboxTableColumn, InboxConversation } from "@/types";
+import type { InboxTableColumn, InboxConversation } from "@/types"
 
 function Conversation() {
-    const [textValue, setTextValue] = useState<string>('')
+    
     const fileInputRef = useRef<HTMLInputElement>(null)
     const imageInputRef = useRef<HTMLInputElement>(null)
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -37,19 +36,48 @@ function Conversation() {
     const { data, isLoading, error } = useConversationById(Number(id));
     const queryClient = useQueryClient();
     const navigate = useNavigate()
+    const [textValue, setTextValue] = useState<string>("")
+    const draftTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const saveDraftToCache = useCallback((text: string) => {
+        if (!text.trim()) return;
 
-    const sendMessage = (type: string) => {
+        queryClient.setQueryData(
+            ["conversationById", Number(id)],
+            (oldData: InboxTableColumn | undefined) => {
+                if (!oldData) return oldData;
+                const draftMessage: Partial<InboxConversation> = {
+                    name: "Jane Doe",
+                    content: text.trim(),
+                    contentType: "text",
+                    timestamp: new Date().toLocaleTimeString(),
+                    isDrafted: true,
+                };
+                return {
+                    ...oldData,
+                    lastModifiedDate: new Date().toLocaleString(),
+                    conversation: [...oldData.conversation],
+                    draft: draftMessage as InboxConversation,
+                };
+            }
+        );
+    }, [queryClient, id]);
+
+    const sendMessage = useCallback((type: string, isDraft = false) => {
         queryClient.setQueryData(
             ["conversationById", Number(id)],
             (oldData: InboxTableColumn) => {
-
-                if(!textValue && !selectedFile && !selectedImage)
+                if(!textValue && !isDraft && !selectedFile && !selectedImage)
                     return oldData
 
                 const modifiedData: Partial<InboxConversation> = {};
+                if (isDraft) {
+                    modifiedData.isDrafted = false;
+                    modifiedData.content = oldData.draft?.content;
+                }
+
                 if(type === "text" && textValue.length) {
                     modifiedData.content = textValue.trim();
-                }   
+                }
 
                 if(selectedFile !== null && type === "file") {
                     modifiedData.content = selectedFile
@@ -63,15 +91,21 @@ function Conversation() {
                 modifiedData.name = "Jane Doe"
                 modifiedData.contentType = type === "text" ? "text" : type === "file" ? "file" : "image"
                 modifiedData.timestamp = new Date().toLocaleTimeString()
-                oldData.conversation.push(modifiedData as InboxConversation)
-                oldData.lastModifiedDate = new Date().toLocaleString()
-                return oldData
+                return {
+                    ...oldData,
+                    lastModifiedDate : new Date().toLocaleString(),
+                    conversation: [...oldData.conversation, modifiedData as InboxConversation],
+                    draft: undefined
+                 };
             }
         );
         setSelectedFile(null)
         setSelectedImage(null)
-        setTextValue('')
-    }
+        setTextValue("")
+        if (draftTimerRef.current) {
+            clearTimeout(draftTimerRef.current);
+        }
+    }, [queryClient, id, textValue, selectedFile, selectedImage]);
 
     const handleUploadFile = () => {
         fileInputRef?.current?.click();
@@ -93,6 +127,18 @@ function Conversation() {
         if (files?.length) {
             setSelectedImage(files[0]);
         }
+    }
+
+    const handleTextChange = (value: string) => {
+        setTextValue(value);
+
+        if (draftTimerRef.current) {
+            clearTimeout(draftTimerRef.current);
+        }
+
+        draftTimerRef.current = setTimeout(() => {
+            saveDraftToCache(value);
+        }, 500);
     }
 
     return (
@@ -190,8 +236,8 @@ function Conversation() {
                         <Input
                             placeholder="Type a message..."
                             className="flex-1 border-none text-sm"
-                            value={textValue}
-                            onChange={(e) => setTextValue(e.target.value)}
+                            value={data?.draft?.contentType === "text" ? data.draft.content as string : textValue}
+                            onChange={(e) => handleTextChange(e.target.value)}
                         />
                         <input
                             type="file"
@@ -223,7 +269,7 @@ function Conversation() {
                                 </ul>
                             </PopoverContent>
                         </Popover>
-                        <Button variant="default" size="sm" onClick={() => sendMessage("text")} disabled={!textValue?.length}>
+                        <Button variant="default" size="sm" onClick={() => sendMessage("text", data?.draft?.contentType === "text")} disabled={!textValue.length && !data?.draft}>
                             <span className="hidden md:inline">Send</span> <Send size={16} />
                         </Button>
                     </CardFooter>
