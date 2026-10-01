@@ -23,6 +23,7 @@ import type {
     ButtonGroupItem,
 } from "@/types"
 import { labels } from "@/types";
+import DraftTab from "./components/inbox/subpages/draft-tab";
 
 const insightData: SalesInsight[] = [
     { title: "Total Users", value: "1,345", changePercent: "5.2%", increase: true, time: "last month", icon: "users" },
@@ -341,6 +342,11 @@ const navigation: NavigationRoutes[] = [
                             name: "sent",
                             link: "/inbox/sent",
                             page: <SentTab />
+                        },
+                        {
+                            name: "draft",
+                            link: "/inbox/draft",
+                            page: <DraftTab />
                         }
                     ]
                 },
@@ -1237,7 +1243,7 @@ const inboxMenu = [
     },
     {
         name: "Drafts",
-        link: "/drafts",
+        link: "/inbox/draft",
         icon: <Pencil className="w-5 h-5" />,
         page: null,
         count: 12

@@ -1,9 +1,11 @@
+import { useInboxListDraftEmailsApi } from "@/services";
+import InboxContainer from "./inbox-container"
+
 function DraftTab() {
+    const { data, isLoading, error } = useInboxListDraftEmailsApi(0, 14);
+
     return (
-        <div>
-            <h2>Drafts</h2>
-            <p>This is the drafts tab.</p>
-        </div>
+        <InboxContainer inboxListData={data} isInboxListLoading={isLoading} inboxListError={error} />
     );
 }
 

@@ -8,7 +8,8 @@ import {
     inboxListApi,
     getConversationById,
     inboxListStarredEmailsApi,
-    inboxListSentEmailsApi
+    inboxListSentEmailsApi,
+    inboxListDraftEmailsApi
 } from "@/apis";
 
 const useSalesInsights = () => {
@@ -104,6 +105,16 @@ const useInboxListSentEmailsApi = (firstIndex: number, lastIndex: number) => {
     return { data, isLoading, error };
 }
 
+const useInboxListDraftEmailsApi = (firstIndex: number, lastIndex: number) => {
+    const { data, isLoading, error } = useQuery({
+        queryKey: ['inboxListDraftEmailsApi', firstIndex, lastIndex],
+        queryFn: async () => {
+            return inboxListDraftEmailsApi(firstIndex, lastIndex);
+        }
+    });
+    return { data, isLoading, error };
+}
+
 export {
     useSalesInsights,
     useSalesChartData,
@@ -113,5 +124,6 @@ export {
     useInboxListApi,
     useConversationById,
     useInboxListStarredEmailsApi,
-    useInboxListSentEmailsApi
+    useInboxListSentEmailsApi,
+    useInboxListDraftEmailsApi
 };

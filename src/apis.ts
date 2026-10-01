@@ -95,6 +95,15 @@ const inboxListSentEmailsApi = (firstIndex: number, lastIndex: number): Promise<
     });
 }
 
+const inboxListDraftEmailsApi = (firstIndex: number, lastIndex: number): Promise<{ inboxList: InboxTableColumn[], totalCount: number }> => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            const draftList = inboxList.filter((item) => item.draft !== undefined);
+            resolve({ inboxList: draftList.slice(firstIndex, lastIndex + 1), totalCount: draftList.length });
+        }, 1000);
+    });
+}
+
 export {
     salesInsightsApi,
     saleChartDataApi,
@@ -104,5 +113,6 @@ export {
     inboxListApi,
     getConversationById,
     inboxListStarredEmailsApi,
-    inboxListSentEmailsApi
+    inboxListSentEmailsApi,
+    inboxListDraftEmailsApi
 };
