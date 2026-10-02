@@ -128,6 +128,7 @@ interface InboxTableColumn {
     conversation: InboxConversation[];
     draft?: InboxConversation;
     isSpam?: boolean;
+    isTrash?: boolean;
 }
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]

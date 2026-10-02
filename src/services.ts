@@ -10,7 +10,8 @@ import {
     inboxListStarredEmailsApi,
     inboxListSentEmailsApi,
     inboxListDraftEmailsApi,
-    inboxListSpamEmailsApi
+    inboxListSpamEmailsApi,
+    inboxListTrashEmailsApi
 } from "@/apis";
 
 const useSalesInsights = () => {
@@ -126,6 +127,16 @@ const useInboxListSpamEmailsApi = (firstIndex: number, lastIndex: number) => {
     return { data, isLoading, error };
 }
 
+const useInboxListTrashEmailsApi = (firstIndex: number, lastIndex: number) => {
+    const { data, isLoading, error } = useQuery({
+        queryKey: ['inboxListTrashEmailsApi', firstIndex, lastIndex],
+        queryFn: async () => {
+            return inboxListTrashEmailsApi(firstIndex, lastIndex);
+        }
+    });
+    return { data, isLoading, error };
+}
+
 export {
     useSalesInsights,
     useSalesChartData,
@@ -137,5 +148,6 @@ export {
     useInboxListStarredEmailsApi,
     useInboxListSentEmailsApi,
     useInboxListDraftEmailsApi,
-    useInboxListSpamEmailsApi
+    useInboxListSpamEmailsApi,
+    useInboxListTrashEmailsApi
 };

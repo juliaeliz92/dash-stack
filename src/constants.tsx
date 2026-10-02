@@ -1,12 +1,11 @@
 import { Dashboard, Products, Favorites, Inbox } from "@/pages";
-import { Conversation, InboxTab, StarredTab, SentTab } from "./components/inbox/subpages";
+import { Conversation, InboxTab, StarredTab, SentTab, TrashTab } from "./components/inbox/subpages";
 import {
     Mail,
     Star,
     Send,
     Pencil,
     TriangleAlert,
-    MessageCircleCheck,
     Trash,
     Trash2,
     Printer
@@ -353,6 +352,11 @@ const navigation: NavigationRoutes[] = [
                             name: "spam",
                             link: "/inbox/spam",
                             page: <SpamTab />
+                        },
+                        {
+                            name: "trash",
+                            link: "/inbox/trash",
+                            page: <TrashTab />
                         }
                     ]
                 },
@@ -1231,49 +1235,42 @@ const inboxMenu = [
         link: "/inbox",
         icon: <Mail className="w-5 h-5" />,
         page: null,
-        count: 1232
+        count: 37
     },
     {
         name: "Starred",
         link: "/inbox/starred",
         icon: <Star className="w-5 h-5" />,
         page: null,
-        count: 45
+        count: 18
     },
     {
         name: "Sent",
         link: "/inbox/sent",
         icon: <Send className="w-5 h-5" />,
         page: null,
-        count: 67
+        count: 37
     },
     {
         name: "Drafts",
         link: "/inbox/draft",
         icon: <Pencil className="w-5 h-5" />,
         page: null,
-        count: 12
+        count: 1
     },
     {
         name: "Spam",
         link: "/inbox/spam",
         icon: <TriangleAlert className="w-5 h-5" />,
         page: null,
-        count: 34
-    },
-    {
-        name: "Important",
-        link: "/important",
-        icon: <MessageCircleCheck className="w-5 h-5" />,
-        page: null,
-        count: 56
+        count: 2
     },
     {
         name: "Trash",
-        link: "/trash",
+        link: "/inbox/trash",
         icon: <Trash2 className="w-5 h-5" />,
         page: null,
-        count: 8
+        count: 1
     }
 ]
 
@@ -2163,6 +2160,7 @@ const inboxList: InboxTableColumn[] = [
         emailSubject: "Release readiness checklist",
         lastModifiedDate: "2026-05-20",
         isStarred: true,
+        isTrash: true,
         label: labels.friends,
         conversation: [
             {
