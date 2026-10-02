@@ -24,6 +24,7 @@ import type {
 } from "@/types"
 import { labels } from "@/types";
 import DraftTab from "./components/inbox/subpages/draft-tab";
+import SpamTab from "./components/inbox/subpages/spam-tab";
 
 const insightData: SalesInsight[] = [
     { title: "Total Users", value: "1,345", changePercent: "5.2%", increase: true, time: "last month", icon: "users" },
@@ -347,6 +348,11 @@ const navigation: NavigationRoutes[] = [
                             name: "draft",
                             link: "/inbox/draft",
                             page: <DraftTab />
+                        },
+                        {
+                            name: "spam",
+                            link: "/inbox/spam",
+                            page: <SpamTab />
                         }
                     ]
                 },
@@ -1250,7 +1256,7 @@ const inboxMenu = [
     },
     {
         name: "Spam",
-        link: "/spam",
+        link: "/inbox/spam",
         icon: <TriangleAlert className="w-5 h-5" />,
         page: null,
         count: 34
@@ -1430,6 +1436,7 @@ const inboxList: InboxTableColumn[] = [
         emailSubject: "Brand refresh moodboard",
         lastModifiedDate: "2026-08-03 05:05 PM",
         isStarred: false,
+        isSpam: true,
         conversation: [
             {
                 name: "Avery Brooks",
@@ -1542,6 +1549,7 @@ const inboxList: InboxTableColumn[] = [
         emailSubject: "New hire onboarding checklist",
         lastModifiedDate: "2026-06-16",
         isStarred: false,
+        isSpam: true,
         conversation: [
             {
                 name: "Camila Ortiz",

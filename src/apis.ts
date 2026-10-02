@@ -58,7 +58,7 @@ const productApi = (): Promise<ProductProps[]> => {
 const inboxListApi = (firstIndex: number, lastIndex: number): Promise<{ inboxList: InboxTableColumn[], totalCount: number }> => {
     return new Promise((resolve) => {
         setTimeout(() => {
-            resolve({ inboxList: inboxList.slice(firstIndex, lastIndex + 1), totalCount: inboxList.length });
+            resolve({ inboxList: inboxList.filter((item) => !item.isSpam).slice(firstIndex, lastIndex + 1), totalCount: inboxList.length });
         }, 1000);
     });
 }
@@ -104,6 +104,15 @@ const inboxListDraftEmailsApi = (firstIndex: number, lastIndex: number): Promise
     });
 }
 
+const inboxListSpamEmailsApi = (firstIndex: number, lastIndex: number): Promise<{ inboxList: InboxTableColumn[], totalCount: number }> => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            const spamList = inboxList.filter((item) => item.isSpam);
+            resolve({ inboxList: spamList.slice(firstIndex, lastIndex + 1), totalCount: spamList.length });
+        }, 1000);
+    });
+}
+
 export {
     salesInsightsApi,
     saleChartDataApi,
@@ -114,5 +123,6 @@ export {
     getConversationById,
     inboxListStarredEmailsApi,
     inboxListSentEmailsApi,
-    inboxListDraftEmailsApi
+    inboxListDraftEmailsApi,
+    inboxListSpamEmailsApi
 };

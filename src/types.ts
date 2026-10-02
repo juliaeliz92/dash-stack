@@ -127,6 +127,7 @@ interface InboxTableColumn {
     label?: string;
     conversation: InboxConversation[];
     draft?: InboxConversation;
+    isSpam?: boolean;
 }
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
