@@ -122,6 +122,19 @@ const inboxListTrashEmailsApi = (firstIndex: number, lastIndex: number): Promise
     });
 }
 
+const inboxListByTagApi = (tag: string | undefined, firstIndex: number, lastIndex: number): Promise<{ inboxList: InboxTableColumn[], totalCount: number }> => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if(tag === undefined) {
+                reject(new Error("Tag is undefined"));
+                return;
+            }
+
+            const taggedList = inboxList.filter((item) => item.label?.toLowerCase() === tag);
+            resolve({ inboxList: taggedList.slice(firstIndex, lastIndex + 1), totalCount: taggedList.length });
+        }, 1000);
+    });
+}
 
 export {
     salesInsightsApi,
@@ -135,5 +148,6 @@ export {
     inboxListSentEmailsApi,
     inboxListDraftEmailsApi,
     inboxListSpamEmailsApi,
-    inboxListTrashEmailsApi
+    inboxListTrashEmailsApi,
+    inboxListByTagApi
 };

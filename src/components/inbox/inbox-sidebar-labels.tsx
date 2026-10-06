@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router"
 import { Checkbox } from "@/components/ui/checkbox"
 import {
     Field,
@@ -32,8 +33,10 @@ function InboxSidebarLabels() {
                 <Field key={label.value} orientation="horizontal">
                     <Checkbox id={`${label.value}-label`} className={`border-2 ${label.borderColor} ${label.checkedBackgroundColor} ${label.checkedBorderColor}`} />
                     <FieldContent>
-                        <FieldLabel htmlFor={`${label.value}-label`} className="capitalize ">
-                            {label.value}
+                        <FieldLabel htmlFor={`${label.value}-label`} className="capitalize" >
+                            <Link to={`/inbox/tags/${label.value}`} className="hover:underline">
+                                {label.value}
+                            </Link>
                         </FieldLabel>
                     </FieldContent>
                 </Field>

@@ -5,6 +5,8 @@ import StarredTab from "./starred-tab"
 import SentTab from "./sent-tab"
 import DraftTab from "./draft-tab"
 import TrashTab from "./trash-tab"
+import TagsTab from "./tags-tab"
+import SpamTab from "./spam-tab"
 
 export {
     Conversation,
@@ -13,5 +15,7 @@ export {
     StarredTab,
     SentTab,
     DraftTab,
-    TrashTab
+    TrashTab,
+    TagsTab,
+    SpamTab
 }

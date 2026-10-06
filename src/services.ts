@@ -11,7 +11,8 @@ import {
     inboxListSentEmailsApi,
     inboxListDraftEmailsApi,
     inboxListSpamEmailsApi,
-    inboxListTrashEmailsApi
+    inboxListTrashEmailsApi,
+    inboxListByTagApi
 } from "@/apis";
 
 const useSalesInsights = () => {
@@ -137,6 +138,16 @@ const useInboxListTrashEmailsApi = (firstIndex: number, lastIndex: number) => {
     return { data, isLoading, error };
 }
 
+const useInboxListByTagApi = (tag: string | undefined, firstIndex: number, lastIndex: number) => {
+    const { data, isLoading, error } = useQuery({
+        queryKey: ['inboxListByTagApi', tag, firstIndex, lastIndex],
+        queryFn: async () => {
+            return inboxListByTagApi(tag, firstIndex, lastIndex);
+        }
+    });
+    return { data, isLoading, error };
+}
+
 export {
     useSalesInsights,
     useSalesChartData,
@@ -149,5 +160,6 @@ export {
     useInboxListSentEmailsApi,
     useInboxListDraftEmailsApi,
     useInboxListSpamEmailsApi,
-    useInboxListTrashEmailsApi
+    useInboxListTrashEmailsApi,
+    useInboxListByTagApi
 };

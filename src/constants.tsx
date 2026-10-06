@@ -1,5 +1,5 @@
 import { Dashboard, Products, Favorites, Inbox } from "@/pages";
-import { Conversation, InboxTab, StarredTab, SentTab, TrashTab } from "./components/inbox/subpages";
+import { Conversation, InboxTab, StarredTab, SentTab, TrashTab, DraftTab, SpamTab, TagsTab } from "@/components/inbox/subpages";
 import {
     Mail,
     Star,
@@ -22,8 +22,6 @@ import type {
     ButtonGroupItem,
 } from "@/types"
 import { labels } from "@/types";
-import DraftTab from "./components/inbox/subpages/draft-tab";
-import SpamTab from "./components/inbox/subpages/spam-tab";
 
 const insightData: SalesInsight[] = [
     { title: "Total Users", value: "1,345", changePercent: "5.2%", increase: true, time: "last month", icon: "users" },
@@ -357,6 +355,11 @@ const navigation: NavigationRoutes[] = [
                             name: "trash",
                             link: "/inbox/trash",
                             page: <TrashTab />
+                        },
+                        {
+                            name: "tags",
+                            link: "/inbox/tags/:label",
+                            page: <TagsTab />
                         }
                     ]
                 },
@@ -1281,7 +1284,7 @@ const inboxDefaultLabels: labelColor[] = [
         checkedBackgroundColor: "data-[state=checked]:bg-green-600",
         checkedBorderColor: "data-[state=checked]:border-green-600",
         backgroundColor: "bg-green-200",
-        textColor: "text-green-600"
+        textColor: "text-green-600",
     },
     {
         value: "social",
