@@ -174,6 +174,11 @@ interface CustomSpeechRecognition extends EventTarget {
     stop: () => void;
 }
 
+interface OrderTypes {
+    name: string;
+    value: string;
+}
+
 export type {
     labelColor,
     inboxListItem,
@@ -191,7 +196,8 @@ export type {
     excelSheetObject,
     SpeechRecognitionEvent,
     CustomSpeechRecognition,
-    InboxConversation
+    InboxConversation,
+    OrderTypes
 };
 
 export { SaleInsightKey, Months, productDealStates, labels };

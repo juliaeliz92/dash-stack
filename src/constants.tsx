@@ -1,4 +1,4 @@
-import { Dashboard, Products, Favorites, Inbox } from "@/pages";
+import { Dashboard, Products, Favorites, Inbox, Orders } from "@/pages";
 import { Conversation, InboxTab, StarredTab, SentTab, TrashTab, DraftTab, SpamTab, TagsTab } from "@/components/inbox/subpages";
 import {
     Mail,
@@ -20,6 +20,7 @@ import type {
     labelColor,
     NavigationRoutes,
     ButtonGroupItem,
+    OrderTypes
 } from "@/types"
 import { labels } from "@/types";
 
@@ -366,7 +367,7 @@ const navigation: NavigationRoutes[] = [
                 {
                     name: "Order Lists",
                     link: "/order-lists",
-                    page: null
+                    page: <Orders />
                 },
                 {
                     name: "Product Stocks",
@@ -2228,7 +2229,24 @@ const conversationButtonGroup: ButtonGroupItem[] = [
     }
 ]
 
+const orderTypeValues: OrderTypes[] = [
+    { name: "health-medicine", value: "Health & Medicine" },
+    { name: "book-stationary", value: "Book & Stationary" },
+    { name: "services-industry", value: "Services & Industry" },
+    { name: "fashion-beauty", value: "Fashion & Beauty" },
+    { name: "home-living", value: "Home & Living" },
+    { name: "electronics", value: "Electronics" },
+    { name: "mobile-phones", value: "Mobile Phone" },
+    { name: "accessories", value: "Accessories" },
+]
 
+const orderStatusValues: OrderTypes[] = [
+    { name: "completed", value: "Completed" },
+    { name: "rejected", value: "Rejected" },
+    { name: "processing", value: "Processing" },
+    { name: "on-hold", value: "On Hold" },
+    { name: "in-transit", value: "In Transit" },
+]
 
 export {
     navigation,
@@ -2241,5 +2259,7 @@ export {
     dealsData,
     offerCarouselData,
     inboxTableColumnId,
-    conversationButtonGroup
+    conversationButtonGroup,
+    orderTypeValues,
+    orderStatusValues
 };
