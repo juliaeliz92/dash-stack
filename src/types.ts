@@ -179,6 +179,12 @@ interface OrderTypes {
     value: string;
 }
 
+interface SelectablePillsProps {
+    options: string[];
+    selectedOptions: string[];
+    onChange: (selectedOptions: string[]) => void;
+}
+
 export type {
     labelColor,
     inboxListItem,
@@ -197,7 +203,8 @@ export type {
     SpeechRecognitionEvent,
     CustomSpeechRecognition,
     InboxConversation,
-    OrderTypes
+    OrderTypes,
+    SelectablePillsProps
 };
 
 export { SaleInsightKey, Months, productDealStates, labels };
