@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import type { ColumnDef } from "@tanstack/react-table"
 
 type labelColor = {
     value: string;
@@ -130,12 +129,6 @@ interface InboxTableColumn {
     isSpam?: boolean;
     isTrash?: boolean;
 }
-interface DataTableProps<TData, TValue> {
-    columns: ColumnDef<TData, TValue>[]
-    data: TData[],
-    rowSelection: Record<string, boolean>;
-    onRowSelectionChange?: (rowSelection: Record<string, boolean>) => void;
-}
 
 interface NavItem {
     name: string;
@@ -185,6 +178,15 @@ interface SelectablePillsProps {
     onChange: (selectedOptions: string[]) => void;
 }
 
+interface OrderListProps {
+    id: number;
+    customerName: string;
+    customerAddress: string;
+    date: string;
+    orderType: string;
+    orderStatus: string;
+}
+
 export type {
     labelColor,
     inboxListItem,
@@ -195,7 +197,6 @@ export type {
     OfferCarouselData,
     ProductProps,
     InboxTableColumn,
-    DataTableProps,
     NavigationRoutes,
     NavItem,
     ButtonGroupItem,
@@ -204,7 +205,8 @@ export type {
     CustomSpeechRecognition,
     InboxConversation,
     OrderTypes,
-    SelectablePillsProps
+    SelectablePillsProps,
+    OrderListProps
 };
 
 export { SaleInsightKey, Months, productDealStates, labels };

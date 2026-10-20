@@ -20,7 +20,8 @@ import type {
     labelColor,
     NavigationRoutes,
     ButtonGroupItem,
-    OrderTypes
+    OrderTypes,
+    OrderListProps
 } from "@/types"
 import { labels } from "@/types";
 
@@ -2248,6 +2249,44 @@ const orderStatusValues: OrderTypes[] = [
     { name: "in-transit", value: "In Transit" },
 ]
 
+const orderListTableColumnId: Record<keyof OrderListProps, string> = {
+    id: "id",
+    customerName: "Name",
+    customerAddress: "Address",
+    date: "Date",
+    orderType: "Type",
+    orderStatus: "Status",
+}
+
+const orderListData: OrderListProps[] = [
+    { id: 1, customerName: "John Doe", customerAddress: "123 Main St, Springfield", date: "2026-08-01", orderType: orderTypeValues[0].value, orderStatus: orderStatusValues[0].value },
+    { id: 2, customerName: "Jane Smith", customerAddress: "456 Elm St, Rivertown", date: "2026-08-02", orderType: orderTypeValues[1].value, orderStatus: orderStatusValues[2].value },
+    { id: 3, customerName: "Michael Johnson", customerAddress: "789 Oak St, Lakeside", date: "2026-08-03", orderType: orderTypeValues[3].value, orderStatus: orderStatusValues[3].value },
+    { id: 4, customerName: "Emily Davis", customerAddress: "321 Pine St, Hilltop", date: "2026-08-04", orderType: orderTypeValues[6].value, orderStatus: orderStatusValues[4].value },
+    { id: 5, customerName: "William Brown", customerAddress: "654 Cedar St, Brookfield", date: "2026-08-05", orderType: orderTypeValues[2].value, orderStatus: orderStatusValues[1].value },
+    { id: 6, customerName: "Olivia Wilson", customerAddress: "147 Maple Ave, Fairview", date: "2026-08-06", orderType: orderTypeValues[5].value, orderStatus: orderStatusValues[0].value },
+    { id: 7, customerName: "James Miller", customerAddress: "258 Birch Rd, Oakwood", date: "2026-08-07", orderType: orderTypeValues[4].value, orderStatus: orderStatusValues[2].value },
+    { id: 8, customerName: "Sophia Taylor", customerAddress: "369 Walnut Dr, Westfield", date: "2026-08-08", orderType: orderTypeValues[7].value, orderStatus: orderStatusValues[3].value },
+    { id: 9, customerName: "Benjamin Anderson", customerAddress: "482 Cherry Ln, Ashford", date: "2026-08-09", orderType: orderTypeValues[0].value, orderStatus: orderStatusValues[4].value },
+    { id: 10, customerName: "Isabella Thomas", customerAddress: "593 Willow Ct, Greenfield", date: "2026-08-10", orderType: orderTypeValues[1].value, orderStatus: orderStatusValues[1].value },
+    { id: 11, customerName: "Lucas Jackson", customerAddress: "614 Spruce St, Milltown", date: "2026-08-11", orderType: orderTypeValues[2].value, orderStatus: orderStatusValues[0].value },
+    { id: 12, customerName: "Mia White", customerAddress: "725 Poplar Ave, Brighton", date: "2026-08-12", orderType: orderTypeValues[3].value, orderStatus: orderStatusValues[2].value },
+    { id: 13, customerName: "Henry Harris", customerAddress: "836 Aspen Blvd, Kingston", date: "2026-08-13", orderType: orderTypeValues[6].value, orderStatus: orderStatusValues[3].value },
+    { id: 14, customerName: "Charlotte Martin", customerAddress: "947 Sycamore Way, Elmwood", date: "2026-08-14", orderType: orderTypeValues[5].value, orderStatus: orderStatusValues[4].value },
+    { id: 15, customerName: "Alexander Thompson", customerAddress: "158 Redwood St, Pinecrest", date: "2026-08-15", orderType: orderTypeValues[4].value, orderStatus: orderStatusValues[1].value },
+    { id: 16, customerName: "Amelia Garcia", customerAddress: "269 Magnolia Rd, Cedarville", date: "2026-08-16", orderType: orderTypeValues[7].value, orderStatus: orderStatusValues[0].value },
+    { id: 17, customerName: "Daniel Martinez", customerAddress: "371 Dogwood Dr, Lakeshore", date: "2026-08-17", orderType: orderTypeValues[0].value, orderStatus: orderStatusValues[2].value },
+    { id: 18, customerName: "Harper Robinson", customerAddress: "483 Chestnut Ln, Riverview", date: "2026-08-18", orderType: orderTypeValues[1].value, orderStatus: orderStatusValues[3].value },
+    { id: 19, customerName: "Matthew Clark", customerAddress: "594 Hemlock Ct, Brookside", date: "2026-08-19", orderType: orderTypeValues[2].value, orderStatus: orderStatusValues[4].value },
+    { id: 20, customerName: "Evelyn Rodriguez", customerAddress: "615 Juniper Ave, Meadowbrook", date: "2026-08-20", orderType: orderTypeValues[3].value, orderStatus: orderStatusValues[1].value },
+    { id: 21, customerName: "Sebastian Lewis", customerAddress: "726 Cypress St, Summit", date: "2026-08-21", orderType: orderTypeValues[6].value, orderStatus: orderStatusValues[0].value },
+    { id: 22, customerName: "Abigail Lee", customerAddress: "837 Laurel Rd, Northfield", date: "2026-08-22", orderType: orderTypeValues[5].value, orderStatus: orderStatusValues[2].value },
+    { id: 23, customerName: "Jack Walker", customerAddress: "948 Holly Blvd, Rosewood", date: "2026-08-23", orderType: orderTypeValues[4].value, orderStatus: orderStatusValues[3].value },
+    { id: 24, customerName: "Ella Hall", customerAddress: "159 Alder Way, Fairmont", date: "2026-08-24", orderType: orderTypeValues[7].value, orderStatus: orderStatusValues[4].value },
+    { id: 25, customerName: "Owen Allen", customerAddress: "261 Beech St, Westhaven", date: "2026-08-25", orderType: orderTypeValues[0].value, orderStatus: orderStatusValues[1].value },
+
+]
+
 export {
     navigation,
     products,
@@ -2261,5 +2300,7 @@ export {
     inboxTableColumnId,
     conversationButtonGroup,
     orderTypeValues,
-    orderStatusValues
+    orderStatusValues,
+    orderListTableColumnId,
+    orderListData
 };

@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router"
 import {
-  flexRender,
-  getCoreRowModel,
-  useReactTable,
+  type ColumnDef,
+  type RowData,
+  useTable,
 } from "@tanstack/react-table"
 import {
   Table,
@@ -10,28 +10,23 @@ import {
   TableCell,
   TableRow,
 } from "@/components/ui/table"
-import type { DataTableProps } from "@/types";
 import { inboxTableColumnId } from "@/constants";
+import { features, type DataTableFeatures } from "./data-table-features";
 import { Star } from "lucide-react";
 import { InboxLabel } from "@/components/inbox";
 
-function DataTable<TData, TValue>({ columns, data, rowSelection, onRowSelectionChange }: DataTableProps<TData, TValue>) {
+interface DataTableProps<TData extends RowData> {
+    columns: ColumnDef<DataTableFeatures, TData>[]
+    data: TData[]
+}
+
+function DataTable<TData extends RowData>({ columns, data }: DataTableProps<TData>) {
   const navigate = useNavigate();
 
-  const table = useReactTable({
-    columns,
+  const table = useTable({
+    features,
     data,
-    getCoreRowModel: getCoreRowModel(),
-    manualPagination: true,
-    onRowSelectionChange: (updater) => {
-      const newSelection = typeof updater === 'function'
-        ? updater(rowSelection)
-        : updater;
-      onRowSelectionChange?.(newSelection);
-    },
-    state: {
-      rowSelection,
-    },
+    columns
   });
 
   return (
@@ -56,14 +51,14 @@ function DataTable<TData, TValue>({ columns, data, rowSelection, onRowSelectionC
                   } else if (cell.column.id === inboxTableColumnId.senderName) {
                     return (
                       <TableCell key={cell.id}>
-                        <b>{flexRender(cell.column.columnDef.cell, cell.getContext())}</b>
+                        <table.FlexRender cell={cell} />
                       </TableCell>
                     )
                   } else if (cell.column.id === inboxTableColumnId.emailSubject) {
                     return (
                       <TableCell key={cell.id} className="flex gap-4">
                         {label && <InboxLabel label={label} />}
-                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                        <table.FlexRender cell={cell} />
                       </TableCell>
                     )
                   } else if(cell.column.id === inboxTableColumnId.lastModifiedDate) {
@@ -85,7 +80,7 @@ function DataTable<TData, TValue>({ columns, data, rowSelection, onRowSelectionC
                   }
                   return (
                     <TableCell key={cell.id}>
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                      <table.FlexRender cell={cell} />
                     </TableCell>
                   )
                 })}

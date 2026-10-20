@@ -4,7 +4,8 @@ import {
     offerCarouselData,
     salesChartData,
     products,
-    inboxList
+    inboxList,
+    orderListData
 } from "@/constants";
 import type {
     SalesInsight,
@@ -13,6 +14,7 @@ import type {
     OfferCarouselData,
     ProductProps,
     InboxTableColumn,
+    OrderListProps
 } from "@/types";
 
 const salesInsightsApi = ():Promise<SalesInsight[]> => {
@@ -136,6 +138,15 @@ const inboxListByTagApi = (tag: string | undefined, firstIndex: number, lastInde
     });
 }
 
+const orderListApi = (firstIndex: number, lastIndex: number): Promise<{ orderList: OrderListProps[], totalCount: number }> => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            const orderList = orderListData.slice(firstIndex, lastIndex + 1)
+            resolve({ orderList, totalCount: orderListData.length });
+        }, 1000);
+    });
+}
+
 export {
     salesInsightsApi,
     saleChartDataApi,
@@ -149,5 +160,6 @@ export {
     inboxListDraftEmailsApi,
     inboxListSpamEmailsApi,
     inboxListTrashEmailsApi,
-    inboxListByTagApi
+    inboxListByTagApi,
+    orderListApi
 };

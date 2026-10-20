@@ -1,9 +1,12 @@
-import type { ColumnDef } from "@tanstack/react-table"
+import { createColumnHelper } from "@tanstack/react-table"
 import type { InboxTableColumn } from "@/types"
+import type { DataTableFeatures } from "./data-table-features"
 import { Checkbox } from "@/components/ui/checkbox";
 
-export const inboxTableColumns: ColumnDef<InboxTableColumn>[] = [
-  {
+const columnHelper = createColumnHelper<DataTableFeatures, InboxTableColumn>();
+
+const InboxTableColumns = columnHelper.columns([
+  columnHelper.display({
     id: "select",
     header: ({ table }) => (
       <Checkbox
@@ -18,8 +21,8 @@ export const inboxTableColumns: ColumnDef<InboxTableColumn>[] = [
     cell: ({ row }) => (
       <Checkbox
         checked={row.getIsSelected()}
-        onCheckedChange={(value) => 
-          row.toggleSelected(!!value) 
+        onCheckedChange={(value) =>
+          row.toggleSelected(!!value)
         }
         onClick={(e) => e.stopPropagation()}
         className="translate-y-[2px] hover:cursor-pointer hover:opacity-80"
@@ -27,31 +30,26 @@ export const inboxTableColumns: ColumnDef<InboxTableColumn>[] = [
       />
     ),
     enableSorting: false,
-    enableHiding: false,
-  },
-  {
-    accessorKey: "id",
+  }),
+  columnHelper.accessor("id", {
     header: "ID"
-  },
-  {
-    accessorKey: "isStarred",
+  }),
+  columnHelper.accessor("isStarred", {
     header: "Starred"
-  },
-  {
-    accessorKey: "senderName",
+  }),
+  columnHelper.accessor("senderName", {
     header: "From"
-  },
-  {
-    accessorKey: "label",
+  }),
+  columnHelper.accessor("label", {
     header: "Label"
-  },
-  {
-    accessorKey: "emailSubject",
+  }),
+  columnHelper.accessor("emailSubject", {
     header: "Subject"
-  },
-  {
-    accessorKey: "lastModifiedDate",
-    header: "Date"
-  }
-];
 
+  }),
+  columnHelper.accessor("lastModifiedDate", {
+    header: "Date"
+  })
+]);
+
+export default InboxTableColumns

@@ -5,7 +5,7 @@ import InboxSidebarDrawer from "./inbox-sidebar-drawer";
 import InboxSidebarLabels from "./inbox-sidebar-labels";
 import InboxSidebarMenu from "./inbox-sidebar-menu";
 import DataTable from "./inbox-table/data-table";
-import {inboxTableColumns} from "./inbox-table/columns";
+import inboxTableColumns from "./inbox-table/columns";
 import InboxLabel from "./inbox-label";
 import SpeechToText from "./speech-to-text";
 
