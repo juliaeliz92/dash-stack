@@ -2245,8 +2245,8 @@ const orderStatusValues: OrderTypes[] = [
     { name: "completed", value: "Completed" },
     { name: "rejected", value: "Rejected" },
     { name: "processing", value: "Processing" },
-    { name: "on-hold", value: "On Hold" },
-    { name: "in-transit", value: "In Transit" },
+    { name: "on hold", value: "On Hold" },
+    { name: "in transit", value: "In Transit" },
 ]
 
 const orderListTableColumnId: Record<keyof OrderListProps, string> = {
@@ -2287,6 +2287,49 @@ const orderListData: OrderListProps[] = [
 
 ]
 
+const orderListStatusLabelColors: labelColor[] = [
+    {
+        value: orderStatusValues[0].name,
+        borderColor: "border-green-600",
+        checkedBackgroundColor: "data-[state=checked]:bg-green-600",
+        checkedBorderColor: "data-[state=checked]:border-green-600",
+        backgroundColor: "bg-green-200",
+        textColor: "text-green-600",
+    },
+    {
+        value: orderStatusValues[1].name,
+        borderColor: "border-orange-600",
+        checkedBackgroundColor: "data-[state=checked]:bg-orange-600",
+        checkedBorderColor: "data-[state=checked]:border-orange-600",
+        backgroundColor: "bg-orange-200",
+        textColor: "text-orange-600"
+    },
+    {
+        value: orderStatusValues[2].name,
+        borderColor: "border-purple-600",
+        checkedBackgroundColor: "data-[state=checked]:bg-purple-600",
+        checkedBorderColor: "data-[state=checked]:border-purple-600",
+        backgroundColor: "bg-purple-200",
+        textColor: "text-purple-600"
+    },
+    {
+        value: orderStatusValues[3].name,
+        borderColor: "border-yellow-600",
+        checkedBackgroundColor: "data-[state=checked]:bg-yellow-600",
+        checkedBorderColor: "data-[state=checked]:border-yellow-600",
+        backgroundColor: "bg-yellow-200",
+        textColor: "text-yellow-600"
+    },
+    {
+        value: orderStatusValues[4].name,
+        borderColor: "border-violet-600",
+        checkedBackgroundColor: "data-[state=checked]:bg-violet-600",
+        checkedBorderColor: "data-[state=checked]:border-violet-600",
+        backgroundColor: "bg-violet-200",
+        textColor: "text-violet-600"
+    }
+]
+
 export {
     navigation,
     products,
@@ -2302,5 +2345,6 @@ export {
     orderTypeValues,
     orderStatusValues,
     orderListTableColumnId,
-    orderListData
+    orderListData,
+    orderListStatusLabelColors
 };

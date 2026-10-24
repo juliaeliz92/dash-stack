@@ -21,9 +21,9 @@ import { Bubble, BubbleContent } from "@/components/ui/bubble"
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { useConversationById } from "@/services"
-import { InboxLabel, SpeechToText } from "@/components/inbox"
-import { ButtonGroupContainer } from "@/components"
-import { conversationButtonGroup } from "@/constants"
+import { SpeechToText } from "@/components/inbox"
+import { ButtonGroupContainer, Label } from "@/components"
+import { conversationButtonGroup, inboxDefaultLabels } from "@/constants"
 import type { InboxTableColumn, InboxConversation } from "@/types"
 
 function Conversation() {
@@ -158,7 +158,7 @@ function Conversation() {
                                 <ChevronLeft size={16} />
                             </Button>
                             <h1 className="text-md font-bold">{data.senderName}</h1>
-                            {data.label && <InboxLabel label={data.label} />}
+                            {data.label && <Label label={data.label} labelList={inboxDefaultLabels} />}
                         </div>
                         <ButtonGroupContainer buttonGroups={conversationButtonGroup} />
                     </CardHeader>

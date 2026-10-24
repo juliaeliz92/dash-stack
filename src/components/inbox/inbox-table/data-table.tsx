@@ -10,10 +10,10 @@ import {
   TableCell,
   TableRow,
 } from "@/components/ui/table"
-import { inboxTableColumnId } from "@/constants";
+import { inboxTableColumnId, inboxDefaultLabels } from "@/constants";
 import { features, type DataTableFeatures } from "./data-table-features";
 import { Star } from "lucide-react";
-import { InboxLabel } from "@/components/inbox";
+import { Label } from "@/components";
 
 interface DataTableProps<TData extends RowData> {
     columns: ColumnDef<DataTableFeatures, TData>[]
@@ -57,7 +57,7 @@ function DataTable<TData extends RowData>({ columns, data }: DataTableProps<TDat
                   } else if (cell.column.id === inboxTableColumnId.emailSubject) {
                     return (
                       <TableCell key={cell.id} className="flex gap-4">
-                        {label && <InboxLabel label={label} />}
+                        {label && <Label label={label} labelList={inboxDefaultLabels}/>}
                         <table.FlexRender cell={cell} />
                       </TableCell>
                     )

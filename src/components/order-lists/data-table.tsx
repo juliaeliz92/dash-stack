@@ -11,7 +11,6 @@ import {
     TableCell,
     TableRow,
 } from "@/components/ui/table"
-import { orderListTableColumnId } from "@/constants";
 import { features, type DataTableFeatures } from "./data-table-features";
 
 interface DataTableProps<TData extends RowData> {
@@ -28,8 +27,8 @@ function DataTable<TData extends RowData>({ columns, data }: DataTableProps<TDat
     });
 
     return (
-        <Table>
-            <TableHeader>
+        <Table className="bg-white text-[12px]">
+            <TableHeader className="bg-gray-50 font-extrabold">
                 {table.getHeaderGroups().map((headerGroup) => (
                     <TableRow key={headerGroup.id}>
                         {headerGroup.headers.map((header) => {
@@ -46,31 +45,12 @@ function DataTable<TData extends RowData>({ columns, data }: DataTableProps<TDat
                 {table.getRowModel().rows?.length ? (
                     table.getRowModel().rows.map((row) => {
                         return (
-                            <TableRow
-                                key={row.id}
-                            >
-                                {row.getVisibleCells().map((cell) => {
-                                    if (cell.column.id === orderListTableColumnId.date) {
-                                        const dateValue = new Date(cell.getValue<string>())
-                                        if (dateValue.getDate() === new Date().getDate() && dateValue.getMonth() === new Date().getMonth() && dateValue.getFullYear() === new Date().getFullYear()) {
-                                            return (
-                                                <TableCell key={cell.id}>
-                                                    {dateValue.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                                                </TableCell>
-                                            )
-                                        }
-                                        return (
-                                            <TableCell key={cell.id}>
-                                                {dateValue.toLocaleDateString([], { dateStyle: 'medium' })}
-                                            </TableCell>
-                                        )
-                                    }
-                                    return (
-                                        <TableCell key={cell.id}>
-                                            <table.FlexRender cell={cell} />
-                                        </TableCell>
-                                    )
-                                })}
+                            <TableRow key={row.id}>
+                                {row.getVisibleCells().map((cell) =>
+                                    <TableCell key={cell.id}>
+                                        <table.FlexRender cell={cell} />
+                                    </TableCell>
+                                )}
                             </TableRow>
                         )
                     })

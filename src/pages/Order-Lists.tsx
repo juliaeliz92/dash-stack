@@ -26,7 +26,9 @@ function Orders() {
         ) : orderListError ? (
           <div className="h-24 text-center text-red-500">Error: {orderListError.message}</div>
         ) : orderListData?.totalCount ? (
-                <DataTable columns={orderListTableColumns} data={orderListData.orderList} />
+          <div className="border border-gray-200 rounded-lg">
+            <DataTable columns={orderListTableColumns} data={orderListData.orderList} />
+          </div>
         ) : (
           <div className="h-24 text-center">No data available</div>
         )}
