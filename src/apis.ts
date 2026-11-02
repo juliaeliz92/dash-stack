@@ -138,11 +138,10 @@ const inboxListByTagApi = (tag: string | undefined, firstIndex: number, lastInde
     });
 }
 
-const orderListApi = (firstIndex: number, lastIndex: number): Promise<{ orderList: OrderListProps[], totalCount: number }> => {
+const orderListApi = (): Promise<{ orderList: OrderListProps[], totalCount: number }> => {
     return new Promise((resolve) => {
         setTimeout(() => {
-            const orderList = orderListData.slice(firstIndex, lastIndex + 1)
-            resolve({ orderList, totalCount: orderListData.length });
+            resolve({ orderList: orderListData, totalCount: orderListData.length });
         }, 1000);
     });
 }

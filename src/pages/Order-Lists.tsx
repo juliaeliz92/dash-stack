@@ -7,7 +7,7 @@ function Orders() {
   const [, setDateFilter] = useState<Date | undefined>(undefined);
   const [, setSelectedOrderTypes] = useState<string[]>([]);
   const [, setSelectedOrderStatuses] = useState<string[]>([]);
-  const { data: orderListData, isLoading: isOrderListLoading, error: orderListError } = useOrderListApi(0, 14);
+  const { data: orderListData, isLoading: isOrderListLoading, error: orderListError } = useOrderListApi();
 
   const updateFilters = useCallback((dateFilter: Date | undefined, selectedOrderTypes: string[], selectedOrderStatuses: string[]) => {
     setDateFilter(dateFilter);
@@ -26,9 +26,7 @@ function Orders() {
         ) : orderListError ? (
           <div className="h-24 text-center text-red-500">Error: {orderListError.message}</div>
         ) : orderListData?.totalCount ? (
-          <div className="border border-gray-200 rounded-lg">
-            <DataTable columns={orderListTableColumns} data={orderListData.orderList} />
-          </div>
+          <DataTable columns={orderListTableColumns} data={orderListData.orderList} count={orderListData.totalCount} />
         ) : (
           <div className="h-24 text-center">No data available</div>
         )}

@@ -206,7 +206,8 @@ export type {
     InboxConversation,
     OrderTypes,
     SelectablePillsProps,
-    OrderListProps
+    OrderListProps,
+
 };
 
 export { SaleInsightKey, Months, productDealStates, labels };

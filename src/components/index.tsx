@@ -10,6 +10,7 @@ import ProductCarouselGrid from "./products/product-carousel-grid";
 import ButtonGroupContainer from "./button-group-container";
 import SelectablePills from "./selectable-pills";
 import Label from "./label";
+import TableFooter from "./table-footer";
 
 export {
     NavBar,
@@ -23,5 +24,6 @@ export {
     ProductCarouselGrid,
     ButtonGroupContainer,
     SelectablePills,
-    Label
+    Label,
+    TableFooter
 }
