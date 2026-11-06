@@ -1,7 +1,10 @@
+import { Star } from "lucide-react";
 import { createColumnHelper } from "@tanstack/react-table"
 import type { InboxTableColumn } from "@/types"
 import type { DataTableFeatures } from "./data-table-features"
 import { Checkbox } from "@/components/ui/checkbox";
+import { inboxDefaultLabels } from "@/constants";
+import { Label } from "@/components";
 
 const columnHelper = createColumnHelper<DataTableFeatures, InboxTableColumn>();
 
@@ -32,23 +35,42 @@ const InboxTableColumns = columnHelper.columns([
     enableSorting: false,
   }),
   columnHelper.accessor("id", {
-    header: "ID"
+    header: "ID",
+    cell: () => null
   }),
   columnHelper.accessor("isStarred", {
-    header: "Starred"
+    header: "Starred",
+    cell: ({ row }) => <Star className={`h-4 w-4 ${row.getValue<boolean>("isStarred") ? "fill-yellow-400 text-yellow-400" : "fill-none text-gray-400"}`} />
   }),
   columnHelper.accessor("senderName", {
-    header: "From"
+    header: "From",
+    cell: ({ row }) => row.getValue("senderName")
   }),
   columnHelper.accessor("label", {
-    header: "Label"
+    header: "Label",
+    cell: () => null
   }),
   columnHelper.accessor("emailSubject", {
-    header: "Subject"
-
+    header: "Subject",
+    cell: ({ row }) => {
+      const label = row.getValue<string>("label");
+      return (
+        <div className="flex gap-4">
+          {label && <Label label={label} labelList={inboxDefaultLabels}/>}
+          {row.getValue("emailSubject")}
+        </div>
+      )
+    }
   }),
   columnHelper.accessor("lastModifiedDate", {
-    header: "Date"
+    header: "Date",
+    cell: ({ row }) => {
+      const dateValue = new Date(row.getValue<string>("lastModifiedDate"))
+      if (dateValue.getDate() === new Date().getDate() && dateValue.getMonth() === new Date().getMonth() && dateValue.getFullYear() === new Date().getFullYear()) {
+        return dateValue.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      }
+      return dateValue.toLocaleDateString([], { dateStyle: 'medium' })
+    }
   })
 ]);
 
