@@ -57,10 +57,10 @@ const productApi = (): Promise<ProductProps[]> => {
     });
 }
 
-const inboxListApi = (firstIndex: number, lastIndex: number): Promise<{ inboxList: InboxTableColumn[], totalCount: number }> => {
+const inboxListApi = (): Promise<{ inboxList: InboxTableColumn[], totalCount: number }> => {
     return new Promise((resolve) => {
         setTimeout(() => {
-            resolve({ inboxList: inboxList.filter((item) => !item.isSpam && !item.isTrash).slice(firstIndex, lastIndex + 1), totalCount: inboxList.length });
+            resolve({ inboxList: inboxList.filter((item) => !item.isSpam && !item.isTrash), totalCount: inboxList.length });
         }, 1000);
     });
 }

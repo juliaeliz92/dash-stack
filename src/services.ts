@@ -69,11 +69,11 @@ const useProductApi = () => {
     return { data, isLoading, error };
 }
 
-const useInboxListApi = (firstIndex: number, lastIndex: number) => {
+const useInboxListApi = () => {
     const { data, isLoading, error } = useQuery({
-        queryKey: ['inboxListApi', firstIndex, lastIndex],
+        queryKey: ['inboxListApi'],
         queryFn: async () => {
-            return inboxListApi(firstIndex, lastIndex);
+            return inboxListApi();
         }
     });
     return { data, isLoading, error };

@@ -10,6 +10,7 @@ import {
     sortFn_alphanumeric,
     sortFn_text,
     tableFeatures,
+    cellSelectionFeature
 } from "@tanstack/react-table"
 
 export const features = tableFeatures({
@@ -18,6 +19,7 @@ export const features = tableFeatures({
     rowPaginationFeature,
     rowSelectionFeature,
     rowSortingFeature,
+    cellSelectionFeature,
     filteredRowModel: createFilteredRowModel(),
     paginatedRowModel: createPaginatedRowModel(),
     filterFns: { includesString: filterFn_includesString },

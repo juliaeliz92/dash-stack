@@ -3,7 +3,7 @@ import InboxContainer from "./inbox-container"
 
 function InboxTab() {
 
-    const { data: inboxListData, isLoading: isInboxListLoading, error: inboxListError } = useInboxListApi(0, 14);
+    const { data: inboxListData, isLoading: isInboxListLoading, error: inboxListError } = useInboxListApi();
     return(
         <InboxContainer inboxListData={inboxListData} isInboxListLoading={isInboxListLoading} inboxListError={inboxListError} />
     )

@@ -151,10 +151,6 @@ type ButtonGroupItem = {
     onClick: () => void;
 }
 
-type excelSheetObject = {
-    senderEmail: string
-}
-
 interface SpeechRecognitionEvent extends Event {
     resultIndex: number;
     results: SpeechRecognitionResultList;
@@ -200,14 +196,12 @@ export type {
     NavigationRoutes,
     NavItem,
     ButtonGroupItem,
-    excelSheetObject,
     SpeechRecognitionEvent,
     CustomSpeechRecognition,
     InboxConversation,
     OrderTypes,
     SelectablePillsProps,
     OrderListProps,
-
 };
 
 export { SaleInsightKey, Months, productDealStates, labels };
