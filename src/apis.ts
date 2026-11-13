@@ -138,10 +138,20 @@ const inboxListByTagApi = (tag: string | undefined, firstIndex: number, lastInde
     });
 }
 
-const orderListApi = (): Promise<{ orderList: OrderListProps[], totalCount: number }> => {
+const orderListApi = (dateFilter: Date | undefined, selectedOrderTypes: string[], selectedOrderStatuses: string[]): Promise<{ orderList: OrderListProps[], totalCount: number }> => {
     return new Promise((resolve) => {
         setTimeout(() => {
-            resolve({ orderList: orderListData, totalCount: orderListData.length });
+            let filteredOrderList = [...orderListData];
+            if (dateFilter) {
+                filteredOrderList = filteredOrderList.filter(order => new Date(order.date).toDateString() === dateFilter.toDateString());
+            }
+            if (selectedOrderTypes.length > 0) {
+                filteredOrderList = filteredOrderList.filter(order => selectedOrderTypes.includes(order.orderType));
+            }
+            if (selectedOrderStatuses.length > 0) {
+                filteredOrderList = filteredOrderList.filter(order => selectedOrderStatuses.includes(order.orderStatus));
+            }
+            resolve({ orderList: filteredOrderList, totalCount: filteredOrderList.length });
         }, 1000);
     });
 }

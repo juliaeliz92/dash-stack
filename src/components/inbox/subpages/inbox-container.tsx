@@ -1,14 +1,9 @@
 import { Card } from "@/components/ui/card";
 import { inboxTableColumns, DataTable } from "@/components/inbox";
-// import { Button } from "@/components/ui/button"
 import type { InboxTableColumn } from "@/types";
 
 function InboxContainer({ inboxListData, isInboxListLoading, inboxListError }: { inboxListData?: {inboxList: InboxTableColumn[], totalCount: number}, isInboxListLoading?: boolean, inboxListError?: Error | null}) {
 
-    // const handleRowSelection = (newSelection: Record<string, boolean>) => {
-    //     setRowSelection(newSelection)
-    // }
-    
     if (inboxListError) {
         return (
             <div className="flex items-center justify-center h-96">

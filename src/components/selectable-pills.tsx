@@ -12,7 +12,7 @@ return (
     <div className="grid grid-cols-3 gap-2">
       {options.map((option) => (
         <button
-            key={option}
+          key={option}
           className={`${selectedOptions.includes(option) ? "bg-blue-500 text-white" : "bg-white text-gray-700"} text-[10px] px-2 py-1 border border-gray-300 rounded-full my-1 text-wrap`}
             onClick={() => handleOptionClick(option)}
         >

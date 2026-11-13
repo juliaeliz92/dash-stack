@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Funnel, RotateCcw } from "lucide-react";
 import {
     NavigationMenu,
@@ -17,10 +17,6 @@ function FilterBar({ updateFilters }: { updateFilters: (dateFilter: Date | undef
     const [selectedOrderTypes, setSelectedOrderTypes] = useState<string[]>([]);
     const [selectedOrderStatuses, setSelectedOrderStatuses] = useState<string[]>([]);
 
-    useEffect(() => {
-        updateFilters(dateFilter, selectedOrderTypes, selectedOrderStatuses);
-    }, [dateFilter, selectedOrderTypes, selectedOrderStatuses, updateFilters]);
-
     return (
         <NavigationMenu className="border border-gray-200 rounded-lg text-[12px] font-bold bg-white">
             <NavigationMenuList>
@@ -38,7 +34,10 @@ function FilterBar({ updateFilters }: { updateFilters: (dateFilter: Date | undef
                         <Calendar
                             mode="single"
                             selected={dateFilter}
-                            onSelect={setDateFilter}
+                            onSelect={(date) => {
+                                setDateFilter(date)
+                                updateFilters(date, selectedOrderTypes, selectedOrderStatuses)
+                            }}
                         />
                     </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -59,7 +58,7 @@ function FilterBar({ updateFilters }: { updateFilters: (dateFilter: Date | undef
                             *You can select multiple order types*
                         </p>
                         <div className="flex justify-center">
-                            <Button variant="default" className="mt-4 text-[10px] font-bold">
+                            <Button variant="default" className="mt-4 text-[10px] font-bold" onClick={() => updateFilters(dateFilter, selectedOrderTypes, selectedOrderStatuses)}>
                                 Apply Now
                             </Button>
                         </div>
@@ -82,7 +81,7 @@ function FilterBar({ updateFilters }: { updateFilters: (dateFilter: Date | undef
                             *You can select multiple order statuses*
                         </p>
                         <div className="flex justify-center">
-                            <Button variant="default" className="mt-4 text-[10px] font-bold">
+                            <Button variant="default" className="mt-4 text-[10px] font-bold" onClick={() => updateFilters(dateFilter, selectedOrderTypes, selectedOrderStatuses)}>
                                 Apply Now
                             </Button>
                         </div>

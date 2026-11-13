@@ -149,11 +149,11 @@ const useInboxListByTagApi = (tag: string | undefined, firstIndex: number, lastI
     return { data, isLoading, error };
 }
 
-const useOrderListApi = () => {
+const useOrderListApi = (dateFilter: Date | undefined, selectedOrderTypes: string[], selectedOrderStatuses: string[]) => {
     const { data, isLoading, error } = useQuery({
-        queryKey: ['orderListApi'],
+        queryKey: ['orderListApi', dateFilter, selectedOrderTypes, selectedOrderStatuses],
         queryFn: async () => {
-            return orderListApi();
+            return orderListApi(dateFilter, selectedOrderTypes, selectedOrderStatuses);
         }
     });
     return { data, isLoading, error };
