@@ -13,7 +13,8 @@ import {
     inboxListSpamEmailsApi,
     inboxListTrashEmailsApi,
     inboxListByTagApi,
-    orderListApi
+    orderListApi,
+    productStockApi
 } from "@/apis";
 
 const useSalesInsights = () => {
@@ -159,6 +160,16 @@ const useOrderListApi = (dateFilter: Date | undefined, selectedOrderTypes: strin
     return { data, isLoading, error };
 }
 
+const useProductStockApi = () => {
+    const { data, isLoading, error } = useQuery({
+        queryKey: ['productStockApi'],
+        queryFn: async () => {
+            return productStockApi();
+        }
+    });
+    return { data, isLoading, error };
+}
+
 export {
     useSalesInsights,
     useSalesChartData,
@@ -173,5 +184,6 @@ export {
     useInboxListSpamEmailsApi,
     useInboxListTrashEmailsApi,
     useInboxListByTagApi,
-    useOrderListApi
+    useOrderListApi,
+    useProductStockApi
 };

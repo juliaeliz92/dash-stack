@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import type { orderStatusValues, orderTypeValues } from "./constants";
 
 type labelColor = {
     value: string;
@@ -174,13 +175,25 @@ interface SelectablePillsProps {
     onChange: (selectedOptions: string[]) => void;
 }
 
+type OrderType = typeof orderTypeValues[number]["name"];
+type OrderStatus = typeof orderStatusValues[number]["name"];
+
 interface OrderListProps {
     id: number;
     customerName: string;
     customerAddress: string;
     date: string;
-    orderType: string;
-    orderStatus: string;
+    orderType: OrderType;
+    orderStatus: OrderStatus;
+}
+
+interface ProductStockProps {
+    productName: string;
+    productImage: string;
+    productCategory: OrderType;
+    productPrice: number;
+    productPieces: number;
+    availableColors: string[];
 }
 
 export type {
@@ -202,6 +215,9 @@ export type {
     OrderTypes,
     SelectablePillsProps,
     OrderListProps,
+    OrderType,
+    OrderStatus,
+    ProductStockProps
 };
 
 export { SaleInsightKey, Months, productDealStates, labels };

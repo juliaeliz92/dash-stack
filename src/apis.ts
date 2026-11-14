@@ -5,7 +5,8 @@ import {
     salesChartData,
     products,
     inboxList,
-    orderListData
+    orderListData,
+    productStockData
 } from "@/constants";
 import type {
     SalesInsight,
@@ -14,7 +15,8 @@ import type {
     OfferCarouselData,
     ProductProps,
     InboxTableColumn,
-    OrderListProps
+    OrderListProps,
+    ProductStockProps
 } from "@/types";
 
 const salesInsightsApi = ():Promise<SalesInsight[]> => {
@@ -156,6 +158,14 @@ const orderListApi = (dateFilter: Date | undefined, selectedOrderTypes: string[]
     });
 }
 
+const productStockApi = (): Promise<{ productStock: ProductStockProps[], totalCount: number }> => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve({ productStock: productStockData, totalCount: productStockData.length });
+        }, 1000);
+    });
+}
+
 export {
     salesInsightsApi,
     saleChartDataApi,
@@ -170,5 +180,6 @@ export {
     inboxListSpamEmailsApi,
     inboxListTrashEmailsApi,
     inboxListByTagApi,
-    orderListApi
+    orderListApi,
+    productStockApi
 };

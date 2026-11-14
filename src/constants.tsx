@@ -1,5 +1,21 @@
-import { Dashboard, Products, Favorites, Inbox, Orders } from "@/pages";
-import { Conversation, InboxTab, StarredTab, SentTab, TrashTab, DraftTab, SpamTab, TagsTab } from "@/components/inbox/subpages";
+import { 
+    Dashboard, 
+    Products, 
+    Favorites, 
+    Inbox, 
+    Orders,
+    ProductStock
+} from "@/pages";
+import { 
+    Conversation, 
+    InboxTab, 
+    StarredTab, 
+    SentTab, 
+    TrashTab, 
+    DraftTab, 
+    SpamTab, 
+    TagsTab 
+} from "@/components/inbox/subpages";
 import {
     Mail,
     Star,
@@ -21,7 +37,8 @@ import type {
     NavigationRoutes,
     ButtonGroupItem,
     OrderTypes,
-    OrderListProps
+    OrderListProps,
+    ProductStockProps
 } from "@/types"
 import { labels } from "@/types";
 
@@ -373,7 +390,7 @@ const navigation: NavigationRoutes[] = [
                 {
                     name: "Product Stocks",
                     link: "/product-stocks",
-                    page: null
+                    page: <ProductStock />
                 }
             ]
         }
@@ -2239,7 +2256,7 @@ const orderTypeValues: OrderTypes[] = [
     { name: "electronics", value: "Electronics" },
     { name: "mobile-phones", value: "Mobile Phone" },
     { name: "accessories", value: "Accessories" },
-]
+] as const
 
 const orderStatusValues: OrderTypes[] = [
     { name: "completed", value: "Completed" },
@@ -2247,7 +2264,7 @@ const orderStatusValues: OrderTypes[] = [
     { name: "processing", value: "Processing" },
     { name: "on hold", value: "On Hold" },
     { name: "in transit", value: "In Transit" },
-]
+] as const
 
 const orderListTableColumnId: Record<keyof OrderListProps, string> = {
     id: "id",
@@ -2330,6 +2347,31 @@ const orderListStatusLabelColors: labelColor[] = [
     }
 ]
 
+const productStockData : ProductStockProps[] = [
+    { productName: "Laptop Dell", productImage: "https://picsum.photos/id/0/200/300", productCategory: "Electronics", productPrice: 1000, productPieces: 10, availableColors: ["#000000", "#C0C0C0", "#808080"] },
+    { productName: "White Stilettos", productImage: "https://picsum.photos/id/21/200/300", productCategory: "Footwear", productPrice: 500, productPieces: 5, availableColors: ["#FFFFFF", "#F5F5DC"] },
+    { productName: "Xbox Controller", productImage: "https://picsum.photos/id/96/200/300", productCategory: "Gaming", productPrice: 2000, productPieces: 20, availableColors: ["#000000", "#FFFFFF"] },
+    { productName: "Wireless Headphones", productImage: "https://picsum.photos/id/3/200/300", productCategory: "Electronics", productPrice: 149, productPieces: 32, availableColors: ["#000000", "#FFFFFF", "#1E3A8A"] },
+    { productName: "Running Sneakers", productImage: "https://picsum.photos/id/4/200/300", productCategory: "Footwear", productPrice: 89, productPieces: 18, availableColors: ["#FFFFFF", "#000000", "#DC2626"] },
+    { productName: "Leather Backpack", productImage: "https://picsum.photos/id/5/200/300", productCategory: "Accessories", productPrice: 120, productPieces: 14, availableColors: ["#6B4423", "#000000"] },
+    { productName: "Smart Watch", productImage: "https://picsum.photos/id/6/200/300", productCategory: "Electronics", productPrice: 249, productPieces: 27, availableColors: ["#000000", "#C0C0C0", "#D4AF37"] },
+    { productName: "Ceramic Coffee Mug", productImage: "https://picsum.photos/id/7/200/300", productCategory: "Home & Kitchen", productPrice: 18, productPieces: 45, availableColors: ["#FFFFFF", "#3B82F6", "#16A34A"] },
+    { productName: "Bluetooth Speaker", productImage: "https://picsum.photos/id/8/200/300", productCategory: "Electronics", productPrice: 79, productPieces: 21, availableColors: ["#000000", "#2563EB", "#EF4444"] },
+    { productName: "Denim Jacket", productImage: "https://picsum.photos/id/9/200/300", productCategory: "Apparel", productPrice: 95, productPieces: 16, availableColors: ["#1E3A8A", "#60A5FA"] },
+    { productName: "Desk Lamp", productImage: "https://picsum.photos/id/10/200/300", productCategory: "Home & Kitchen", productPrice: 42, productPieces: 23, availableColors: ["#FFFFFF", "#000000", "#D4AF37"] },
+    { productName: "Yoga Mat", productImage: "https://picsum.photos/id/11/200/300", productCategory: "Sports", productPrice: 35, productPieces: 30, availableColors: ["#7C3AED", "#16A34A", "#EC4899"] },
+    { productName: "Mechanical Keyboard", productImage: "https://picsum.photos/id/12/200/300", productCategory: "Electronics", productPrice: 110, productPieces: 12, availableColors: ["#000000", "#FFFFFF"] },
+    { productName: "Sunglasses", productImage: "https://picsum.photos/id/13/200/300", productCategory: "Accessories", productPrice: 55, productPieces: 38, availableColors: ["#000000", "#8B5E3C", "#1E3A8A"] },
+    { productName: "Stainless Water Bottle", productImage: "https://picsum.photos/id/14/200/300", productCategory: "Sports", productPrice: 24, productPieces: 41, availableColors: ["#C0C0C0", "#000000", "#DC2626"] },
+    { productName: "Tablet Stand", productImage: "https://picsum.photos/id/15/200/300", productCategory: "Electronics", productPrice: 29, productPieces: 19, availableColors: ["#000000", "#C0C0C0"] },
+    { productName: "Cotton Hoodie", productImage: "https://picsum.photos/id/16/200/300", productCategory: "Apparel", productPrice: 68, productPieces: 25, availableColors: ["#000000", "#808080", "#F5F5DC"] },
+    { productName: "Throw Pillow", productImage: "https://picsum.photos/id/17/200/300", productCategory: "Home & Kitchen", productPrice: 32, productPieces: 17, availableColors: ["#F5F5DC", "#2563EB", "#DC2626"] },
+    { productName: "Gaming Mouse", productImage: "https://picsum.photos/id/18/200/300", productCategory: "Gaming", productPrice: 59, productPieces: 22, availableColors: ["#000000", "#FFFFFF"] },
+    { productName: "Leather Wallet", productImage: "https://picsum.photos/id/19/200/300", productCategory: "Accessories", productPrice: 48, productPieces: 28, availableColors: ["#6B4423", "#000000"] },
+    { productName: "Trail Running Shoes", productImage: "https://picsum.photos/id/20/200/300", productCategory: "Footwear", productPrice: 105, productPieces: 11, availableColors: ["#000000", "#16A34A", "#F97316"] },
+    { productName: "Portable Power Bank", productImage: "https://picsum.photos/id/22/200/300", productCategory: "Electronics", productPrice: 39, productPieces: 34, availableColors: ["#000000", "#FFFFFF", "#2563EB"] },
+]
+
 export {
     navigation,
     products,
@@ -2346,5 +2388,6 @@ export {
     orderStatusValues,
     orderListTableColumnId,
     orderListData,
-    orderListStatusLabelColors
+    orderListStatusLabelColors,
+    productStockData
 };
